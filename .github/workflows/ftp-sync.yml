@@ -1,13 +1,15 @@
 name: Sync site from hosting
 
-# ModelHub 静态页 GitHub 同步（使用说明见 docs/GITHUB_SYNC.md）
+# weget.site 静态页自动同步（GitHub 仓库只保存静态资源，PHP 永不入库）
 #
-# 本文件已放在 .github/workflows/ 下，仓库推送后配置 4 个 Secrets 即可用：
-#   FTP_HOST / FTP_USER / FTP_PASS / FTP_DIR（指向虚拟主机上的 dist/ 目录）
+# 流程：定时通过 FTP 从虚拟主机拉取 dist/（后台「生成静态页」的产物）→
+#       静态白名单过滤 → 三道安全阀 → 有变化才提交到仓库根 →
+#       GitHub Pages 以 GitHub Actions 模式发布（自定义域名见 CNAME）。
 #
-# 流程：定时通过 FTP 拉取主机 dist/ → 静态白名单过滤 → 三道安全阀 →
-#       同步到仓库 dist/ 子目录 → GitHub Pages 只发布 dist/ 的内容。
-#       PHP 源码（含数据库配置）永远不会出现在 Pages 上，仓库公开也安全。
+# 使用前提（仓库 Settings）：
+#   1. Secrets：FTP_HOST / FTP_USER / FTP_PASS / FTP_DIR（指向主机 dist/ 目录）
+#   2. Actions → General → Workflow permissions → Read and write permissions
+#   3. Pages → Source = GitHub Actions
 
 on:
   schedule:
@@ -72,7 +74,7 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
-      # 安全阀 1：拉取为空 = FTP 路径/账号错，绝不能继续（否则会把仓库 dist/ 清空推上去）
+      # 安全阀 1：拉取为空 = FTP 路径/账号错，绝不能继续（否则会把仓库清空推上去）
       - name: Verify mirror is not empty
         run: |
           if [ -z "$(ls -A "$MIRROR")" ]; then
@@ -81,13 +83,16 @@ jobs:
           fi
           echo "拉取文件数: $(find "$MIRROR" -type f | wc -l)"
 
-      # 白名单只放行静态扩展名（即使 FTP_DIR 配错成站点根目录，PHP 也不会进仓库）
-      - name: Sync into dist/ (static whitelist only)
+      # 白名单：只放行静态扩展名；php/配置/备份一律挡住——即使 FTP_DIR 配错成站点
+      # 根目录，PHP 文件也进不了仓库。仓库公开 = 全世界可见，宁可少同步。
+      - name: Sync into repo (static whitelist only)
         run: |
-          mkdir -p dist
           rc=0
           for i in 1 2 3; do
             if rsync -a --delete \
+              --exclude='admin' \
+              --exclude='.git/' --exclude='.github/' \
+              --exclude='CNAME' --exclude='*.md' \
               --include='*/' \
               --include='*.html' --include='*.htm' --include='*.shtml' \
               --include='*.css' --include='*.js' --include='*.mjs' --include='*.map' \
@@ -98,33 +103,37 @@ jobs:
               --include='*.mp4' --include='*.webm' --include='*.mp3' --include='*.ogg' --include='*.wav' --include='*.m4a' \
               --include='*.pdf' --include='*.csv' \
               --exclude='*' \
-              "$MIRROR/" dist/
+              "$MIRROR/" ./
             then rc=0; break; fi
             rc=$?
             if [ "$rc" -ne 24 ]; then break; fi   # 24=个别文件消失，重试兜底
             echo "第 $i 次 rsync 出现文件 vanished（code 24），重试..."
           done
           if [ "$rc" -ne 0 ] && [ "$rc" -ne 24 ]; then exit "$rc"; fi
-          # 安全阀 2：站点首页必须存在，否则视为远程异常（多半是 FTP_DIR 配成了站点根目录）
-          test -f dist/index.html || { echo "::error::同步后 dist/ 中没有 index.html，已中止提交（FTP_DIR 应指向主机 dist/ 目录）"; exit 1; }
-          # 安全阀 3：模型详情页数量 镜像=dist/，防止不完整内容被提交
+          # 安全阀 2：仓库必须存在站点首页，否则视为远程异常
+          test -f index.html || { echo "::error::同步后仓库中没有 index.html，已中止提交"; exit 1; }
+          # 安全阀 3：模型详情页数量 镜像=仓库，防止不完整内容被提交
           a=$(find "$MIRROR/model" -name '*.html' | wc -l)
-          b=$(find dist/model -name '*.html' | wc -l)
-          [ "$a" = "$b" ] || { echo "::error::模型页数量不一致（镜像 $a vs dist $b）"; exit 1; }
+          b=$(find model -name '*.html' | wc -l)
+          [ "$a" = "$b" ] || { echo "::error::模型页数量不一致（镜像 $a vs 仓库 $b）"; exit 1; }
+          # 铁律复查：同步后仓库里绝不允许出现 PHP 文件
+          if find . -path ./.git -prune -o -name '*.php' -print -quit | grep -q .; then
+            echo "::error::同步结果中出现 .php 文件，已中止提交"; exit 1
+          fi
 
       - name: Commit & push if changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -f dist/   # -f：dist/ 在 .gitignore 中（本地产物不入库，仅 Actions 同步写入）
+          git add -A
           if git diff --cached --quiet; then
             echo "网站内容与仓库一致，本次无需更新"
           else
-            git commit -m "sync: 自动同步 ModelHub 静态页 $(TZ=Asia/Shanghai date +'%F %T')"
+            git commit -m "sync: 自动同步虚拟主机网站内容 $(TZ=Asia/Shanghai date +'%F %T')"
             git push
           fi
 
-  # Pages 发布：只上传 dist/ 的内容（相对路径 + <base> 设计，子路径部署无需任何改写）
+  # Pages 发布：GitHub Actions 模式，直接发布仓库根的静态内容
   deploy:
     needs: sync
     runs-on: ubuntu-latest
@@ -137,10 +146,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-      - name: Upload dist/ for Pages
+      - name: Upload site for Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: .
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
