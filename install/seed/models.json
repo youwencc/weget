@@ -1,0 +1,1494 @@
+[
+  {
+    "id": "deepseek-v3",
+    "name": "DeepSeek-V3",
+    "author": "DeepSeek AI",
+    "cat": "llm",
+    "tags": [
+      "MoE",
+      "671B",
+      "中文优化"
+    ],
+    "params": "671B（激活 37B）",
+    "size": "685 GB",
+    "dl": 2870000,
+    "likes": 42100,
+    "trend": 18.2,
+    "updated": "2025-03-24",
+    "license": "DeepSeek License",
+    "short": "671B 混合专家大模型，每 token 仅激活 37B，中文与代码能力领先。",
+    "desc": "DeepSeek-V3 采用 Multi-head Latent Attention（MLA）与 DeepSeekMoE 架构，总参数量 671B，每个 token 仅激活 37B 参数。通过 FP8 混合精度训练与辅助无损负载均衡策略，在保持极低推理成本的同时达到第一梯队性能。",
+    "highlights": [
+      "MoE 稀疏激活架构，推理成本仅为同级别稠密模型的 1/5",
+      "原生支持 128K 上下文，FP8 训练 + FP8 推理",
+      "中文、数学与代码任务表现优于同期主流开源模型",
+      "提供完整权重与蒸馏小模型系列（1.5B ~ 70B）"
+    ],
+    "bench": [
+      [
+        "MMLU",
+        88.5
+      ],
+      [
+        "MATH-500",
+        90.2
+      ],
+      [
+        "HumanEval",
+        82.6
+      ],
+      [
+        "C-Eval",
+        86.5
+      ]
+    ],
+    "specs": [
+      [
+        "模型架构",
+        "MoE Transformer + MLA"
+      ],
+      [
+        "总参数量",
+        "671B"
+      ],
+      [
+        "激活参数量",
+        "37B / token"
+      ],
+      [
+        "上下文长度",
+        "128K tokens"
+      ],
+      [
+        "训练精度",
+        "FP8 混合精度"
+      ],
+      [
+        "推理精度",
+        "FP8 / BF16"
+      ],
+      [
+        "词表大小",
+        "129,280"
+      ],
+      [
+        "开源协议",
+        "DeepSeek Model License（允许商用）"
+      ],
+      [
+        "发布日期",
+        "2024-12-26"
+      ],
+      [
+        "最近更新",
+        "2025-03-24"
+      ]
+    ],
+    "devices": [
+      [
+        "NVIDIA H100 80G ×8",
+        "SXM5",
+        "640 GB",
+        "FP8",
+        "约 90 tok/s",
+        "★★★★★"
+      ],
+      [
+        "NVIDIA A100 80G ×8",
+        "SXM4",
+        "640 GB",
+        "BF16",
+        "约 45 tok/s",
+        "★★★★☆"
+      ],
+      [
+        "NVIDIA RTX 4090 ×4",
+        "Ada",
+        "96 GB",
+        "INT4 量化",
+        "约 18 tok/s",
+        "★★★☆☆"
+      ],
+      [
+        "Apple M3 Ultra 512G",
+        "MPS",
+        "512 GB",
+        "INT4 量化",
+        "约 9 tok/s",
+        "★★☆☆☆"
+      ],
+      [
+        "CPU + 256G 内存",
+        "AVX512",
+        "256 GB",
+        "GGUF Q4",
+        "约 3 tok/s",
+        "★☆☆☆☆"
+      ]
+    ],
+    "files": [
+      {
+        "name": "DeepSeek-V3-BF16.safetensors",
+        "size": "685 GB"
+      },
+      {
+        "name": "DeepSeek-V3-FP8.safetensors",
+        "size": "342 GB"
+      },
+      {
+        "name": "DeepSeek-V3-Q4_K_M.gguf",
+        "size": "188 GB"
+      }
+    ],
+    "downloads": [
+      {
+        "type": "official",
+        "label": "Hugging Face",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+        "pwd": ""
+      },
+      {
+        "type": "official",
+        "label": "ModelScope 魔搭",
+        "url": "https://modelscope.cn/models/deepseek-ai/DeepSeek-V3",
+        "pwd": ""
+      }
+    ]
+  },
+  {
+    "id": "flux-1-dev",
+    "name": "FLUX.1-dev",
+    "author": "Black Forest Labs",
+    "cat": "image",
+    "tags": [
+      "文生图",
+      "DiT",
+      "12B"
+    ],
+    "params": "12B",
+    "size": "23.8 GB",
+    "dl": 2410000,
+    "likes": 28600,
+    "trend": 12.4,
+    "updated": "2025-03-12",
+    "license": "FLUX.1 [dev] 非商用",
+    "short": "12B 整流流 Transformer，文字渲染与手部细节表现领先的开源文生图模型。",
+    "desc": "FLUX.1-dev 基于 Rectified Flow Transformer 架构，拥有 120 亿参数，采用流匹配训练目标。在提示词遵循度、文字渲染、人体结构与手部细节方面显著优于同代开源模型，并支持 ControlNet、LoRA 等完整微调生态。",
+    "highlights": [
+      "120 亿参数 DiT 架构，流匹配训练，生成质量接近闭源商用模型",
+      "业界领先的图中文字渲染能力，支持中英文长文本排版",
+      "支持 20~50 步推理，guidance scale 3.5 为推荐值",
+      "完整支持 LoRA、ControlNet、IP-Adapter 生态"
+    ],
+    "bench": [
+      [
+        "HPSv2 偏好得分",
+        31.4
+      ],
+      [
+        "GenEval 综合",
+        66.8
+      ],
+      [
+        "文字渲染准确率",
+        92.1
+      ],
+      [
+        "CLIP Score",
+        32.7
+      ]
+    ],
+    "specs": [
+      [
+        "模型架构",
+        "Rectified Flow Transformer (DiT)"
+      ],
+      [
+        "参数量",
+        "12B"
+      ],
+      [
+        "文本编码器",
+        "T5-XXL + CLIP-L"
+      ],
+      [
+        "输出分辨率",
+        "最高 2048 × 2048"
+      ],
+      [
+        "推理步数",
+        "20 ~ 50 步"
+      ],
+      [
+        "推荐 CFG",
+        "3.5"
+      ],
+      [
+        "推理精度",
+        "BF16 / FP8"
+      ],
+      [
+        "开源协议",
+        "FLUX.1 [dev] Non-Commercial License"
+      ],
+      [
+        "发布日期",
+        "2024-08-01"
+      ],
+      [
+        "最近更新",
+        "2025-03-12"
+      ]
+    ],
+    "devices": [
+      [
+        "NVIDIA RTX 4090 24G",
+        "Ada",
+        "24 GB",
+        "BF16",
+        "约 3.2 s / 张",
+        "★★★★★"
+      ],
+      [
+        "NVIDIA RTX 4080 16G",
+        "Ada",
+        "16 GB",
+        "FP8",
+        "约 5.1 s / 张",
+        "★★★★☆"
+      ],
+      [
+        "NVIDIA A100 80G",
+        "Ampere",
+        "80 GB",
+        "BF16",
+        "约 1.4 s / 张",
+        "★★★★★"
+      ],
+      [
+        "NVIDIA RTX 3060 12G",
+        "Ampere",
+        "12 GB",
+        "GGUF Q8",
+        "约 18 s / 张",
+        "★★☆☆☆"
+      ],
+      [
+        "Apple M3 Max 48G",
+        "MPS",
+        "48 GB",
+        "FP16",
+        "约 12 s / 张",
+        "★★★☆☆"
+      ]
+    ],
+    "files": [
+      {
+        "name": "flux1-dev.safetensors",
+        "size": "23.8 GB"
+      },
+      {
+        "name": "ae.safetensors（VAE）",
+        "size": "335 MB"
+      },
+      {
+        "name": "text_encoder_2/model.safetensors",
+        "size": "9.8 GB"
+      },
+      {
+        "name": "flux1-dev-fp8.safetensors",
+        "size": "11.9 GB"
+      }
+    ],
+    "downloads": [
+      {
+        "type": "official",
+        "label": "Hugging Face",
+        "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        "pwd": ""
+      },
+      {
+        "type": "official",
+        "label": "Black Forest Labs 官网",
+        "url": "https://blackforestlabs.ai/",
+        "pwd": ""
+      }
+    ]
+  },
+  {
+    "id": "whisper-large-v3",
+    "name": "Whisper-large-v3",
+    "author": "OpenAI",
+    "cat": "audio",
+    "tags": [
+      "语音识别",
+      "多语言",
+      "ASR"
+    ],
+    "params": "1.55B",
+    "size": "3.1 GB",
+    "dl": 3240000,
+    "likes": 35200,
+    "trend": 6.8,
+    "updated": "2025-02-18",
+    "license": "Apache-2.0",
+    "short": "支持 99 种语言的高精度语音识别与翻译模型，鲁棒性极强。",
+    "desc": "Whisper-large-v3 是在 500 万小时弱监督音频数据上训练的编码器-解码器 Transformer。支持 99 种语言的转录与翻译，在嘈杂环境、口音与专业术语场景下表现稳健，并内置语音活动检测与时间戳对齐能力。",
+    "highlights": [
+      "覆盖 99 种语言，中英文识别准确率业内领先",
+      "内置 VAD 与词级时间戳，适合长音频批处理",
+      "支持语音翻译（X → 英文）与语言识别任务",
+      "提供 turbo / medium / small 等蒸馏版本"
+    ],
+    "bench": [
+      [
+        "中文 CER（AISHELL）",
+        4.2
+      ],
+      [
+        "英文 WER（LibriSpeech）",
+        2
+      ],
+      [
+        "多语言平均 WER",
+        7.6
+      ],
+      [
+        "长音频鲁棒性",
+        94.3
+      ]
+    ],
+    "specs": [
+      [
+        "模型架构",
+        "Encoder-Decoder Transformer"
+      ],
+      [
+        "参数量",
+        "1.55B"
+      ],
+      [
+        "音频采样率",
+        "16 kHz"
+      ],
+      [
+        "输入长度",
+        "30 秒 / 分块（可滑窗拼接）"
+      ],
+      [
+        "支持语言",
+        "99 种"
+      ],
+      [
+        "推理精度",
+        "FP16 / INT8"
+      ],
+      [
+        "推理框架",
+        "PyTorch / faster-whisper / whisper.cpp"
+      ],
+      [
+        "开源协议",
+        "Apache-2.0（允许商用）"
+      ],
+      [
+        "发布日期",
+        "2023-11-06"
+      ],
+      [
+        "最近更新",
+        "2025-02-18"
+      ]
+    ],
+    "devices": [
+      [
+        "NVIDIA RTX 4090 24G",
+        "Ada",
+        "8 GB",
+        "FP16",
+        "约 30× 实时",
+        "★★★★★"
+      ],
+      [
+        "NVIDIA RTX 3060 12G",
+        "Ampere",
+        "6 GB",
+        "FP16",
+        "约 12× 实时",
+        "★★★★☆"
+      ],
+      [
+        "Apple M2 Pro 16G",
+        "MPS",
+        "8 GB",
+        "FP16",
+        "约 6× 实时",
+        "★★★☆☆"
+      ],
+      [
+        "CPU（i7-12700）",
+        "AVX2",
+        "4 GB",
+        "INT8",
+        "约 1.2× 实时",
+        "★★☆☆☆"
+      ]
+    ],
+    "files": [
+      {
+        "name": "whisper-large-v3.pt",
+        "size": "3.1 GB"
+      },
+      {
+        "name": "whisper-large-v3-turbo.pt",
+        "size": "1.6 GB"
+      },
+      {
+        "name": "ggml-large-v3.bin",
+        "size": "3.1 GB"
+      }
+    ],
+    "downloads": [
+      {
+        "type": "official",
+        "label": "Hugging Face",
+        "url": "https://huggingface.co/openai/whisper-large-v3",
+        "pwd": ""
+      },
+      {
+        "type": "official",
+        "label": "GitHub Releases",
+        "url": "https://github.com/openai/whisper",
+        "pwd": ""
+      }
+    ]
+  },
+  {
+    "id": "qwen2.5-vl-72b",
+    "name": "Qwen2.5-VL-72B",
+    "author": "Alibaba Qwen",
+    "cat": "multi",
+    "tags": [
+      "视觉理解",
+      "72B",
+      "文档解析"
+    ],
+    "params": "72B",
+    "size": "145 GB",
+    "dl": 1630000,
+    "likes": 21400,
+    "trend": 22.6,
+    "updated": "2025-03-30",
+    "license": "Qwen License",
+    "short": "72B 视觉语言模型，支持长视频理解、文档解析与 GUI 智能体操作。",
+    "desc": "Qwen2.5-VL-72B 是通义千问团队推出的旗舰级视觉语言模型。采用动态分辨率 ViT 与绝对位置编码，原生支持任意分辨率图像与长视频输入，在文档解析、图表理解、视频问答与 GUI 操作任务上达到开源领先水平。",
+    "highlights": [
+      "动态分辨率视觉编码，原生支持任意长宽比图像",
+      "支持超过 1 小时长视频理解与事件定位",
+      "强文档解析能力，支持表格、公式、手写体识别",
+      "可作为 GUI Agent 直接操作界面元素"
+    ],
+    "bench": [
+      [
+        "MMMU",
+        70.2
+      ],
+      [
+        "DocVQA",
+        96.4
+      ],
+      [
+        "Video-MME",
+        72.8
+      ],
+      [
+        "MathVista",
+        74.8
+      ]
+    ],
+    "specs": [
+      [
+        "模型架构",
+        "ViT + Qwen2.5 LLM"
+      ],
+      [
+        "参数量",
+        "72B"
+      ],
+      [
+        "视觉编码器",
+        "Dynamic-Resolution ViT"
+      ],
+      [
+        "上下文长度",
+        "128K tokens"
+      ],
+      [
+        "视频输入",
+        "支持长视频（>1 小时）"
+      ],
+      [
+        "推理精度",
+        "BF16 / FP8 / INT4"
+      ],
+      [
+        "开源协议",
+        "Qwen License（允许商用）"
+      ],
+      [
+        "发布日期",
+        "2025-01-28"
+      ],
+      [
+        "最近更新",
+        "2025-03-30"
+      ]
+    ],
+    "devices": [
+      [
+        "NVIDIA H100 80G ×2",
+        "SXM5",
+        "160 GB",
+        "BF16",
+        "约 42 tok/s",
+        "★★★★★"
+      ],
+      [
+        "NVIDIA A100 80G ×2",
+        "SXM4",
+        "160 GB",
+        "BF16",
+        "约 26 tok/s",
+        "★★★★☆"
+      ],
+      [
+        "NVIDIA RTX 4090 24G ×2",
+        "Ada",
+        "48 GB",
+        "INT4 量化",
+        "约 15 tok/s",
+        "★★★☆☆"
+      ],
+      [
+        "Apple M3 Max 128G",
+        "MPS",
+        "128 GB",
+        "INT4 量化",
+        "约 6 tok/s",
+        "★★☆☆☆"
+      ]
+    ],
+    "files": [
+      {
+        "name": "Qwen2.5-VL-72B-Instruct.safetensors",
+        "size": "145 GB"
+      },
+      {
+        "name": "Qwen2.5-VL-72B-AWQ.safetensors",
+        "size": "41 GB"
+      },
+      {
+        "name": "Qwen2.5-VL-72B-GGUF-Q4.gguf",
+        "size": "44 GB"
+      }
+    ],
+    "downloads": [
+      {
+        "type": "official",
+        "label": "Hugging Face",
+        "url": "https://huggingface.co/Qwen/Qwen2.5-VL-72B-Instruct",
+        "pwd": ""
+      },
+      {
+        "type": "official",
+        "label": "ModelScope 魔搭",
+        "url": "https://modelscope.cn/models/Qwen/Qwen2.5-VL-72B-Instruct",
+        "pwd": ""
+      }
+    ]
+  },
+  {
+    "id": "sd-3-5-large",
+    "name": "Stable Diffusion 3.5 Large",
+    "author": "Stability AI",
+    "cat": "image",
+    "tags": [
+      "文生图",
+      "MMDiT",
+      "8B"
+    ],
+    "params": "8B",
+    "size": "16.4 GB",
+    "dl": 1860000,
+    "likes": 19800,
+    "trend": -3.4,
+    "updated": "2025-01-20",
+    "license": "Stability Community",
+    "short": "8B MMDiT 架构，多分辨率生成与提示词理解能力强，生态成熟。",
+    "desc": "Stable Diffusion 3.5 Large 采用 MMDiT 双流 Transformer 架构，参数量 8B。通过改进的文本编码器组合（CLIP-G + CLIP-L + T5-XXL），在提示词遵循度与多主体生成上大幅提升，并支持从 0.25MP 到 2MP 的多分辨率输出。",
+    "highlights": [
+      "MMDiT 双流架构，文本与图像 token 独立处理",
+      "三文本编码器组合，复杂提示词理解更准确",
+      "支持多分辨率训练与输出，适配不同画幅",
+      "社区 LoRA / ControlNet 生态完善"
+    ],
+    "bench": [
+      [
+        "HPSv2 偏好得分",
+        28.6
+      ],
+      [
+        "GenEval 综合",
+        62.4
+      ],
+      [
+        "T2I-CompBench",
+        58.9
+      ],
+      [
+        "CLIP Score",
+        31.8
+      ]
+    ],
+    "specs": [
+      [
+        "模型架构",
+        "MMDiT（多模态扩散 Transformer）"
+      ],
+      [
+        "参数量",
+        "8B"
+      ],
+      [
+        "文本编码器",
+        "CLIP-G + CLIP-L + T5-XXL"
+      ],
+      [
+        "输出分辨率",
+        "0.25 MP ~ 2 MP"
+      ],
+      [
+        "推理步数",
+        "28 ~ 40 步"
+      ],
+      [
+        "推荐 CFG",
+        "4.5"
+      ],
+      [
+        "推理精度",
+        "BF16 / FP8"
+      ],
+      [
+        "开源协议",
+        "Stability Community License"
+      ],
+      [
+        "发布日期",
+        "2024-10-22"
+      ],
+      [
+        "最近更新",
+        "2025-01-20"
+      ]
+    ],
+    "devices": [
+      [
+        "NVIDIA RTX 4090 24G",
+        "Ada",
+        "18 GB",
+        "BF16",
+        "约 2.6 s / 张",
+        "★★★★★"
+      ],
+      [
+        "NVIDIA RTX 4070 Ti 16G",
+        "Ada",
+        "16 GB",
+        "FP8",
+        "约 4.8 s / 张",
+        "★★★★☆"
+      ],
+      [
+        "NVIDIA RTX 3060 12G",
+        "Ampere",
+        "12 GB",
+        "FP8",
+        "约 11 s / 张",
+        "★★★☆☆"
+      ],
+      [
+        "Apple M2 Max 32G",
+        "MPS",
+        "32 GB",
+        "FP16",
+        "约 16 s / 张",
+        "★★☆☆☆"
+      ]
+    ],
+    "files": [
+      {
+        "name": "sd3.5_large.safetensors",
+        "size": "16.4 GB"
+      },
+      {
+        "name": "sd3.5_large_fp8_scaled.safetensors",
+        "size": "8.5 GB"
+      },
+      {
+        "name": "sd3.5_large_turbo.safetensors",
+        "size": "16.4 GB"
+      }
+    ],
+    "downloads": [
+      {
+        "type": "official",
+        "label": "Hugging Face",
+        "url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
+        "pwd": ""
+      },
+      {
+        "type": "official",
+        "label": "Stability AI 官网",
+        "url": "https://stability.ai/",
+        "pwd": ""
+      }
+    ]
+  },
+  {
+    "id": "llama-3-3-70b",
+    "name": "Llama-3.3-70B-Instruct",
+    "author": "Meta AI",
+    "cat": "llm",
+    "tags": [
+      "稠密模型",
+      "70B",
+      "指令微调"
+    ],
+    "params": "70B",
+    "size": "141 GB",
+    "dl": 2150000,
+    "likes": 33900,
+    "trend": 4.1,
+    "updated": "2025-02-28",
+    "license": "Llama 3.3 Community",
+    "short": "70B 稠密指令模型，综合能力对标 405B，部署成本更低。",
+    "desc": "Llama 3.3 70B Instruct 是 Meta 推出的稠密指令微调模型，性能接近 Llama 3.1 405B 但推理成本大幅下降。采用分组查询注意力（GQA）与 128K 词表，多语言与工具调用能力显著增强。",
+    "highlights": [
+      "综合能力对标 405B，推理成本降低约 5 倍",
+      "原生支持 128K 上下文与 8 种官方语言",
+      "强工具调用与结构化输出能力",
+      "完整支持 vLLM / TensorRT-LLM / llama.cpp"
+    ],
+    "bench": [
+      [
+        "MMLU",
+        86
+      ],
+      [
+        "MATH-500",
+        77
+      ],
+      [
+        "HumanEval",
+        88.4
+      ],
+      [
+        "IFEval",
+        92.1
+      ]
+    ],
+    "specs": [
+      [
+        "模型架构",
+        "Dense Transformer + GQA"
+      ],
+      [
+        "参数量",
+        "70B"
+      ],
+      [
+        "上下文长度",
+        "128K tokens"
+      ],
+      [
+        "词表大小",
+        "128,256"
+      ],
+      [
+        "注意力机制",
+        "Grouped Query Attention（8 KV heads）"
+      ],
+      [
+        "推理精度",
+        "BF16 / FP8 / INT4"
+      ],
+      [
+        "开源协议",
+        "Llama 3.3 Community License"
+      ],
+      [
+        "发布日期",
+        "2024-12-06"
+      ],
+      [
+        "最近更新",
+        "2025-02-28"
+      ]
+    ],
+    "devices": [
+      [
+        "NVIDIA H100 80G ×2",
+        "SXM5",
+        "160 GB",
+        "BF16",
+        "约 68 tok/s",
+        "★★★★★"
+      ],
+      [
+        "NVIDIA RTX 4090 24G ×2",
+        "Ada",
+        "48 GB",
+        "INT4 量化",
+        "约 24 tok/s",
+        "★★★★☆"
+      ],
+      [
+        "NVIDIA RTX 4090 24G",
+        "Ada",
+        "24 GB",
+        "GGUF Q4",
+        "约 11 tok/s",
+        "★★★☆☆"
+      ],
+      [
+        "Apple M3 Max 64G",
+        "MPS",
+        "64 GB",
+        "INT4 量化",
+        "约 8 tok/s",
+        "★★★☆☆"
+      ]
+    ],
+    "files": [
+      {
+        "name": "Meta-Llama-3.3-70B-Instruct.safetensors",
+        "size": "141 GB"
+      },
+      {
+        "name": "Llama-3.3-70B-Instruct-FP8.safetensors",
+        "size": "70 GB"
+      },
+      {
+        "name": "Meta-Llama-3.3-70B-Instruct-Q4_K_M.gguf",
+        "size": "42.5 GB"
+      }
+    ],
+    "downloads": [
+      {
+        "type": "official",
+        "label": "Hugging Face",
+        "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+        "pwd": ""
+      },
+      {
+        "type": "official",
+        "label": "Llama 官网",
+        "url": "https://www.llama.com/",
+        "pwd": ""
+      }
+    ]
+  },
+  {
+    "id": "wan2-1-i2v-14b",
+    "name": "Wan2.1-I2V-14B",
+    "author": "Alibaba Wan",
+    "cat": "video",
+    "tags": [
+      "图生视频",
+      "14B",
+      "720P"
+    ],
+    "params": "14B",
+    "size": "32.7 GB",
+    "dl": 1120000,
+    "likes": 15600,
+    "trend": 26.9,
+    "updated": "2025-03-18",
+    "license": "Apache-2.0",
+    "short": "14B 图生视频模型，720P 输出，动态幅度与物理一致性表现优秀。",
+    "desc": "Wan2.1-I2V-14B 是 Wan 系列图生视频模型，采用 3D 因果 VAE 与 DiT 架构，参数量 14B。支持 720P 分辨率、5 秒时长视频生成，在运动幅度、物理合理性与镜头语言控制上表现突出，且完全开源可商用。",
+    "highlights": [
+      "3D 因果 VAE，时空压缩效率高，显存占用更友好",
+      "支持 720P / 5s 视频生成，可扩展至更长时长",
+      "强运动幅度与物理一致性，减少画面崩坏",
+      "Apache-2.0 协议，允许商用"
+    ],
+    "bench": [
+      [
+        "VBench 总分",
+        84.7
+      ],
+      [
+        "运动幅度得分",
+        88.2
+      ],
+      [
+        "动态质量",
+        81.5
+      ],
+      [
+        "美学质量",
+        65.3
+      ]
+    ],
+    "specs": [
+      [
+        "模型架构",
+        "DiT + 3D Causal VAE"
+      ],
+      [
+        "参数量",
+        "14B"
+      ],
+      [
+        "输出分辨率",
+        "480P / 720P"
+      ],
+      [
+        "输出时长",
+        "5 秒（可滑窗扩展）"
+      ],
+      [
+        "帧率",
+        "16 fps"
+      ],
+      [
+        "推理步数",
+        "50 步（Flow Matching）"
+      ],
+      [
+        "推理精度",
+        "BF16"
+      ],
+      [
+        "开源协议",
+        "Apache-2.0（允许商用）"
+      ],
+      [
+        "发布日期",
+        "2025-02-25"
+      ],
+      [
+        "最近更新",
+        "2025-03-18"
+      ]
+    ],
+    "devices": [
+      [
+        "NVIDIA H100 80G",
+        "SXM5",
+        "80 GB",
+        "BF16",
+        "约 4 min / 5s",
+        "★★★★★"
+      ],
+      [
+        "NVIDIA A100 80G",
+        "Ampere",
+        "80 GB",
+        "BF16",
+        "约 7 min / 5s",
+        "★★★★☆"
+      ],
+      [
+        "NVIDIA RTX 4090 24G",
+        "Ada",
+        "24 GB",
+        "FP8 + 分块",
+        "约 16 min / 5s",
+        "★★★☆☆"
+      ],
+      [
+        "NVIDIA RTX 3090 24G",
+        "Ampere",
+        "24 GB",
+        "FP8 + 分块",
+        "约 24 min / 5s",
+        "★★☆☆☆"
+      ]
+    ],
+    "files": [
+      {
+        "name": "wan2.1_i2v_14b_720p.safetensors",
+        "size": "32.7 GB"
+      },
+      {
+        "name": "wan2.1_i2v_14b_480p.safetensors",
+        "size": "32.7 GB"
+      },
+      {
+        "name": "wan_2.1_vae.safetensors",
+        "size": "254 MB"
+      }
+    ],
+    "downloads": [
+      {
+        "type": "official",
+        "label": "Hugging Face",
+        "url": "https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-720P",
+        "pwd": ""
+      },
+      {
+        "type": "official",
+        "label": "ModelScope 魔搭",
+        "url": "https://modelscope.cn/models/Wan-AI/Wan2.1-I2V-14B-720P",
+        "pwd": ""
+      }
+    ]
+  },
+  {
+    "id": "hunyuanvideo",
+    "name": "HunyuanVideo",
+    "author": "Tencent Hunyuan",
+    "cat": "video",
+    "tags": [
+      "文生视频",
+      "13B",
+      "电影级"
+    ],
+    "params": "13B",
+    "size": "28.9 GB",
+    "dl": 986000,
+    "likes": 13200,
+    "trend": 9.7,
+    "updated": "2025-02-10",
+    "license": "Tencent Hunyuan 社区",
+    "short": "13B 文生视频模型，镜头语言与画面质感接近电影级水准。",
+    "desc": "HunyuanVideo 是腾讯混元推出的开源文生视频模型，参数量 13B，采用统一的全注意力 DiT 架构与 3D VAE。在镜头调度、光影质感与主体一致性方面表现优秀，支持中英文提示词与多种画幅。",
+    "highlights": [
+      "统一全注意力 DiT，时空建模能力更强",
+      "3D VAE 压缩比高，支持 720P / 5s 输出",
+      "镜头语言与光影质感突出，接近电影级观感",
+      "提供 FP8 量化与 LoRA 微调方案"
+    ],
+    "bench": [
+      [
+        "VBench 总分",
+        82.1
+      ],
+      [
+        "镜头语言",
+        86.4
+      ],
+      [
+        "主体一致性",
+        79.6
+      ],
+      [
+        "美学质量",
+        63.8
+      ]
+    ],
+    "specs": [
+      [
+        "模型架构",
+        "Unified Full-Attention DiT + 3D VAE"
+      ],
+      [
+        "参数量",
+        "13B"
+      ],
+      [
+        "输出分辨率",
+        "540P / 720P"
+      ],
+      [
+        "输出时长",
+        "5 秒"
+      ],
+      [
+        "帧率",
+        "24 fps"
+      ],
+      [
+        "推理步数",
+        "50 步"
+      ],
+      [
+        "推理精度",
+        "BF16 / FP8"
+      ],
+      [
+        "开源协议",
+        "Tencent Hunyuan Community License"
+      ],
+      [
+        "发布日期",
+        "2024-12-03"
+      ],
+      [
+        "最近更新",
+        "2025-02-10"
+      ]
+    ],
+    "devices": [
+      [
+        "NVIDIA H100 80G",
+        "SXM5",
+        "80 GB",
+        "BF16",
+        "约 5 min / 5s",
+        "★★★★★"
+      ],
+      [
+        "NVIDIA A800 80G",
+        "Ampere",
+        "80 GB",
+        "BF16",
+        "约 8 min / 5s",
+        "★★★★☆"
+      ],
+      [
+        "NVIDIA RTX 4090 24G",
+        "Ada",
+        "24 GB",
+        "FP8 量化",
+        "约 20 min / 5s",
+        "★★★☆☆"
+      ],
+      [
+        "NVIDIA RTX 4080 16G",
+        "Ada",
+        "16 GB",
+        "FP8 + 分块",
+        "约 42 min / 5s",
+        "★★☆☆☆"
+      ]
+    ],
+    "files": [
+      {
+        "name": "hunyuan_video_t2v_720p_bf16.safetensors",
+        "size": "28.9 GB"
+      },
+      {
+        "name": "hunyuan_video_t2v_720p_fp8.safetensors",
+        "size": "15.2 GB"
+      },
+      {
+        "name": "hunyuan_video_vae.safetensors",
+        "size": "496 MB"
+      }
+    ],
+    "downloads": [
+      {
+        "type": "official",
+        "label": "Hugging Face",
+        "url": "https://huggingface.co/tencent/HunyuanVideo",
+        "pwd": ""
+      },
+      {
+        "type": "official",
+        "label": "GitHub 仓库",
+        "url": "https://github.com/Tencent-Hunyuan/HunyuanVideo",
+        "pwd": ""
+      }
+    ]
+  },
+  {
+    "id": "cosyvoice2-0-5b",
+    "name": "CosyVoice2-0.5B",
+    "author": "Alibaba FunAudioLLM",
+    "cat": "audio",
+    "tags": [
+      "语音合成",
+      "零样本克隆",
+      "流式"
+    ],
+    "params": "0.5B",
+    "size": "1.2 GB",
+    "dl": 742000,
+    "likes": 11800,
+    "trend": 31.4,
+    "updated": "2025-03-05",
+    "license": "Apache-2.0",
+    "short": "0.5B 流式语音合成模型，3 秒音频即可零样本克隆音色。",
+    "desc": "CosyVoice2-0.5B 是阿里通义语音团队推出的流式语音合成模型。基于有监督语义 token 与流匹配声学模型，仅需 3~10 秒参考音频即可完成零样本音色克隆，支持流式合成、情感控制与方言口音。",
+    "highlights": [
+      "3 秒参考音频即可零样本克隆音色",
+      "支持双向流式合成，首包延迟低至 150ms",
+      "可精细控制情感、语速与方言口音",
+      "仅 0.5B 参数，消费级显卡即可实时推理"
+    ],
+    "bench": [
+      [
+        "音色相似度（SIM）",
+        0.87
+      ],
+      [
+        "自然度 MOS",
+        4.32
+      ],
+      [
+        "首包延迟",
+        150
+      ],
+      [
+        "字错率（CER）",
+        1.9
+      ]
+    ],
+    "specs": [
+      [
+        "模型架构",
+        "LLM + Flow Matching 声学模型"
+      ],
+      [
+        "参数量",
+        "0.5B"
+      ],
+      [
+        "采样率",
+        "24 kHz"
+      ],
+      [
+        "音色克隆",
+        "零样本（3~10 秒参考音频）"
+      ],
+      [
+        "流式支持",
+        "双向流式，首包约 150 ms"
+      ],
+      [
+        "情感控制",
+        "支持（指令式）"
+      ],
+      [
+        "推理精度",
+        "FP16 / BF16"
+      ],
+      [
+        "开源协议",
+        "Apache-2.0（允许商用）"
+      ],
+      [
+        "发布日期",
+        "2024-12-11"
+      ],
+      [
+        "最近更新",
+        "2025-03-05"
+      ]
+    ],
+    "devices": [
+      [
+        "NVIDIA RTX 4090 24G",
+        "Ada",
+        "4 GB",
+        "FP16",
+        "实时率 0.06",
+        "★★★★★"
+      ],
+      [
+        "NVIDIA RTX 3060 12G",
+        "Ampere",
+        "4 GB",
+        "FP16",
+        "实时率 0.18",
+        "★★★★☆"
+      ],
+      [
+        "Apple M2 16G",
+        "MPS",
+        "6 GB",
+        "FP16",
+        "实时率 0.42",
+        "★★★☆☆"
+      ],
+      [
+        "CPU（i9-13900）",
+        "AVX2",
+        "4 GB",
+        "INT8",
+        "实时率 1.10",
+        "★★☆☆☆"
+      ]
+    ],
+    "files": [
+      {
+        "name": "CosyVoice2-0.5B.safetensors",
+        "size": "1.2 GB"
+      },
+      {
+        "name": "CosyVoice2-0.5B-FP16.onnx",
+        "size": "640 MB"
+      },
+      {
+        "name": "speech_tokenizer_v2.onnx",
+        "size": "180 MB"
+      }
+    ],
+    "downloads": [
+      {
+        "type": "official",
+        "label": "Hugging Face",
+        "url": "https://huggingface.co/FunAudioLLM/CosyVoice2-0.5B",
+        "pwd": ""
+      },
+      {
+        "type": "official",
+        "label": "GitHub 仓库",
+        "url": "https://github.com/FunAudioLLM/CosyVoice",
+        "pwd": ""
+      }
+    ]
+  },
+  {
+    "id": "kokoro-82m",
+    "name": "Kokoro-82M",
+    "author": "hexgrad",
+    "cat": "audio",
+    "tags": [
+      "TTS",
+      "轻量",
+      "多音色"
+    ],
+    "params": "82M",
+    "size": "330 MB",
+    "dl": 1050000,
+    "likes": 16400,
+    "trend": 14.3,
+    "updated": "2025-01-30",
+    "license": "Apache-2.0",
+    "short": "82M 超轻量 TTS 模型，CPU 可实时合成，内置 50+ 音色。",
+    "desc": "Kokoro-82M 是一款仅 8200 万参数的开源 TTS 模型，以极小的体积实现接近商用级的语音合成质量。内置 50 余种预设音色，支持中英日等多语言，在 CPU 上即可实时合成，适合端侧与高并发场景。",
+    "highlights": [
+      "仅 82M 参数，模型体积 330 MB",
+      "CPU 单核即可实时合成，适合端侧部署",
+      "内置 50+ 预设音色，覆盖多种语言与性别",
+      "Apache-2.0 协议，商用无限制"
+    ],
+    "bench": [
+      [
+        "自然度 MOS",
+        4.18
+      ],
+      [
+        "音色数量",
+        54
+      ],
+      [
+        "CPU 实时率",
+        0.35
+      ],
+      [
+        "字错率（CER）",
+        2.4
+      ]
+    ],
+    "specs": [
+      [
+        "模型架构",
+        "StyleTTS2 风格架构 + 轻量解码器"
+      ],
+      [
+        "参数量",
+        "82M"
+      ],
+      [
+        "采样率",
+        "24 kHz"
+      ],
+      [
+        "音色数量",
+        "54 种预设"
+      ],
+      [
+        "支持语言",
+        "中文 / 英文 / 日文 / 韩文等"
+      ],
+      [
+        "推理精度",
+        "FP32 / FP16 / ONNX"
+      ],
+      [
+        "推理框架",
+        "PyTorch / ONNX Runtime / C++"
+      ],
+      [
+        "开源协议",
+        "Apache-2.0（允许商用）"
+      ],
+      [
+        "发布日期",
+        "2025-01-08"
+      ],
+      [
+        "最近更新",
+        "2025-01-30"
+      ]
+    ],
+    "devices": [
+      [
+        "CPU（i5-12400）",
+        "AVX2",
+        "512 MB",
+        "ONNX INT8",
+        "实时率 0.35",
+        "★★★★★"
+      ],
+      [
+        "Apple M1 8G",
+        "MPS",
+        "1 GB",
+        "FP16",
+        "实时率 0.12",
+        "★★★★★"
+      ],
+      [
+        "NVIDIA RTX 3060 12G",
+        "Ampere",
+        "2 GB",
+        "FP16",
+        "实时率 0.03",
+        "★★★★★"
+      ],
+      [
+        "树莓派 5 8G",
+        "ARM",
+        "1 GB",
+        "ONNX INT8",
+        "实时率 1.8",
+        "★★★☆☆"
+      ]
+    ],
+    "files": [
+      {
+        "name": "kokoro-v1.0.onnx",
+        "size": "330 MB"
+      },
+      {
+        "name": "kokoro-v1.0.pth",
+        "size": "330 MB"
+      },
+      {
+        "name": "voices-v1.0.bin",
+        "size": "26 MB"
+      }
+    ],
+    "downloads": [
+      {
+        "type": "official",
+        "label": "Hugging Face",
+        "url": "https://huggingface.co/hexgrad/Kokoro-82M",
+        "pwd": ""
+      },
+      {
+        "type": "official",
+        "label": "hexgrad 官网",
+        "url": "https://hexgrad.com/kokoro/",
+        "pwd": ""
+      }
+    ]
+  }
+]
