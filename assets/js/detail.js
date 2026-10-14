@@ -21,6 +21,7 @@
       <td>${esc(d[4])}</td>
       <td>${starsHtml(d[5])}</td>
     </tr>`).join('');
+  /* 可下载文件为纯展示清单，下载动作统一走「下载模型」按钮 → 渠道选择弹窗 */
   const fileRows = (m.files||[]).map(f=>`
     <div class="file-row">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -28,7 +29,6 @@
       </svg>
       <span class="file-name">${esc(f.name)}</span>
       <span class="file-size">${esc(f.size)}</span>
-      <button class="file-btn" data-file="${esc(f.name)}">下载</button>
     </div>`).join('');
   const benchRows = (m.bench||[]).map(([label, val])=>`
     <div class="bench">
@@ -37,18 +37,21 @@
       <span class="bench-val">${esc(val)}</span>
     </div>`).join('');
 
-  /* ===== 下载地址（官方 / 网盘） ===== */
+  /* ===== 下载地址（官方 / 网盘）；无链接的行显示"暂无"状态 ===== */
   const dlRows = (m.downloads||[]).map(d=>{
     if(d.type === 'netdisk'){
+      const open = d.url
+        ? `<a class="dl-open" href="${esc(d.url)}" target="_blank" rel="noopener noreferrer nofollow">打开网盘 →</a>`
+        : `<span class="dl-none">暂无链接 · 可在后台补充</span>`;
       return `
-      <div class="dl-row">
+      <div class="dl-row${d.url ? '' : ' empty'}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M17.5 19a4.5 4.5 0 1 0-.9-8.9 6 6 0 0 0-11.5 1.6A3.8 3.8 0 0 0 6 19.4h11.5z"/>
         </svg>
         <span class="dl-name">${esc(d.label)}</span>
         <span class="dl-badge netdisk">网盘</span>
         ${d.pwd ? `<span class="dl-pwd">提取码 <code>${esc(d.pwd)}</code><button class="dl-copy" type="button" data-copy="${esc(d.pwd)}">复制</button></span>` : ''}
-        <a class="dl-open" href="${esc(d.url)}" target="_blank" rel="noopener noreferrer nofollow">打开网盘 →</a>
+        ${open}
       </div>`;
     }
     return `
@@ -61,9 +64,7 @@
         <span class="dl-open">前往下载 →</span>
       </a>`;
   }).join('');
-  const dlSection = dlRows ? `
-    <h4>下载地址</h4>
-    <div class="dl-list">${dlRows}</div>` : '';
+  const dlAvail = (m.downloads||[]).filter(d=>d.url).length;
 
   view.innerHTML = `
     <button class="back" id="backBtn">
@@ -79,15 +80,6 @@
         <h1>${esc(m.name)} <span class="hero-badge">${esc(c.label)}</span></h1>
         <div class="hero-sub"><b>${esc(m.author)}</b> · 更新于 ${esc(m.updated)} · 协议 ${esc(m.license)}</div>
         <div class="hero-tags">${(m.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
-      </div>
-      <div class="hero-actions">
-        <button class="btn btn-primary" id="mainDownload">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3v12M7 11l5 5 5-5M5 21h14"/>
-          </svg>
-          下载模型 · ${esc(m.size)}
-        </button>
-        <button class="btn btn-ghost" id="favBtn">收藏模型</button>
       </div>
     </div>
 
@@ -138,12 +130,43 @@
     </div>
 
     <div class="panel" id="panel-files" hidden>
-      ${dlSection}
+      <div class="dl-cta">
+        <div class="dl-cta-info">
+          <b>下载 ${esc(m.name)}</b>
+          <span>文件大小 ${esc(m.size)} · 已收录 ${dlAvail} 个可用下载渠道，点击按钮选择渠道后前往下载</span>
+        </div>
+        <button class="btn btn-primary" id="mainDownload">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12M7 11l5 5 5-5M5 21h14"/>
+          </svg>
+          下载模型
+        </button>
+      </div>
       <h4>可下载文件</h4>
       <div class="file-list">${fileRows}</div>
       <p class="body-text" style="margin-top:16px;font-size:12.5px;color:var(--text-3)">
         * 请遵循模型原始开源协议使用，下载即表示同意相关条款。
       </p>
+    </div>
+
+    <div class="modal-mask" id="dlModal" aria-hidden="true">
+      <div class="modal-box" role="dialog" aria-modal="true" aria-label="选择下载渠道">
+        <div class="modal-head">
+          <div class="modal-title">
+            <h3>选择下载渠道</h3>
+            <span>${esc(m.name)} · ${esc(m.size)}</span>
+          </div>
+          <button class="modal-close" id="dlModalClose" type="button" aria-label="关闭">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          ${dlRows ? `<div class="dl-list">${dlRows}</div>` : `<div class="empty">暂未收录该模型的下载地址，可在后台补充</div>`}
+          <p class="modal-tip">* 网盘链接为社区转存，打开后请配合提取码使用；下载与使用请遵循模型原始开源协议。</p>
+        </div>
+      </div>
     </div>
   `;
 
@@ -160,20 +183,23 @@
   /* ===== 按钮 ===== */
   document.getElementById('backBtn').onclick = ()=>{ location.href = homeUrl(); };
 
-  /* 主下载按钮：优先跳转第一个下载地址（官方优先），否则模拟入队提示 */
-  const firstDl = (m.downloads||[]).find(d=>d.type === 'official') || (m.downloads||[])[0] || null;
-  document.getElementById('mainDownload').onclick = ()=>{
-    if(firstDl && firstDl.url){
-      window.open(firstDl.url, '_blank', 'noopener');
-      toast(`正在前往下载页：${firstDl.label || m.name}`);
-    }else{
-      toast(`已加入下载队列：${m.name}（${m.size}）`);
-    }
+  /* 下载模型：弹出渠道选择弹窗，由用户选择渠道后再前往对应下载页，不直接跳转第三方 */
+  const dlModal = document.getElementById('dlModal');
+  const setModal = open=>{
+    dlModal.classList.toggle('open', open);
+    dlModal.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.body.style.overflow = open ? 'hidden' : '';
   };
-  document.getElementById('favBtn').onclick = ()=>
-    toast(`已收藏 ${m.name}`);
-  view.querySelectorAll('.file-btn').forEach(btn=>{
-    btn.onclick = ()=> toast(`开始下载：${btn.dataset.file}`);
+  document.getElementById('mainDownload').onclick = ()=>{
+    setModal(true);
+    toast(`请选择 ${m.name} 的下载渠道`);
+  };
+  document.getElementById('dlModalClose').onclick = ()=> setModal(false);
+  dlModal.addEventListener('click', e=>{ if(e.target === dlModal) setModal(false); });
+  document.addEventListener('keydown', e=>{ if(e.key === 'Escape') setModal(false); });
+  /* 弹窗内点选渠道（新窗口打开下载页）后自动收起弹窗 */
+  dlModal.querySelectorAll('a[target="_blank"]').forEach(a=>{
+    a.addEventListener('click', ()=> setModal(false));
   });
 
   /* 提取码复制 */

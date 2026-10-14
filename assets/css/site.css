@@ -1,0 +1,177 @@
+/* ============================================================
+   site.css — 电脑小百科 新前台公共样式
+   被首页（index.php）与软件详情页（software.php）共同引用：
+   基础变量与重置 / 页头页脚 / 按钮与表单 / 弹窗灯箱 / 详情内容排版。
+   首页专属样式在 site-home.css，详情页专属在 site-software.css。
+   ============================================================ */
+
+/* ---------- 基础 ---------- */
+:root { --paper:#f7f7f2; --ink:#282c25; --muted:#6b7362; --green:#596748; --green-dark:#414d34; --line:#e0e3d8; --soft:#ecefe5; --font:Arial,"PingFang SC","Microsoft YaHei",sans-serif; }
+*, *::before, *::after { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:108px; scrollbar-gutter:stable; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--font); font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+body.dialog-open { overflow:hidden; }
+button, input, select, textarea { font:inherit; }
+button, a, summary { -webkit-tap-highlight-color:transparent; }
+button { cursor:pointer; }
+button:disabled { cursor:default; }
+a { color:inherit; text-decoration:none; }
+button { color:inherit; }
+img { display:block; max-width:100%; }
+h1, h2, h3, h4, p, figure { margin:0; }
+h1, h2, h3, h4 { font-weight:600; }
+svg { display:inline-block; flex-shrink:0; vertical-align:middle; }
+[hidden] { display:none !important; }
+::selection { background:#dce4ca; color:var(--ink); }
+:focus-visible { outline:2px solid var(--green); outline-offset:5px; }
+.container { width:min(1200px,calc(100% - 112px)); margin-inline:auto; }
+.icon { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.65; stroke-linecap:round; stroke-linejoin:round; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.skip-link { position:fixed; top:-80px; left:20px; padding:10px 18px; background:var(--green); color:white; z-index:100; border-radius:4px; }
+.skip-link:focus { top:12px; }
+
+/* ---------- 页头 ---------- */
+.site-header { height:80px; position:sticky; top:0; z-index:30; background:rgba(247,247,242,.96); border-bottom:1px solid rgba(224,227,216,.7); backdrop-filter:blur(14px); }
+.header-inner { height:100%; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+.brand { display:inline-flex; align-items:center; gap:11px; flex-shrink:0; }
+.brand-symbol { color:var(--green); width:31px; height:31px; }
+.brand-name { font-size:25px; font-weight:700; letter-spacing:2px; line-height:1.15; }
+.brand-en { display:block; font-size:8px; font-weight:500; letter-spacing:2.7px; color:var(--muted); margin-top:5px; }
+.main-nav { display:flex; align-items:center; gap:36px; padding-left:35px; }
+.main-nav a { position:relative; color:#70756a; font-size:14px; transition:color .2s; padding:12px 0; }
+.main-nav a:hover, .main-nav a[aria-current] { color:var(--green-dark); }
+.main-nav a[aria-current]::after { content:""; position:absolute; bottom:3px; left:50%; width:4px; height:4px; border-radius:50%; background:var(--green); transform:translateX(-50%); }
+.recommend-link { display:flex; align-items:center; gap:10px; font-size:13px; color:var(--green); background:none; border:0; padding:10px 0; }
+.recommend-link .icon { width:16px; height:16px; transition:transform .2s; }
+.recommend-link:hover .icon { transform:translate(2px,-2px); }
+.menu-toggle { display:none; padding:8px; border:0; background:none; }
+
+/* ---------- 按钮 ---------- */
+.button { display:inline-flex; justify-content:center; align-items:center; gap:20px; border:1px solid var(--green); border-radius:5px; background:var(--green); color:#fff; font-size:13px; padding:12px 22px; min-height:46px; transition:background .2s,transform .2s; }
+.button:hover { background:var(--green-dark); border-color:var(--green-dark); }
+.button .icon { width:16px; height:16px; transition:transform .2s; }
+.button:hover .icon { transform:translateX(3px); }
+.text-link { display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--green); background:none; border:0; padding:6px 0; }
+.text-link:hover { color:var(--green-dark); }
+.text-link .icon { width:15px; height:15px; }
+
+/* ---------- 详情内容排版（卡片内嵌 + 详情页正文共用；尺寸以详情页为准） ---------- */
+.details-content p { font-size:14px; color:#747c69; line-height:1.9; }
+.detail-heading { display:flex; align-items:center; gap:25px; margin-bottom:25px; }
+.detail-heading .app-icon { width:58px; height:58px; }
+.detail-heading .detail-category { font-size:11px; color:var(--green); }
+.detail-intro { font-size:21px; color:var(--ink); margin-bottom:15px; line-height:1.6; }
+.detail-description { font-size:14px; color:#747c69; line-height:1.9; max-width:620px; margin-bottom:22px; }
+.detail-features { padding:0; margin:22px 0 28px; list-style:none; display:grid; gap:8px; font-size:13px; color:#6e7862; }
+.detail-features li { padding-left:16px; position:relative; }
+.detail-features li::before { content:""; position:absolute; top:9px; left:0; width:5px; height:5px; background:#9aa98a; border-radius:50%; }
+.detail-screenshot { margin:22px 0; }
+.zoom-trigger { width:100%; display:flex; align-items:center; justify-content:center; border:0; border-radius:6px; padding:20px; background:#ecf0e6; cursor:zoom-in; }
+.zoom-trigger img { width:100%; max-height:500px; object-fit:contain; }
+.detail-screenshot figcaption { font-size:10px; color:#949b8a; margin-top:9px; text-align:center; }
+.detail-screenshot figcaption a { text-decoration:underline; text-underline-offset:3px; }
+.detail-downloads { border-top:1px solid var(--line); margin-top:32px; padding-top:25px; }
+.detail-downloads h3 { font-size:20px; margin-bottom:8px; }
+.detail-downloads .download-note { font-size:12px; }
+.download-links { display:flex; align-items:center; flex-wrap:wrap; gap:20px; margin-top:18px; }
+.download-links .button { font-size:12px; padding:10px 18px; gap:12px; min-height:42px; }
+.download-address { margin-top:18px !important; font-size:11px !important; overflow-wrap:anywhere; }
+.download-address a { color:var(--green); text-decoration:underline; text-underline-offset:3px; margin-left:7px; }
+
+/* ---------- 页脚 ---------- */
+.site-footer { border-top:1px solid var(--line); padding:29px 0 24px; }
+.footer-top, .footer-bottom { display:flex; justify-content:space-between; align-items:center; gap:25px; }
+.footer-brand { display:flex; align-items:center; gap:15px; }
+.footer-brand .brand-symbol { width:24px; height:24px; }
+.footer-brand .brand-name { font-size:18px; letter-spacing:1px; }
+.footer-motto { font-size:11px; color:#989d8e; padding-left:17px; border-left:1px solid var(--line); }
+.footer-links { display:flex; gap:25px; color:#7f8871; font-size:11px; }
+.footer-links button { background:none; border:0; padding:0; font-size:11px; color:inherit; }
+.footer-links a:hover, .footer-links button:hover { color:var(--green-dark); }
+.footer-bottom { margin-top:23px; color:#a0a595; font-size:9px; }
+.back-to-top { display:flex; align-items:center; gap:5px; white-space:nowrap; }
+.back-to-top .icon { width:12px; height:12px; }
+
+/* ---------- 弹窗与灯箱 ---------- */
+dialog { border:1px solid #e1e5d7; color:var(--ink); background:var(--paper); padding:0; border-radius:10px; margin:auto; max-height:88vh; max-height:88dvh; overflow:auto; overscroll-behavior:contain; box-shadow:0 24px 100px rgba(27,38,18,.16); }
+dialog::backdrop { background:rgba(35,44,28,.48); backdrop-filter:blur(5px); }
+dialog:not([open]) { display:none; }
+dialog[open] { display:block; animation:dialog-in .24s ease-out; }
+.software-dialog { width:min(740px,calc(100% - 36px)); }
+.dialog-bar { position:sticky; top:0; z-index:2; display:flex; justify-content:space-between; align-items:center; padding:14px 24px; background:rgba(247,247,242,.97); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); }
+.dialog-bar > span { color:#89947c; font-size:10px; letter-spacing:1.6px; }
+.dialog-tools { display:flex; align-items:center; gap:16px; }
+.close-dialog { display:flex; align-items:center; justify-content:center; background:none; border:0; padding:5px; border-radius:4px; color:#8b947e; }
+.close-dialog:hover { color:var(--ink); background:#e8eddf; }
+.close-dialog .icon { width:19px; height:19px; }
+.dialog-body { padding:28px 35px 35px; }
+.dialog-body .details-content { padding-top:0; }
+.lightbox { width:min(1160px,calc(100% - 36px)); background:#f3f5ed; }
+.lightbox-body { padding:22px; }
+.lightbox-image { width:100%; height:65vh; height:65dvh; object-fit:contain; }
+.lightbox-controls { margin-top:18px; display:flex; align-items:center; justify-content:space-between; gap:12px; color:var(--muted); font-size:12px; }
+.lightbox-controls > span { flex:1; text-align:center; }
+.lightbox-controls button { background:none; border:1px solid var(--line); width:36px; height:34px; border-radius:4px; }
+.lightbox-controls button:hover { background:#e5ebdb; }
+.lightbox-controls .icon { width:17px; height:17px; }
+
+/* ---------- 推荐弹窗表单 ---------- */
+.recommend-dialog { width:min(540px,calc(100% - 36px)); }
+.recommend-dialog h2 { font-size:25px; margin-bottom:10px; }
+.recommend-description { font-size:13px; color:var(--muted); line-height:1.9; }
+.recommend-form { margin-top:22px; }
+.form-label { display:block; font-size:12px; color:#6f795f; margin:16px 0 6px; }
+.form-label span { font-size:10px; color:#a0a795; margin-left:5px; }
+.form-input { width:100%; background:#fff; border:1px solid #dce2d2; border-radius:4px; padding:10px 12px; font-size:13px; color:var(--ink); outline-offset:2px; }
+textarea.form-input { min-height:90px; resize:vertical; }
+.recommend-form .button { width:100%; margin-top:20px; gap:10px; }
+.form-footnote { font-size:10px; color:#9ca491; margin-top:11px; text-align:center; }
+.recommend-result { margin-top:22px; }
+.recommend-result textarea { min-height:190px; font-size:12px; }
+.recommend-result h3 { font-size:17px; margin-bottom:10px; }
+.result-actions { display:flex; gap:12px; margin-top:14px; }
+.result-actions .button { flex:1; font-size:12px; padding:10px 15px; gap:8px; }
+.button-secondary { color:var(--green); background:transparent; border-color:#c9d2be; }
+.button-secondary:hover { background:#edf1e5; border-color:#aebc9a; }
+
+/* ---------- 提示气泡 ---------- */
+.toast { position:fixed; bottom:26px; left:50%; z-index:70; max-width:calc(100% - 32px); transform:translate(-50%,12px); padding:11px 19px; background:var(--green-dark); color:#fff; font-size:12px; border-radius:5px; opacity:0; pointer-events:none; transition:opacity .22s,transform .22s; }
+.toast.visible { opacity:1; transform:translate(-50%,0); }
+.dialog-status { color:var(--green); font-size:11px; min-height:18px; margin-top:13px; }
+
+@keyframes dialog-in { from { opacity:0; transform:translateY(8px) scale(.985); } to { opacity:1; transform:translateY(0) scale(1); } }
+
+/* ---------- 响应式（公共部分） ---------- */
+@media (max-width:1100px) { .container { width:calc(100% - 72px); } .main-nav { gap:26px; padding-left:0; } }
+@media (max-width:900px) { .main-nav { gap:22px; } }
+@media (max-width:640px) {
+  html { scroll-padding-top:86px; }
+  .container { width:calc(100% - 40px); }
+  .site-header { height:70px; }
+  .header-inner { gap:15px; }
+  .brand-symbol { width:28px; height:28px; }
+  .brand-name { font-size:22px; }
+  .brand-en { font-size:7px; margin-top:4px; letter-spacing:2px; }
+  .header-inner > .recommend-link { margin-left:auto; font-size:11px; gap:5px; }
+  .menu-toggle { display:flex; }
+  .main-nav { display:none; position:absolute; top:69px; left:0; right:0; padding:12px 20px 18px; background:var(--paper); border-bottom:1px solid var(--line); gap:0; }
+  .main-nav.is-open { display:flex; flex-direction:column; align-items:stretch; }
+  .main-nav a { padding:13px 0; font-size:13px; }
+  .main-nav a[aria-current]::after { left:auto; right:3px; bottom:23px; }
+  .site-footer { padding:24px 0 20px; }
+  .footer-top { align-items:flex-start; }
+  .footer-brand { gap:10px; flex-wrap:wrap; }
+  .footer-motto { width:100%; padding:0; border:0; font-size:10px; }
+  .footer-links { gap:13px; font-size:10px; }
+  .footer-links button { font-size:10px; }
+  .footer-bottom { align-items:flex-end; margin-top:20px; font-size:8px; gap:15px; }
+  .footer-bottom > p { max-width:235px; }
+  .dialog-body { padding:24px 22px 26px; }
+  .dialog-bar { padding:12px 17px; }
+  .lightbox-body { padding:12px; }
+  .lightbox-image { height:58vh; height:58dvh; }
+  .lightbox-controls { font-size:10px; }
+  .lightbox-controls button { width:32px; height:30px; }
+  .lightbox-controls .icon { width:15px; height:15px; }
+}
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms !important; animation-delay:0ms !important; transition-duration:.01ms !important; } }

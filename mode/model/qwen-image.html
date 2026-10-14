@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qwen-Image - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html" class="on">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 模型详情（内容由 detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"image":{"label":"图像生成","color":"#b05687","icon":"image"},"video":{"label":"视频生成","color":"#2e8a91","icon":"video"},"audio":{"label":"音频语音","color":"#a1741f","icon":"audio"},"multi":{"label":"多模态","color":"#7d5fc0","icon":"multi"},"llm":{"label":"大语言模型","color":"#3f7d3a","icon":"llm"}},"model":{"id":"qwen-image","name":"Qwen-Image","author":"Alibaba Qwen","cat":"image","tags":["文生图","MMDiT","文字渲染","20B"],"params":"20B","size":"40 GB","dl":980000,"likes":6100,"trend":18.9,"updated":"2025-08-04","license":"Apache-2.0","short":"20B MMDiT 文生图：中英文字渲染开源 SOTA，海报级排版直接可用。","desc":"Qwen-Image 是通义千问团队开源的 20B 图像生成基座，采用 MMDiT（多模态扩散 Transformer）架构，以 Qwen2.5-VL 为文本编码器并内置 OCR 分支。其标志 性能力是段落级中英文字渲染——长句、竖排、多行排版都能准确落在画面里，同时支持 Qwen-Image-Edit 图像编辑与 ControlNet \/ LoRA 生态，Apache-2.0 协议允许商用。","highlights":["段落级中英文渲染，海报\/PPT 场景直接出图","20B MMDiT 基座，细节与提示词遵循度开源第一梯队","Qwen-Image-Edit 同源支持图像编辑与主体迁移","Apache-2.0 协议，Diffusers \/ ComfyUI 首日适配"],"bench":[["GenEval 综合",76.5],["中文长文本渲染准确率",94.6],["GEdit-Bench 编辑得分",82.3],["HPS v2.1",32.1]],"specs":[["模型架构","MMDiT（多模态扩散 Transformer）"],["参数量","20B"],["文本编码器","Qwen2.5-VL（约 7B）+ OCR 分支"],["输出分辨率","最高约 2 MP（任意长宽比）"],["推理步数","约 50 步（Flow Matching）"],["推理精度","BF16 \/ FP8"],["配套模型","Qwen-Image-Edit \/ ControlNet \/ LoRA"],["开源协议","Apache-2.0（允许商用）"],["发布日期","2025-08-04"]],"devices":[["NVIDIA RTX 4090 24G","Ada","24 GB","BF16 + offload","约 35 s \/ 张","★★★★☆"],["NVIDIA A100 80G","Ampere","80 GB","BF16","约 15 s \/ 张","★★★★★"],["NVIDIA RTX 3060 12G","Ampere","12 GB","FP8","约 90 s \/ 张","★★★☆☆"],["Apple M3 Max 48G","MPS","48 GB","BF16","约 120 s \/ 张","★★☆☆☆"]],"files":[{"name":"qwen_image_bf16.safetensors","size":"40 GB"},{"name":"qwen_image_fp8_e4m3fn.safetensors","size":"20 GB"},{"name":"qwen_2.5_vl_7b（文本编码器）","size":"16 GB"}],"downloads":[{"pwd":"","url":"https:\/\/huggingface.co\/Qwen\/Qwen-Image","type":"official","label":"Hugging Face"},{"pwd":"","url":"https:\/\/pan.quark.cn\/s\/c99690295006","type":"netdisk","label":"夸克网盘（桌面客户端整合包 · 含模型 · 社区）"},{"pwd":"JPAI","url":"https:\/\/pan.baidu.com\/s\/15tqn9mtAj69GwEySaqmiyg?pwd=JPAI","type":"netdisk","label":"百度网盘（桌面客户端整合包 · 含模型 · 社区）"}]}}</script><script src="mode/assets/js/detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

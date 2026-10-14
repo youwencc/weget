@@ -6,6 +6,7 @@
   const D = getPageData();
   const CATS  = D.cats  || {};   // { key: {label, icon} }
   const SITES = D.sites || [];
+  const ALL_LABEL = D.allLabel || '全部网站';
 
   let navCat  = 'all';
   let navQuery = '';
@@ -18,7 +19,7 @@
 
   /* ===== 左侧分类栏（首项固定为"全部网站"） ===== */
   function renderNavSide(){
-    const entries = [['all', { label: '全部网站', icon: 'all' }], ...Object.entries(CATS)];
+    const entries = [['all', { label: ALL_LABEL, icon: 'all' }], ...Object.entries(CATS)];
     navSide.innerHTML = `<div class="side-title">分类导航</div>` + entries.map(([k,v])=>{
       const count = k === 'all' ? SITES.length : SITES.filter(s=>s.cat === k).length;
       return `<button class="side-item ${k===navCat?'on':''}" data-cat="${esc(k)}">
@@ -50,7 +51,7 @@
       return catOk && qOk;
     });
 
-    const catLabel = navCat === 'all' ? '全部网站' : (CATS[navCat] ? CATS[navCat].label : navCat);
+    const catLabel = navCat === 'all' ? ALL_LABEL : (CATS[navCat] ? CATS[navCat].label : navCat);
     navCatTitle.textContent = catLabel;
     navCount.textContent = `共 ${list.length} 个站点`;
 

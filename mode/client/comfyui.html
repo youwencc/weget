@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComfyUI - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html" class="on">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 客户端详情（内容由 client-detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"chat":{"label":"对话助手","icon":"chat"},"image":{"label":"图像生成","icon":"image"},"video":{"label":"视频生成","icon":"video"},"audio":{"label":"音频语音","icon":"audio"},"code":{"label":"编程开发","icon":"code"},"model":{"label":"模型社区","icon":"model"},"office":{"label":"效率办公","icon":"office"},"client-sd":{"label":"SD 生图客户端","icon":"image"},"client-chat":{"label":"AI 对话客户端","icon":"chat"},"client-run":{"label":"本地模型运行","icon":"model"}},"client":{"id":"comfyui","name":"ComfyUI","author":"Comfy Org \/ comfyanonymous","cat":"client-sd","platform":"Win \/ macOS \/ Linux","version":"v0.3 系列（含桌面版）","size":"约 120 MB","dl":5200000,"likes":82000,"updated":"2025-12-18","license":"GPL-3.0","short":"节点式工作流 AI 生图客户端，Stable Diffusion \/ FLUX 生态事实标准。","desc":"ComfyUI 是当前最流行的节点式（Node Graph）AI 图像生成客户端：把加载模型、编码提示词、采样、后处理等步骤抽象为可连线的节点，工作流可以保存为 JSON 一键复用与分享。得益于对 FLUX、SD3.5、Wan 等新模型的首日适配与极高的可定制性，它已成为开源 AI 绘图领域的工作流事实标准，并提供官方桌面版（ComfyUI Desktop）降低安装门槛。","tags":["节点式工作流","桌面版","开源","工作流分享"],"highlights":["节点式工作流：任意组合模型、采样器与后处理步骤","FLUX \/ SD3.5 \/ Wan \/ Qwen-Image 新模型社区首日适配","工作流 JSON 可保存分享，ComfyUI Manager 管理节点包","官方桌面版一键安装，支持显卡直通与便携包"],"files":[{"name":"ComfyUI-Desktop-Setup-x64.exe（Windows）","size":"约 120 MB"},{"name":"ComfyUI-Desktop-arm64.dmg（macOS）","size":"约 150 MB"},{"name":"comfyui_portable_nv_gpu.7z（Windows 便携版）","size":"约 1.6 GB"}],"downloads":[{"pwd":"z2rw","url":"https:\/\/pan.baidu.com\/s\/1n5nIOKwnVRKu7JMNZ4xWEQ?pwd=z2rw","type":"netdisk","label":"百度网盘（秋葉aaaki 整合包）"},{"pwd":"","url":"https:\/\/pan.quark.cn\/s\/64b808baa960","type":"netdisk","label":"夸克网盘（社区整合包）"}]}}</script><script src="mode/assets/js/client-detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

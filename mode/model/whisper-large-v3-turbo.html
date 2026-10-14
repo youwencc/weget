@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whisper-large-v3-turbo - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html" class="on">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 模型详情（内容由 detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"image":{"label":"图像生成","color":"#b05687","icon":"image"},"video":{"label":"视频生成","color":"#2e8a91","icon":"video"},"audio":{"label":"音频语音","color":"#a1741f","icon":"audio"},"multi":{"label":"多模态","color":"#7d5fc0","icon":"multi"},"llm":{"label":"大语言模型","color":"#3f7d3a","icon":"llm"}},"model":{"id":"whisper-large-v3-turbo","name":"Whisper-large-v3-turbo","author":"OpenAI","cat":"audio","tags":["语音识别","蒸馏","8× 提速","MIT"],"params":"809M","size":"1.6 GB","dl":7600000,"likes":6400,"trend":11.2,"updated":"2024-10-01","license":"MIT","short":"Whisper large-v3 的官方蒸馏版：解码器瘦身 4 层，速度 8 倍，精度几乎无损。","desc":"Whisper-large-v3-turbo 是 OpenAI 对 large-v3 做解码器层裁剪（32 层 → 4 层）得到的蒸馏版本，参数量从 1.55B 降至 809M，推理速度提升约 8 倍，多语言转写质量仍接近原版。支持约 99 种语言的语音转写与翻译，MIT 协议无商用门槛，是当前工程落地最广泛的 ASR 模型之一。","highlights":["解码器 32 层 → 4 层，速度约 8 倍于 large-v3","809M 参数，4GB 显存即可实时转写","转写质量接近 large-v3，多语言与翻译能力保留","MIT 协议，faster-whisper \/ whisper.cpp 全生态支持"],"bench":[["英文 WER（LibriSpeech）",2.6],["中文 CER（Common Voice）",5.1],["多语言平均 WER",8.9],["相对 large-v3 加速比",8]],"specs":[["模型架构","Encoder-Decoder Transformer（蒸馏）"],["参数量","809M"],["解码器层数","4（原版 32）"],["音频采样率","16 kHz"],["支持语言","约 99 种"],["推理精度","FP16 \/ INT8"],["推理框架","PyTorch \/ faster-whisper \/ whisper.cpp \/ transformers"],["开源协议","MIT（允许商用）"],["发布日期","2024-10-01"],["基座模型","Whisper-large-v3"]],"devices":[["NVIDIA RTX 4090 24G","Ada","6 GB","FP16","约 200× 实时","★★★★★"],["NVIDIA RTX 3060 12G","Ampere","6 GB","FP16","约 90× 实时","★★★★★"],["Apple M2 Pro 16G","MPS","6 GB","FP16","约 45× 实时","★★★★☆"],["CPU（i7-12700）","AVX2","4 GB","INT8","约 8× 实时","★★★☆☆"]],"files":[{"name":"whisper-large-v3-turbo.pt","size":"1.6 GB"},{"name":"ggml-large-v3-turbo.bin","size":"1.6 GB"},{"name":"faster-whisper-large-v3-turbo（CTranslate2）","size":"1.6 GB"}],"downloads":[{"pwd":"","url":"https:\/\/huggingface.co\/openai\/whisper-large-v3-turbo","type":"official","label":"Hugging Face"},{"pwd":"83xd","url":"https:\/\/pan.baidu.com\/s\/16l9AKmHoYdu3Img8WGv5Dw","type":"netdisk","label":"百度网盘（Faster-Whisper-XXL 整合引擎 · 社区）"},{"pwd":"","url":"https:\/\/pan.quark.cn\/s\/c29ef53d22d9","type":"netdisk","label":"夸克网盘（Faster-Whisper-XXL 整合引擎 · 社区）"}]}}</script><script src="mode/assets/js/detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wan2.1-I2V-14B - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html" class="on">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 模型详情（内容由 detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"image":{"label":"图像生成","color":"#b05687","icon":"image"},"video":{"label":"视频生成","color":"#2e8a91","icon":"video"},"audio":{"label":"音频语音","color":"#a1741f","icon":"audio"},"multi":{"label":"多模态","color":"#7d5fc0","icon":"multi"},"llm":{"label":"大语言模型","color":"#3f7d3a","icon":"llm"}},"model":{"id":"wan2-1-i2v-14b","name":"Wan2.1-I2V-14B","author":"Alibaba Wan","cat":"video","tags":["图生视频","14B","720P"],"params":"14B","size":"32.7 GB","dl":1120000,"likes":15600,"trend":26.9,"updated":"2025-03-18","license":"Apache-2.0","short":"14B 图生视频模型，720P 输出，动态幅度与物理一致性表现优秀。","desc":"Wan2.1-I2V-14B 是 Wan 系列图生视频模型，采用 3D 因果 VAE 与 DiT 架构，参数量 14B。支持 720P 分辨率、5 秒时长视频生成，在运动幅度、物理合理性与镜头语言控制上表现突出，且完全开源可商用。","highlights":["3D 因果 VAE，时空压缩效率高，显存占用更友好","支持 720P \/ 5s 视频生成，可扩展至更长时长","强运动幅度与物理一致性，减少画面崩坏","Apache-2.0 协议，允许商用"],"bench":[["VBench 总分",84.7],["运动幅度得分",88.2],["动态质量",81.5],["美学质量",65.3]],"specs":[["模型架构","DiT + 3D Causal VAE"],["参数量","14B"],["输出分辨率","480P \/ 720P"],["输出时长","5 秒（可滑窗扩展）"],["帧率","16 fps"],["推理步数","50 步（Flow Matching）"],["推理精度","BF16"],["开源协议","Apache-2.0（允许商用）"],["发布日期","2025-02-25"],["最近更新","2025-03-18"]],"devices":[["NVIDIA H100 80G","SXM5","80 GB","BF16","约 4 min \/ 5s","★★★★★"],["NVIDIA A100 80G","Ampere","80 GB","BF16","约 7 min \/ 5s","★★★★☆"],["NVIDIA RTX 4090 24G","Ada","24 GB","FP8 + 分块","约 16 min \/ 5s","★★★☆☆"],["NVIDIA RTX 3090 24G","Ampere","24 GB","FP8 + 分块","约 24 min \/ 5s","★★☆☆☆"]],"files":[{"name":"wan2.1_i2v_14b_720p.safetensors","size":"32.7 GB"},{"name":"wan2.1_i2v_14b_480p.safetensors","size":"32.7 GB"},{"name":"wan_2.1_vae.safetensors","size":"254 MB"}],"downloads":[{"pwd":"","url":"https:\/\/huggingface.co\/Wan-AI\/Wan2.1-I2V-14B-720P","type":"official","label":"Hugging Face"}]}}</script><script src="mode/assets/js/detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

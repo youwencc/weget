@@ -1,5 +1,5 @@
 /* =========================================================
-   ModelHub 公共 JS（全站共用工具函数 / 图标 / 链接构造）
+   Weget模型库 公共 JS（全站共用工具函数 / 图标 / 链接构造）
    依赖：header.php 输出的 window.APP 链接配置
    ========================================================= */
 
@@ -74,8 +74,12 @@ function copyText(text, tip){
 /* ===== 跨页面链接构造（APP.links 由 PHP 按 动态/静态 模式注入） ===== */
 function homeUrl(){ return window.APP.links.home; }
 function navUrl(){ return window.APP.links.nav; }
+function clientUrl(){ return window.APP.links.client; }
 function modelUrl(id){
   return window.APP.links.model.replace('%s', encodeURIComponent(id));
+}
+function clientDetailUrl(id){
+  return window.APP.links.client_detail.replace('%s', encodeURIComponent(id));
 }
 
 /* ===== 分类图标库（模型分类 + 导航分类共用） ===== */

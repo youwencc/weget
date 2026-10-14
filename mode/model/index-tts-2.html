@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IndexTTS-2 - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html" class="on">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 模型详情（内容由 detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"image":{"label":"图像生成","color":"#b05687","icon":"image"},"video":{"label":"视频生成","color":"#2e8a91","icon":"video"},"audio":{"label":"音频语音","color":"#a1741f","icon":"audio"},"multi":{"label":"多模态","color":"#7d5fc0","icon":"multi"},"llm":{"label":"大语言模型","color":"#3f7d3a","icon":"llm"}},"model":{"id":"index-tts-2","name":"IndexTTS-2","author":"Bilibili IndexTeam","cat":"audio","tags":["语音合成","情感控制","音色克隆","时长控制"],"params":"≈1B","size":"6 GB","dl":360000,"likes":2900,"trend":27.8,"updated":"2025-09-16","license":"Apache-2.0","short":"B 站开源零样本 TTS：音色与情感解耦控制，支持精确时长对齐。","desc":"IndexTTS-2 是哔哩哔哩 IndexTeam 推出的自回归零样本 TTS 系统，首次将音色克隆与情感表达解耦：可分别从参考音频提取音色与情感、用文本或情感参考向量独立控制表现力，并支持精确的合成时长控制，适配短视频配音等对时长敏感的场景。在音色相似度、情感迁移与稳定性上较 IndexTTS-1.5 全面提升，代码与权重 Apache-2.0 开放。","highlights":["音色与情感解耦：情感可由文本描述或参考音频独立控制","精确时长控制，适配视频配音严格对轨场景","零样本克隆 5 秒级参考音频，中文自然度优秀","Apache-2.0 协议，代码与权重完全开放"],"bench":[["音色相似度 SIM",0.68],["情感迁移准确率",92.4],["中文 CER",1.7],["自然度 MOS",4.28]],"specs":[["模型架构","自回归 GPT + 扩散声学模块"],["参数量","约 1B（全模块）"],["采样率","24 kHz"],["音色克隆","零样本（约 5 秒参考音频）"],["情感控制","文本描述 \/ 情感参考音频 \/ 向量"],["时长控制","支持精确对齐"],["推理精度","FP16"],["开源协议","Apache-2.0（允许商用）"],["发布日期","2025-09-16"],["前代模型","IndexTTS-1.5"]],"devices":[["NVIDIA RTX 4090 24G","Ada","8 GB","FP16","RTF 0.08","★★★★★"],["NVIDIA RTX 3060 12G","Ampere","8 GB","FP16","RTF 0.21","★★★★☆"],["Apple M2 Pro 16G","MPS","10 GB","FP16","RTF 0.65","★★★☆☆"],["CPU（i9-13900）","AVX2","8 GB","FP32","RTF 1.9","★★☆☆☆"]],"files":[{"name":"IndexTTS-2 全套权重（gpt \/ s2mel \/ 大语音模块）","size":"约 6 GB"},{"name":"bpe.model \/ 配置文件","size":"5 MB"},{"name":"IndexTTS-2-GGUF（社区量化）","size":"约 3 GB"}],"downloads":[{"pwd":"","url":"https:\/\/huggingface.co\/IndexTeam\/IndexTTS-2","type":"official","label":"Hugging Face"},{"pwd":"","url":"https:\/\/pan.quark.cn\/s\/6131788999eb","type":"netdisk","label":"夸克网盘（Index-TTS 2.0 整合包 · 社区）"}]}}</script><script src="mode/assets/js/detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

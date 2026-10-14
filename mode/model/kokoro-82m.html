@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kokoro-82M - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html" class="on">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 模型详情（内容由 detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"image":{"label":"图像生成","color":"#b05687","icon":"image"},"video":{"label":"视频生成","color":"#2e8a91","icon":"video"},"audio":{"label":"音频语音","color":"#a1741f","icon":"audio"},"multi":{"label":"多模态","color":"#7d5fc0","icon":"multi"},"llm":{"label":"大语言模型","color":"#3f7d3a","icon":"llm"}},"model":{"id":"kokoro-82m","name":"Kokoro-82M","author":"hexgrad","cat":"audio","tags":["TTS","轻量","多音色"],"params":"82M","size":"330 MB","dl":1050000,"likes":16400,"trend":14.3,"updated":"2025-01-30","license":"Apache-2.0","short":"82M 超轻量 TTS 模型，CPU 可实时合成，内置 50+ 音色。","desc":"Kokoro-82M 是一款仅 8200 万参数的开源 TTS 模型，以极小的体积实现接近商用级的语音合成质量。内置 50 余种预设音色，支持中英日等多语言，在 CPU 上即可实时合成，适合端侧与高并发场景。","highlights":["仅 82M 参数，模型体积 330 MB","CPU 单核即可实时合成，适合端侧部署","内置 50+ 预设音色，覆盖多种语言与性别","Apache-2.0 协议，商用无限制"],"bench":[["自然度 MOS",4.18],["音色数量",54],["CPU 实时率",0.35],["字错率（CER）",2.4]],"specs":[["模型架构","StyleTTS2 风格架构 + 轻量解码器"],["参数量","82M"],["采样率","24 kHz"],["音色数量","54 种预设"],["支持语言","中文 \/ 英文 \/ 日文 \/ 韩文等"],["推理精度","FP32 \/ FP16 \/ ONNX"],["推理框架","PyTorch \/ ONNX Runtime \/ C++"],["开源协议","Apache-2.0（允许商用）"],["发布日期","2025-01-08"],["最近更新","2025-01-30"]],"devices":[["CPU（i5-12400）","AVX2","512 MB","ONNX INT8","实时率 0.35","★★★★★"],["Apple M1 8G","MPS","1 GB","FP16","实时率 0.12","★★★★★"],["NVIDIA RTX 3060 12G","Ampere","2 GB","FP16","实时率 0.03","★★★★★"],["树莓派 5 8G","ARM","1 GB","ONNX INT8","实时率 1.8","★★★☆☆"]],"files":[{"name":"kokoro-v1.0.onnx","size":"330 MB"},{"name":"kokoro-v1.0.pth","size":"330 MB"},{"name":"voices-v1.0.bin","size":"26 MB"}],"downloads":[{"pwd":"","url":"https:\/\/huggingface.co\/hexgrad\/Kokoro-82M","type":"official","label":"Hugging Face"},{"pwd":"","url":"https:\/\/pan.quark.cn\/s\/ab349667561c","type":"netdisk","label":"夸克网盘（KokoroONNX 解压即用整合版 · 社区）"}]}}</script><script src="mode/assets/js/detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

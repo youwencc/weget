@@ -43,7 +43,6 @@
 .hero-sub b{color:var(--text-2);font-weight:500}
 .hero-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
 
-.hero-actions{display:flex;flex-direction:column;gap:8px;flex-shrink:0}
 .btn{
   border:none;border-radius:var(--radius);
   font-size:13.5px;font-weight:600;
@@ -184,14 +183,6 @@ tbody td:first-child{color:var(--text);font-weight:500}
   color:var(--text-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
 }
 .file-size{font-size:12.5px;color:var(--text-3);font-variant-numeric:tabular-nums;flex-shrink:0}
-.file-btn{
-  font-size:12.5px;font-weight:500;
-  padding:5px 14px;border-radius:var(--radius-sm);
-  background:transparent;color:var(--text-2);
-  border:1px solid var(--border);
-  cursor:pointer;transition:.15s;flex-shrink:0;
-}
-.file-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 
 /* ===== 下载地址（官方 / 网盘） ===== */
 .dl-list{display:grid;gap:8px}
@@ -246,6 +237,73 @@ tbody td:first-child{color:var(--text);font-weight:500}
   white-space:nowrap;flex-shrink:0;transition:color .15s;
 }
 .dl-row:hover .dl-open{color:var(--accent-hover)}
+.dl-row.empty{opacity:.55}
+.dl-row.empty:hover{border-color:var(--border-muted);background:var(--bg-elevated)}
+.dl-none{font-size:12px;color:var(--text-3);white-space:nowrap;flex-shrink:0}
+
+/* ===== 文件下载页签：下载引导横幅 ===== */
+.dl-cta{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  padding:16px 20px;margin-bottom:28px;
+  background:linear-gradient(135deg,rgba(47,129,247,.14),rgba(57,197,207,.05));
+  border:1px solid rgba(47,129,247,.35);
+  border-radius:var(--radius-lg);
+}
+.dl-cta-info{flex:1;min-width:220px}
+.dl-cta-info b{display:block;font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+.dl-cta-info span{display:block;margin-top:3px;font-size:12.5px;color:var(--text-2)}
+
+/* ===== 下载渠道选择弹窗 ===== */
+.modal-mask{
+  position:fixed;inset:0;z-index:120;
+  background:rgba(1,4,9,.72);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+  opacity:0;pointer-events:none;
+  transition:opacity .18s;
+}
+.modal-mask.open{opacity:1;pointer-events:auto}
+.modal-box{
+  width:min(600px,100%);
+  max-height:min(72vh,560px);
+  display:flex;flex-direction:column;
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  box-shadow:0 24px 64px rgba(1,4,9,.8);
+  transform:translateY(12px) scale(.98);
+  transition:transform .18s cubic-bezier(.2,.8,.2,1);
+  overflow:hidden;
+}
+.modal-mask.open .modal-box{transform:none}
+.modal-head{
+  display:flex;align-items:center;gap:12px;
+  padding:18px 22px;
+  background:var(--bg-overlay);
+  border-bottom:1px solid var(--border-muted);
+}
+.modal-title h3{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.modal-title span{display:block;margin-top:3px;font-size:12px;color:var(--text-3)}
+.modal-close{
+  width:30px;height:30px;margin-left:auto;flex-shrink:0;
+  display:grid;place-items:center;
+  border:1px solid var(--border-muted);
+  background:var(--bg);color:var(--text-2);
+  border-radius:var(--radius-sm);cursor:pointer;transition:.15s;
+}
+.modal-close:hover{color:var(--text);border-color:var(--border);background:var(--bg-inset)}
+.modal-close svg{width:14px;height:14px}
+.modal-body{padding:18px 22px 22px;overflow-y:auto}
+.modal-tip{margin-top:14px;font-size:12px;color:var(--text-3);line-height:1.7}
+@media(max-width:600px){
+  .modal-mask{padding:12px}
+  .modal-head{padding:14px 16px}
+  .modal-body{padding:16px}
+  .dl-cta{flex-direction:column;align-items:stretch}
+  .dl-cta .btn{width:100%}
+}
 
 @media(max-width:600px){
   .dl-row{flex-wrap:wrap;gap:10px}
@@ -259,8 +317,6 @@ tbody td:first-child{color:var(--text);font-weight:500}
   .stat:nth-child(3){border-left:none}
   .stat:nth-child(n+3){border-top:1px solid var(--border-muted)}
   .detail-hero{flex-direction:column;gap:18px}
-  .hero-actions{flex-direction:row;width:100%}
-  .hero-actions .btn{flex:1}
 }
 @media(max-width:600px){
   .bench{grid-template-columns:110px 1fr 44px;gap:10px}

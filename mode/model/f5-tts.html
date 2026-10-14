@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F5-TTS - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html" class="on">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 模型详情（内容由 detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"image":{"label":"图像生成","color":"#b05687","icon":"image"},"video":{"label":"视频生成","color":"#2e8a91","icon":"video"},"audio":{"label":"音频语音","color":"#a1741f","icon":"audio"},"multi":{"label":"多模态","color":"#7d5fc0","icon":"multi"},"llm":{"label":"大语言模型","color":"#3f7d3a","icon":"llm"}},"model":{"id":"f5-tts","name":"F5-TTS","author":"Shanghai Jiao Tong Univ. SWAG","cat":"audio","tags":["语音合成","零样本克隆","流匹配","336M"],"params":"336M","size":"1.35 GB","dl":1180000,"likes":4300,"trend":12.6,"updated":"2025-01-20","license":"CC-BY-NC-4.0（权重）","short":"流匹配非自回归 TTS：几秒参考音频秒级克隆音色，训练效率业界标杆。","desc":"F5-TTS 是上海交通大学 SWAG 实验室开源的零样本语音合成模型，以 DiT + Flow Matching 的非自回归架构实现并行解码：无需显式对齐，利用 ConvNeXt 文本处理与推理时 sway sampling，几秒参考音频即可高保真克隆音色，RTF 低至 0.15。基座在 95 万小时 Emilia 多语数据上训练，中英双语效果自然，是学术界引用最多的开源 TTS 之一（注意：官方权重为 CC-BY-NC 非商用许可）。","highlights":["非自回归流匹配架构，并行解码、生成飞快（RTF ≈ 0.15）","3~10 秒参考音频零样本克隆，无需音素对齐","Emilia 95K 小时多语种数据训练，中英自然度优秀","Gradio \/ API \/ ComfyUI 节点全生态，推理代码 MIT 开放"],"bench":[["中文 CER",1.56],["英文 WER",1.97],["音色相似度 SIM",0.66],["推理 RTF",0.15]],"specs":[["模型架构","DiT + Flow Matching（非自回归）"],["参数量","336M"],["采样率","24 kHz"],["音色克隆","零样本（3~10 秒参考音频）"],["训练数据","Emilia 数据集（约 95K 小时）"],["推理精度","FP32 \/ FP16"],["推理框架","PyTorch \/ Gradio \/ ONNX 社区版"],["开源协议","代码 MIT \/ 官方权重 CC-BY-NC-4.0"],["发布日期","2024-10-09"],["最近更新","2025-01-20（v1.1）"]],"devices":[["NVIDIA RTX 4090 24G","Ada","4 GB","FP16","RTF 0.06","★★★★★"],["NVIDIA RTX 3060 12G","Ampere","4 GB","FP16","RTF 0.15","★★★★★"],["Apple M2 16G","MPS","6 GB","FP16","RTF 0.45","★★★☆☆"],["CPU（i5-12400）","AVX2","4 GB","FP32","RTF 1.6","★★☆☆☆"]],"files":[{"name":"model_1250000.safetensors（F5-TTS Base）","size":"1.35 GB"},{"name":"vocab.txt","size":"0.4 MB"},{"name":"F5-TTS-v1-CNZH（社区中文增强）","size":"1.35 GB"}],"downloads":[{"pwd":"","url":"https:\/\/huggingface.co\/SWivid\/F5-TTS","type":"official","label":"Hugging Face"},{"pwd":"","url":"https:\/\/pan.quark.cn\/s\/cbd006eba53a","type":"netdisk","label":"夸克网盘（F5-TTS 一键整合包 · 社区）"}]}}</script><script src="mode/assets/js/detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

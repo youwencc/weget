@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HunyuanVideo-1.5 - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html" class="on">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 模型详情（内容由 detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"image":{"label":"图像生成","color":"#b05687","icon":"image"},"video":{"label":"视频生成","color":"#2e8a91","icon":"video"},"audio":{"label":"音频语音","color":"#a1741f","icon":"audio"},"multi":{"label":"多模态","color":"#7d5fc0","icon":"multi"},"llm":{"label":"大语言模型","color":"#3f7d3a","icon":"llm"}},"model":{"id":"hunyuanvideo-1-5","name":"HunyuanVideo-1.5","author":"Tencent Hunyuan","cat":"video","tags":["文生视频","图生视频","8.3B","轻量"],"params":"8.3B","size":"17 GB","dl":260000,"likes":3200,"trend":42.3,"updated":"2025-11-21","license":"Tencent Hunyuan 社区","short":"8.3B 开源视频小钢炮：14GB 显存起步，文\/图生视频双任务，质量对标更大模型。","desc":"HunyuanVideo-1.5 是腾讯混元开源的轻量级视频生成模型，参数量从上代 13B 降至 8.3B，却以更小体积实现开源 SOTA 级画质。支持文生视频与图生视频双任务、480P\/720P 分辨率与 5~10 秒时长，配合多阶段蒸馏与 Step\/Distill LoRA 加速，480P 推理最低 14GB 显存即可启动，消费级显卡与 ComfyUI 生态友好。","highlights":["8.3B DiT：体积更小、质量开源 SOTA","文生视频 + 图生视频双任务统一架构","480P 起步 14GB 显存，RTX 4090 单卡可玩","SDVAE 轻量解码器 + Step \/ Distill LoRA 双加速"],"bench":[["VBench 总分",87.3],["画面质感",84.5],["运动质量",82.7],["指令遵循",86.1]],"specs":[["模型架构","DiT + SDVAE 轻量解码器"],["参数量","8.3B"],["任务","T2V + I2V"],["输出分辨率","480P \/ 720P"],["输出时长","5 ~ 10 秒"],["帧率","24 fps"],["显存需求","480P 最低 14GB（含 offload）"],["开源协议","Tencent Hunyuan Community License"],["发布日期","2025-11-21"],["前代模型","HunyuanVideo（13B）"]],"devices":[["NVIDIA H100 80G","SXM5","80 GB","BF16","约 1.2 min \/ 5s","★★★★★"],["NVIDIA RTX 4090 24G","Ada","24 GB","BF16 + offload","约 4.5 min \/ 5s","★★★★☆"],["NVIDIA RTX 4070 12G","Ada","12 GB","FP8 + offload","约 9 min \/ 5s","★★☆☆☆"],["Apple M3 Max 48G","MPS","48 GB","FP8","约 15 min \/ 5s","★★☆☆☆"]],"files":[{"name":"hunyuanvideo_1_5_t2v_bf16.safetensors","size":"17 GB"},{"name":"hunyuanvideo_1_5_fp8.safetensors","size":"8.6 GB"},{"name":"sdvae.safetensors","size":"1.2 GB"}],"downloads":[{"pwd":"","url":"https:\/\/huggingface.co\/tencent\/HunyuanVideo-1.5","type":"official","label":"Hugging Face"},{"pwd":"","url":"https:\/\/pan.quark.cn\/s\/ef8c64027412","type":"netdisk","label":"夸克网盘（教程资料 + 模型 · 社区）"}]}}</script><script src="mode/assets/js/detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

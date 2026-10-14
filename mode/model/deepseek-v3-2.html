@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeepSeek-V3.2-Exp - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html" class="on">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 模型详情（内容由 detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"image":{"label":"图像生成","color":"#b05687","icon":"image"},"video":{"label":"视频生成","color":"#2e8a91","icon":"video"},"audio":{"label":"音频语音","color":"#a1741f","icon":"audio"},"multi":{"label":"多模态","color":"#7d5fc0","icon":"multi"},"llm":{"label":"大语言模型","color":"#3f7d3a","icon":"llm"}},"model":{"id":"deepseek-v3-2","name":"DeepSeek-V3.2-Exp","author":"DeepSeek AI","cat":"llm","tags":["MoE","稀疏注意力","DSA","128K"],"params":"685B（激活 37B）","size":"685 GB","dl":1200000,"likes":3900,"trend":34.8,"updated":"2025-09-29","license":"DeepSeek License","short":"引入 DSA 稀疏注意力的实验版本，长文本计算量最高降低 75%，API 价格减半。","desc":"DeepSeek-V3.2-Exp 是基于 V3.1-Terminus 的过渡实验版本，首次引入 DeepSeek Sparse Attention（DSA）稀疏注意力机制，通过闪电采选器（lightning indexer）对 token 级相关性打分并只对 Top-k token 做精细注意力，在长文本场景下计算量较 V3.1-Terminus 降低 50%~75%，性能基本持平。官方同步将 API 价格下调至此前的一半以上，被官方称为迈向下一代架构的中间检验版本。","highlights":["DSA 稀疏注意力：长文本预填充\/解码计算量最高降低 75%","性能与 V3.1-Terminus 基本持平，官方 API 价格直接减半","总参数 685B、每 token 激活 37B，延续 MLA + DeepSeekMoE 架构","提供 BF16 与 FP8 两套官方权重，vLLM \/ SGLang 首日适配"],"bench":[["MMLU-Pro",85],["GPQA-Diamond",79.9],["AIME 2025",89.3],["SWE-bench Verified",67.8]],"specs":[["模型架构","MoE Transformer + MLA + DSA"],["总参数量","685B"],["激活参数量","37B \/ token"],["上下文长度","128K tokens"],["注意力机制","DeepSeek Sparse Attention（Top-k 稀疏）"],["训练精度","FP8 混合精度"],["推理精度","BF16 \/ FP8"],["词表大小","129,280"],["开源协议","DeepSeek Model License（允许商用）"],["发布日期","2025-09-29"]],"devices":[["NVIDIA H200 141G ×8","Hopper","1128 GB","FP8","约 110 tok\/s","★★★★★"],["NVIDIA H100 80G ×8","SXM5","640 GB","FP8","约 85 tok\/s","★★★★☆"],["NVIDIA RTX 4090 ×8","Ada","192 GB","GGUF Q4","约 12 tok\/s","★★★☆☆"],["Apple M3 Ultra 512G","MPS","512 GB","GGUF Q4","约 8 tok\/s","★★☆☆☆"]],"files":[{"name":"DeepSeek-V3.2-Exp-BF16（61 分片）","size":"685 GB"},{"name":"DeepSeek-V3.2-Exp-FP8（31 分片）","size":"344 GB"},{"name":"DeepSeek-V3.2-Exp-GGUF-Q4_K_M","size":"约 404 GB"}],"downloads":[{"pwd":"","url":"https:\/\/huggingface.co\/deepseek-ai\/DeepSeek-V3.2-Exp","type":"official","label":"Hugging Face"}]}}</script><script src="mode/assets/js/detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

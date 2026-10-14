@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fun-CosyVoice3-0.5B - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html" class="on">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 模型详情（内容由 detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"image":{"label":"图像生成","color":"#b05687","icon":"image"},"video":{"label":"视频生成","color":"#2e8a91","icon":"video"},"audio":{"label":"音频语音","color":"#a1741f","icon":"audio"},"multi":{"label":"多模态","color":"#7d5fc0","icon":"multi"},"llm":{"label":"大语言模型","color":"#3f7d3a","icon":"llm"}},"model":{"id":"cosyvoice3","name":"Fun-CosyVoice3-0.5B","author":"Alibaba FunAudioLLM","cat":"audio","tags":["语音合成","流式","多语言","情感向量"],"params":"0.5B","size":"1.4 GB","dl":310000,"likes":2400,"trend":35.2,"updated":"2025-12-10","license":"Apache-2.0","short":"CosyVoice 3 代：9 语种流式 TTS，情感向量精细控制，首包延迟低至 150ms。","desc":"Fun-CosyVoice3-0.5B 是阿里 FunAudioLLM 团队 CosyVoice 系列的第三代模型（论文 CosyVoice 3），采用「LLM 语音 token → 流匹配 DiT → HiFi-GAN 声码」三阶段架构，支持 9 种语言的流式合成与零样本克隆，新增情感向量与方言口音细粒度控制。两阶段流水线可分别由 vLLM-Omni 等框架加速，首包延迟约 150ms，适合实时对话与直播场景。","highlights":["9 种语言流式合成，双向流式首包约 150ms","情感向量控制：情感强度、语速、方言可调","3~10 秒参考音频零样本克隆音色","Apache-2.0 协议，vLLM-Omni 首日支持"],"bench":[["音色相似度 SIM",0.87],["自然度 MOS",4.38],["首包延迟（ms）",150],["字错率 CER",1.82]],"specs":[["模型架构","LLM + Flow Matching DiT + HiFi-GAN"],["参数量","0.5B"],["采样率","24 kHz"],["支持语言","9 种（中\/英\/日\/韩\/粤等）"],["流式支持","双向流式，首包约 150 ms"],["情感控制","情感向量 + 指令"],["推理精度","FP16 \/ BF16"],["开源协议","Apache-2.0（允许商用）"],["发布日期","2025-12-10"],["前代模型","CosyVoice2-0.5B"]],"devices":[["NVIDIA RTX 4090 24G","Ada","4 GB","FP16","实时率 0.05","★★★★★"],["NVIDIA RTX 3060 12G","Ampere","4 GB","FP16","实时率 0.16","★★★★★"],["Apple M2 16G","MPS","6 GB","FP16","实时率 0.40","★★★☆☆"],["CPU（i9-13900）","AVX2","4 GB","INT8","实时率 1.05","★★☆☆☆"]],"files":[{"name":"Fun-CosyVoice3-0.5B.safetensors","size":"1.4 GB"},{"name":"speech_tokenizer_v3.onnx","size":"180 MB"},{"name":"cosyvoice3_hift_gan（声码器）","size":"160 MB"}],"downloads":[{"pwd":"","url":"https:\/\/huggingface.co\/FunAudioLLM\/Fun-CosyVoice3-0.5B-2512","type":"official","label":"Hugging Face"},{"pwd":"","url":"https:\/\/pan.quark.cn\/s\/f0065453d7bc","type":"netdisk","label":"夸克网盘（CosyVoice 3.0 一键整合包 · 社区）"},{"pwd":"6scm","url":"https:\/\/pan.baidu.com\/s\/10myT5FiiOKcNPxoDTmdsZg?pwd=6scm","type":"netdisk","label":"百度网盘（CosyVoice 3.0 一键整合包 · 社区）"}]}}</script><script src="mode/assets/js/detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>
