@@ -1,20 +1,23 @@
 name: Sync site from hosting
 
-# weget.site 静态页自动同步（GitHub 仓库只保存静态资源，PHP 永不入库）
+# Weget模型库 静态页 GitHub 同步（使用说明见 docs/GITHUB_SYNC.md）
 #
-# 流程：定时通过 FTP 从虚拟主机拉取 dist/（后台「生成静态页」的产物）→
-#       静态白名单过滤 → 三道安全阀 → 有变化才提交到仓库根 →
-#       GitHub Pages 以 GitHub Actions 模式发布（自定义域名见 CNAME）。
+# 本文件已放在 .github/workflows/ 下，仓库推送后配置 4 个 Secrets 即可用：
+#   FTP_HOST / FTP_USER / FTP_PASS / FTP_DIR（指向虚拟主机上的 dist/ 目录）
 #
-# 使用前提（仓库 Settings）：
-#   1. Secrets：FTP_HOST / FTP_USER / FTP_PASS / FTP_DIR（指向主机 dist/ 目录）
-#   2. Actions → General → Workflow permissions → Read and write permissions
-#   3. Pages → Source = GitHub Actions
+# 流程：定时通过 FTP 增量拉取主机 dist/（镜像跨运行缓存，正常只下载有变化的文件）→
+#       静态白名单过滤 → 三道安全阀 → 同步到仓库 dist/ 子目录 → GitHub Pages 只发布 dist/。
+#       PHP 源码（含数据库配置）永远不会出现在 Pages 上，仓库公开也安全。
 
 on:
   schedule:
-    - cron: "9 * * * *"    # 每小时第 9 分（UTC）。三站错峰:weget 9 分 / soft 29 分 / bizhi 49 分,任意时刻仅一站拉取主机 FTP
-  workflow_dispatch: {}       # 允许在 Actions 页手动触发
+    - cron: "9 * * * *"   # 【可改】UTC 时间，每小时第 9、39 分（北京时间相同分钟）
+  workflow_dispatch:          # 允许在 Actions 页手动触发
+    inputs:
+      full_refresh:
+        description: '忽略缓存，全量重下、重建镜像（怀疑镜像损坏/主机换目录时勾选）'
+        type: boolean
+        default: false
 
 concurrency:
   group: ftp-sync
@@ -29,21 +32,50 @@ env:
   # ★ 铁律：FTP 镜像必须放在 runner 临时目录，绝不能放在仓库内部
   #   （放仓库内部会被 rsync --delete 当作"仓库多余内容"删掉）
   MIRROR: /tmp/ftpmirror
+  # 镜像缓存 key 前缀：与 run_id 组成每轮唯一 key；怀疑镜像污染时把 v1 升到 v2 可强制全量重建
+  CACHE_PREFIX: ftp-mirror-v1
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 30          # 防卡死：FTP 挂起时不至于空耗到默认 6 小时上限
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}   # 供 deploy 判断是否需要重新发布
     steps:
       - name: Checkout
         uses: actions/checkout@v5   # v4 会报 Node 20 弃用警告
 
+      # 镜像指纹：把 FTP_DIR（主机路径）哈希进缓存 key。换主机/换目录后 key 随之变化，
+      # 自动全量重建镜像，避免把旧站点的文件和新站点混在一起
+      - name: Mirror fingerprint from FTP_DIR
+        id: fp
+        run: echo "key=$(printf '%s' "$FTP_DIR" | sha1sum | cut -c1-12)" >> "$GITHUB_OUTPUT"
+
+      # ★ 增量下载的关键：恢复上一轮留下的镜像。必须用 restore / save 拆开的两步——
+      #   普通 actions/cache 同一个 key 只在首次写入时保存，之后每轮都命中旧条目、
+      #   永远不再更新，增量就失效了；拆开后 key 带 run_id，每轮存新条目、恢复最近一条
+      - name: Restore mirror cache
+        if: ${{ inputs.full_refresh != true }}
+        uses: actions/cache/restore@v4
+        with:
+          path: /tmp/ftpmirror
+          key: ${{ env.CACHE_PREFIX }}-${{ steps.fp.outputs.key }}-${{ github.run_id }}
+          restore-keys: |
+            ${{ env.CACHE_PREFIX }}-${{ steps.fp.outputs.key }}-
+
       - name: Pull site from hosting (FTP mirror)
+        id: pull
         env:
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASS: ${{ secrets.FTP_PASS }}
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq lftp   # ubuntu-latest 不预装 lftp
-          rm -rf "$MIRROR" && mkdir -p "$MIRROR"
+          mkdir -p "$MIRROR"   # 只建不清：保留上一轮镜像，lftp 才能做增量比对
+          if [ -n "$(ls -A "$MIRROR" 2>/dev/null)" ]; then
+            echo "已恢复镜像：本次为增量拉取，只下载主机上有变化的文件"
+          else
+            echo "无镜像（首次运行 / 缓存被逐出 / 手动勾选了 full_refresh）：本次全量拉取建立镜像"
+          fi
           set -o pipefail
           lftp -u "$FTP_USER","$FTP_PASS" "$FTP_HOST" <<EOF | tee /tmp/ftp.log
           set net:max-retries 2
@@ -52,10 +84,13 @@ jobs:
           # 限速避免触发主机防护；串行避免触发主机 FTP 连接数限制（两者都是真实踩过的坑）
           set net:limit-rate 2097152
           # 不用 --delete、不用 --parallel：防主机目录列表错乱导致误删文件
+          # 增量原理：mirror 自动比对"大小 + 修改时间"，一致的文件直接跳过，只传新/改动的文件
           mirror --no-perms --verbose=1 "$FTP_DIR" "$MIRROR"
           bye
           EOF
-          echo "下载完成，镜像文件数: $(find "$MIRROR" -type f | wc -l)"
+          dl=$(grep -ac '^Transferring' /tmp/ftp.log 2>/dev/null || true); dl=${dl:-0}
+          echo "本次下载了 $dl 个有变化的文件；镜像总文件数: $(find "$MIRROR" -type f | wc -l)"
+          echo "downloaded=$dl" >> "$GITHUB_OUTPUT"
 
       # 失败时把诊断信息（不含密码）打印到运行页顶部 Summary
       - name: Diagnose FTP failure
@@ -74,7 +109,7 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
-      # 安全阀 1：拉取为空 = FTP 路径/账号错，绝不能继续（否则会把仓库清空推上去）
+      # 安全阀 1：拉取为空 = FTP 路径/账号错，绝不能继续（否则会把仓库 dist/ 清空推上去）
       - name: Verify mirror is not empty
         run: |
           if [ -z "$(ls -A "$MIRROR")" ]; then
@@ -83,16 +118,13 @@ jobs:
           fi
           echo "拉取文件数: $(find "$MIRROR" -type f | wc -l)"
 
-      # 白名单：只放行静态扩展名；php/配置/备份一律挡住——即使 FTP_DIR 配错成站点
-      # 根目录，PHP 文件也进不了仓库。仓库公开 = 全世界可见，宁可少同步。
-      - name: Sync into repo (static whitelist only)
+      # 白名单只放行静态扩展名（即使 FTP_DIR 配错成站点根目录，PHP 也不会进仓库）
+      - name: Sync into dist/ (static whitelist only)
         run: |
+          mkdir -p dist
           rc=0
           for i in 1 2 3; do
             if rsync -a --delete \
-              --exclude='admin' \
-              --exclude='.git/' --exclude='.github/' \
-              --exclude='CNAME' --exclude='*.md' \
               --include='*/' \
               --include='*.html' --include='*.htm' --include='*.shtml' \
               --include='*.css' --include='*.js' --include='*.mjs' --include='*.map' \
@@ -103,39 +135,47 @@ jobs:
               --include='*.mp4' --include='*.webm' --include='*.mp3' --include='*.ogg' --include='*.wav' --include='*.m4a' \
               --include='*.pdf' --include='*.csv' \
               --exclude='*' \
-              "$MIRROR/" ./
+              "$MIRROR/" dist/
             then rc=0; break; fi
             rc=$?
             if [ "$rc" -ne 24 ]; then break; fi   # 24=个别文件消失，重试兜底
             echo "第 $i 次 rsync 出现文件 vanished（code 24），重试..."
           done
           if [ "$rc" -ne 0 ] && [ "$rc" -ne 24 ]; then exit "$rc"; fi
-          # 安全阀 2：仓库必须存在站点首页，否则视为远程异常
-          test -f index.html || { echo "::error::同步后仓库中没有 index.html，已中止提交"; exit 1; }
-          # 安全阀 3：模型详情页数量 镜像=仓库，防止不完整内容被提交
+          # 安全阀 2：站点首页必须存在，否则视为远程异常（多半是 FTP_DIR 配成了站点根目录）
+          test -f dist/index.html || { echo "::error::同步后 dist/ 中没有 index.html，已中止提交（FTP_DIR 应指向主机 dist/ 目录）"; exit 1; }
+          # 安全阀 3：模型详情页数量 镜像=dist/，防止不完整内容被提交
           a=$(find "$MIRROR/model" -name '*.html' | wc -l)
-          b=$(find model -name '*.html' | wc -l)
-          [ "$a" = "$b" ] || { echo "::error::模型页数量不一致（镜像 $a vs 仓库 $b）"; exit 1; }
-          # 铁律复查：同步后仓库里绝不允许出现 PHP 文件
-          if find . -path ./.git -prune -o -name '*.php' -print -quit | grep -q .; then
-            echo "::error::同步结果中出现 .php 文件，已中止提交"; exit 1
-          fi
+          b=$(find dist/model -name '*.html' | wc -l)
+          [ "$a" = "$b" ] || { echo "::error::模型页数量不一致（镜像 $a vs dist $b）"; exit 1; }
 
       - name: Commit & push if changed
+        id: commit
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
+          git add -A -f dist/   # -f：dist/ 在 .gitignore 中（本地产物不入库，仅 Actions 同步写入）
           if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "网站内容与仓库一致，本次无需更新"
           else
-            git commit -m "sync: 自动同步虚拟主机网站内容 $(TZ=Asia/Shanghai date +'%F %T')"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git commit -m "sync: 自动同步 Weget模型库 静态页 $(TZ=Asia/Shanghai date +'%F %T')"
             git push
           fi
 
-  # Pages 发布：GitHub Actions 模式，直接发布仓库根的静态内容
+      # 只有本轮真的下载了文件才写新缓存条目：无变化的轮次不占用缓存额度（仓库上限 10GB，LRU 自动清理）
+      - name: Save mirror cache
+        if: success() && steps.pull.outputs.downloaded != '0'
+        uses: actions/cache/save@v4
+        with:
+          path: /tmp/ftpmirror
+          key: ${{ env.CACHE_PREFIX }}-${{ steps.fp.outputs.key }}-${{ github.run_id }}
+
+  # Pages 发布：只上传 dist/ 的内容（相对路径 + <base> 设计，子路径部署无需任何改写）
   deploy:
     needs: sync
+    if: needs.sync.outputs.changed == 'true'   # 无提交时跳过，避免每轮重复部署一遍相同的 Pages
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -146,10 +186,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-      - name: Upload site for Pages
+      - name: Upload dist/ for Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
