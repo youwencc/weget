@@ -1,0 +1,65 @@
+/* ============================================================
+   site-software.css — 软件详情页专属样式（仅 software.php 引用）
+   页头横幅与面包屑 / 页面动作 / 正文差异 / 其他工具推荐。
+   详情内容排版的基础值（.detail-intro / .detail-features 等）在 site.css。
+   ============================================================ */
+
+/* ---------- 页头横幅 ---------- */
+.page-header { padding:41px 0 50px; border-bottom:1px solid var(--line); }
+.breadcrumb { display:flex; align-items:center; gap:8px; color:#989d8e; font-size:11px; margin-bottom:15px; }
+.breadcrumb a:hover { color:var(--green-dark); }
+.breadcrumb .icon { width:10px; height:10px; }
+.page-title { font-size:44px; letter-spacing:-1px; line-height:1.3; display:flex; align-items:center; gap:14px; }
+.page-title .app-icon { width:52px; height:52px; }
+.page-category { font-size:12px; color:var(--green); font-weight:500; letter-spacing:1.5px; margin-top:8px; }
+.page-actions { display:flex; align-items:center; gap:20px; margin-top:24px; }
+.page-actions .button { font-size:12px; padding:10px 18px; gap:12px; min-height:42px; }
+.page-actions .text-link { font-size:11px; gap:6px; padding-top:4px; }
+.page-body { padding:47px 0 65px; }
+
+/* ---------- 正文差异（h2 版标题；基础尺寸取自 site.css 的详情页版本） ---------- */
+.detail-heading h2 { font-size:32px; color:var(--ink); margin:5px 0 0; }
+
+/* ---------- 其他工具推荐 ---------- */
+.other-tools { border-top:1px solid var(--line); margin-top:50px; padding-top:25px; }
+.other-tools h3 { font-size:20px; margin-bottom:10px; }
+.other-tools p { font-size:13px; color:var(--muted); margin-bottom:18px; }
+.other-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px 20px; }
+.other-card { padding:18px; border:1px solid var(--line); border-radius:6px; background:#fff; transition:border-color .2s; }
+.other-card:hover { border-color:#a9b79c; }
+.other-card h4 { display:flex; align-items:center; gap:12px; font-size:16px; }
+.other-card .app-icon { width:28px; height:28px; }
+.other-card p { font-size:11px; color:#7f8871; margin:8px 0 0; }
+.other-card a { display:block; }
+.other-card .text-link { font-size:11px; gap:4px; margin-top:11px; }
+
+/* ---------- 响应式 ---------- */
+@media (min-width:1600px) { .page-header { padding-block:57px; } .page-body { padding-block:57px; } }
+@media (max-width:1100px) { .detail-heading { gap:20px; } .detail-heading h2 { font-size:28px; } .detail-intro { font-size:19px; } .detail-features { gap:6px; } .detail-description { font-size:13px; max-width:540px; } .other-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .download-links { gap:14px; } }
+@media (max-width:900px) { .page-title { font-size:38px; gap:12px; } .page-title .app-icon { width:44px; height:44px; } .page-category { font-size:11px; } .page-actions { gap:15px; } .page-actions .button { padding:10px 15px; font-size:11px; gap:10px; } .detail-heading { flex-wrap:wrap; gap:15px; } .detail-heading .app-icon { width:48px; height:48px; } .detail-heading h2 { font-size:26px; } .detail-intro { font-size:19px; } .detail-description { font-size:13px; max-width:100%; } .detail-features { gap:6px; } .detail-screenshot { margin-bottom:18px; } .detail-screenshot figcaption { font-size:9px; } .download-links { gap:14px; } .other-tools { margin-top:40px; padding-top:20px; } .other-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px 15px; } .other-card h4 { font-size:15px; } .other-card .app-icon { width:24px; height:24px; } .other-card p { font-size:10px; } .other-card .text-link { font-size:10px; } }
+@media (max-width:640px) {
+  .page-title { font-size:32px; gap:10px; }
+  .page-title .app-icon { width:40px; height:40px; }
+  .page-category { font-size:10px; }
+  .page-actions { flex-wrap:wrap; gap:10px; }
+  .page-actions .button { padding:9px 14px; font-size:11px; gap:8px; }
+  .page-body { padding:34px 0 44px; }
+  .detail-heading { gap:12px; }
+  .detail-heading .app-icon { width:44px; height:44px; }
+  .detail-heading h2 { font-size:24px; }
+  .detail-intro { font-size:19px; }
+  .detail-description { font-size:12px; }
+  .detail-features { gap:6px; }
+  .detail-features li { font-size:12px; }
+  .detail-screenshot figcaption { font-size:8px; }
+  .download-links { gap:12px; }
+  .download-links .button { padding:9px 14px; font-size:11px; gap:8px; }
+  .zoom-trigger { padding:12px; }
+  .other-tools { margin-top:35px; padding-top:20px; }
+  .other-grid { grid-template-columns:1fr; gap:15px 12px; }
+  .other-card h4 { font-size:14px; }
+  .other-card .app-icon { width:22px; height:22px; }
+  .other-card p { font-size:10px; }
+  .other-card .text-link { font-size:10px; }
+}
+@media (max-width:360px) { .page-actions { gap:8px; } .page-actions .button { padding:8px 12px; font-size:10px; gap:6px; } .other-grid { gap:12px 10px; } }

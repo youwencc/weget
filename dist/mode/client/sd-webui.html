@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stable Diffusion WebUI - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html" class="on">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 客户端详情（内容由 client-detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"chat":{"label":"对话助手","icon":"chat"},"image":{"label":"图像生成","icon":"image"},"video":{"label":"视频生成","icon":"video"},"audio":{"label":"音频语音","icon":"audio"},"code":{"label":"编程开发","icon":"code"},"model":{"label":"模型社区","icon":"model"},"office":{"label":"效率办公","icon":"office"},"client-sd":{"label":"SD 生图客户端","icon":"image"},"client-chat":{"label":"AI 对话客户端","icon":"chat"},"client-run":{"label":"本地模型运行","icon":"model"}},"client":{"id":"sd-webui","name":"Stable Diffusion WebUI","author":"AUTOMATIC1111","cat":"client-sd","platform":"Win \/ Linux（macOS 需参数调整）","version":"v1.10.1","size":"约 800 MB（含依赖）","dl":3800000,"likes":152000,"updated":"2025-07-10","license":"AGPL-3.0","short":"最经典的 SD WebUI（A1111 版），Gradio 界面 + 海量扩展生态。","desc":"Stable Diffusion WebUI（AUTOMATIC1111 版，简称 A1111）是最早、生态最庞大的 Stable Diffusion 图形界面：文生图、图生图、重绘、分辨率放大、脚本批量生成一应俱全，配合社区数千个扩展（ControlNet、LoRA 管理、中文汉化等）几乎能覆盖所有生图场景。虽然更新放缓，但社区教程最全，仍是新手入门的经典选择。","tags":["Gradio 界面","插件生态","教程最全","开源"],"highlights":["文生图 \/ 图生图 \/ 局部重绘 \/ 高清修复全流程覆盖","海量扩展生态：ControlNet、中文汉化、提示词助手等","内置提示词语法（权重、嵌套、Alt全随机）","社区教程与模型资源最丰富，新手友好"],"files":[{"name":"sd.webui.zip（官方整合包）","size":"约 800 MB"},{"name":"checkpoints \/ vae 等模型文件","size":"按需下载"}],"downloads":[{"type":"netdisk","label":"百度网盘（秋葉aaaki 整合包）","url":"https:\/\/pan.baidu.com\/s\/1jjYI7ZYw-LQ5lSdjujT9hA?pwd=dkmu","pwd":"dkmu"}]}}</script><script src="mode/assets/js/client-detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

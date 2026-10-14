@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimi-K2-Thinking - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html" class="on">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 模型详情（内容由 detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"image":{"label":"图像生成","color":"#b05687","icon":"image"},"video":{"label":"视频生成","color":"#2e8a91","icon":"video"},"audio":{"label":"音频语音","color":"#a1741f","icon":"audio"},"multi":{"label":"多模态","color":"#7d5fc0","icon":"multi"},"llm":{"label":"大语言模型","color":"#3f7d3a","icon":"llm"}},"model":{"id":"kimi-k2-thinking","name":"Kimi-K2-Thinking","author":"Moonshot AI","cat":"llm","tags":["MoE","1T","智能体","工具调用"],"params":"1T（激活 32B）","size":"1.04 TB","dl":520000,"likes":6800,"trend":38.60000000000000142108547152020037174224853515625,"updated":"2025-11-06","license":"Modified MIT","short":"万亿参数开源智能体模型：原生「推理 + 工具调用 + 搜索」三位一体，HLE 开源第一。","desc":"Kimi-K2-Thinking 是月之暗面开源的万亿参数级推理智能体模型：1T 总参、每 token 激活 32B（384 专家选 8），FP8 量化后约 1TB 权重。作为 K2 的思考版，它将推理、工具调用与多步搜索原生融合，可连续执行 200~300 次工具调用不掉线，在 Humanity\u0027s Last Exam（带工具）与 BrowseComp 搜索基准上刷新开源纪录，发布即登顶多个开源模型榜单。","highlights":["1T 总参 \/ 32B 激活，384 专家 MoE 架构","推理 + 工具调用 + 搜索原生融合，支持 200+ 步连续 Agent 任务","HLE（带工具）44.9%、BrowseComp 60.2%，开源 SOTA","Modified MIT 协议，权重免费商用"],"bench":[["HLE（带工具）",44.89999999999999857891452847979962825775146484375],["BrowseComp",60.2000000000000028421709430404007434844970703125],["SWE-bench Verified",71.2999999999999971578290569595992565155029296875],["AIME 2025",94.5]],"specs":[["模型架构","MoE Transformer（384 选 8 专家）+ MLA"],["总参数量","1T"],["激活参数量","32B \/ token"],["上下文长度","256K tokens"],["权重量化","FP8（官方）"],["Agent 能力","200~300 步连续工具调用"],["推理框架","vLLM \/ SGLang \/ KTransformers"],["开源协议","Modified MIT（允许商用）"],["发布日期","2025-11-06"],["前代模型","Kimi-K2-Instruct（2025-07）"]],"devices":[["NVIDIA H200 141G ×8","SXM5","1128 GB","FP8","约 60 tok\/s","★★★★★"],["NVIDIA H100 80G ×8 + CPU 分摊","SXM5","640 GB + 内存","KTransformers 混合","约 15 tok\/s","★★★☆☆"],["Apple M3 Ultra 512G","MPS","512 GB","GGUF Q3","约 4 tok\/s","★★☆☆☆"]],"files":[{"name":"Kimi-K2-Thinking-FP8.safetensors","size":"1.04 TB"},{"name":"Kimi-K2-Thinking-GGUF-Q4_K_M","size":"约 594 GB"},{"name":"tokenizer \/ 配置文件","size":"约 20 MB"}],"downloads":[{"type":"official","label":"Hugging Face","url":"https:\/\/huggingface.co\/moonshotai\/Kimi-K2-Thinking","pwd":""}]}}</script><script src="mode/assets/js/detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

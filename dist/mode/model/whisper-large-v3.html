@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whisper-large-v3 - 全球AI模型下载库</title>
+<base href="../../"><link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="mode/assets/css/detail.css">
+<script>window.APP = {"links":{"home":"index.html","software":"software/%s.html","mode_home":"mode/index.html","nav":"mode/ai-nav.html","client":"mode/ai-client.html","model":"mode/model/%s.html","client_detail":"mode/client/%s.html"}};</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="mode/index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+        </svg>
+      </span>
+      全球AI模型下载库    </a>
+    <nav class="nav-links">
+            <a href="mode/index.html" class="on">模型库</a>
+            <a href="mode/ai-nav.html">AI 导航</a>
+            <a href="mode/ai-client.html">AI 客户端</a>
+            <a href="#">数据集</a>
+            <a href="#">文档</a>
+          </nav>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="text" id="siteSearch" placeholder="搜索模型、作者或标签…">
+    </div>
+    <button class="btn-icon" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ============ 模型详情（内容由 detail.js 渲染） ============ -->
+<section id="detailView"></section>
+
+<script type="application/json" id="page-data">{"cats":{"image":{"label":"图像生成","color":"#b05687","icon":"image"},"video":{"label":"视频生成","color":"#2e8a91","icon":"video"},"audio":{"label":"音频语音","color":"#a1741f","icon":"audio"},"multi":{"label":"多模态","color":"#7d5fc0","icon":"multi"},"llm":{"label":"大语言模型","color":"#3f7d3a","icon":"llm"}},"model":{"id":"whisper-large-v3","name":"Whisper-large-v3","author":"OpenAI","cat":"audio","tags":["语音识别","多语言","ASR"],"params":"1.55B","size":"3.1 GB","dl":3240000,"likes":35200,"trend":6.79999999999999982236431605997495353221893310546875,"updated":"2025-02-18","license":"Apache-2.0","short":"支持 99 种语言的高精度语音识别与翻译模型，鲁棒性极强。","desc":"Whisper-large-v3 是在 500 万小时弱监督音频数据上训练的编码器-解码器 Transformer。支持 99 种语言的转录与翻译，在嘈杂环境、口音与专业术语场景下表现稳健，并内置语音活动检测与时间戳对齐能力。","highlights":["覆盖 99 种语言，中英文识别准确率业内领先","内置 VAD 与词级时间戳，适合长音频批处理","支持语音翻译（X → 英文）与语言识别任务","提供 turbo \/ medium \/ small 等蒸馏版本"],"bench":[["中文 CER（AISHELL）",4.20000000000000017763568394002504646778106689453125],["英文 WER（LibriSpeech）",2],["多语言平均 WER",7.5999999999999996447286321199499070644378662109375],["长音频鲁棒性",94.2999999999999971578290569595992565155029296875]],"specs":[["模型架构","Encoder-Decoder Transformer"],["参数量","1.55B"],["音频采样率","16 kHz"],["输入长度","30 秒 \/ 分块（可滑窗拼接）"],["支持语言","99 种"],["推理精度","FP16 \/ INT8"],["推理框架","PyTorch \/ faster-whisper \/ whisper.cpp"],["开源协议","Apache-2.0（允许商用）"],["发布日期","2023-11-06"],["最近更新","2025-02-18"]],"devices":[["NVIDIA RTX 4090 24G","Ada","8 GB","FP16","约 30× 实时","★★★★★"],["NVIDIA RTX 3060 12G","Ampere","6 GB","FP16","约 12× 实时","★★★★☆"],["Apple M2 Pro 16G","MPS","8 GB","FP16","约 6× 实时","★★★☆☆"],["CPU（i7-12700）","AVX2","4 GB","INT8","约 1.2× 实时","★★☆☆☆"]],"files":[{"name":"whisper-large-v3.pt","size":"3.1 GB"},{"name":"whisper-large-v3-turbo.pt","size":"1.6 GB"},{"name":"ggml-large-v3.bin","size":"3.1 GB"}],"downloads":[{"type":"official","label":"Hugging Face","url":"https:\/\/huggingface.co\/openai\/whisper-large-v3","pwd":""},{"type":"netdisk","label":"夸克网盘（faster-whisper 1.2 整合包 · 社区）","url":"https:\/\/pan.quark.cn\/s\/8083af4f42c2","pwd":""}]}}</script><script src="mode/assets/js/detail.js" defer></script>
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2025 Weget模型库 · 开源模型聚合下载平台 · 仅供学习研究使用</div>
+    <div class="foot-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="api.php">API</a>
+            <a href="#">反馈</a>
+          </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>
