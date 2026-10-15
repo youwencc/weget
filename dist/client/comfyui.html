@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComfyUI - 电脑小百科</title>
+<base href="../"><meta name="description" content="节点式工作流 AI 生图客户端，Stable Diffusion / FLUX 生态事实标准。。ComfyUI 是当前最流行的节点式（Node Graph）AI 图像生成客户端：把加载模型、编码提示词、采样、后处理等步骤抽象为可连线的节点，工作流可以保存为 JSON 一键复用与分享。得益于对 FLU">
+<meta property="og:title" content="ComfyUI - 电脑小百科">
+<meta property="og:description" content="节点式工作流 AI 生图客户端，Stable Diffusion / FLUX 生态事实标准。。ComfyUI 是当前最流行的节点式（Node Graph）AI 图像生成客户端：把加载模型、编码提示词、采样、后处理等步骤抽象为可连线的节点，工作流可以保存为 JSON 一键复用与分享。得益于对 FLU">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.pexels.com/photos/8092461/pexels-photo-8092461.jpeg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23596748'/%3E%3Cpath d='M17 16h13v14H17zm17 0h13v14H34zM17 34h13v14H17zm17 0h13v14H34z' fill='%23f7f7f2'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#f7f7f2">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site-detail.css">
+<script src="assets/js/site.js" defer></script>
+</head>
+<body id="top" data-brand="电脑小百科">
+<a class="skip-link" href="#main">跳转到 ComfyUI 介绍</a>
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="i-brand" viewBox="0 0 32 32"><path d="M3 3h11v11H3zm15 0h11v11H18zM3 18h11v11H3zm15 0h11v11H18z" fill="currentColor"/><path d="m20 26 6-6" stroke="#f7f7f2" stroke-width="2"/><path d="M21 20h5v5" stroke="#f7f7f2" stroke-width="2" fill="none"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-diagonal" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4m-6 6 6-6 6 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 3C8 2 3 7 5 14c2 7 13 7 15-11ZM4 21 15 10"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 14 4-4M9 16l-2 2a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m2 0 2-2a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m10 5 7 7-7 7"/></symbol>
+    <symbol id="os-windows" viewBox="0 0 20 20"><path d="m2 4 7-1v6H2zm8-1 8-1v7h-8zM2 10h7v6l-7-1zm8 0h8v8l-8-1z" fill="currentColor"/></symbol>
+    <symbol id="os-apple" viewBox="0 0 20 20"><path d="M12 4c1.4-.4 2.3-1.5 2.2-3-1.3.1-2.7 1.1-2.7 2.6 0 .2 0 .3.1.5M15.6 10.2c0-2 1.6-2.8 1.7-2.9-1-1.5-2.6-1.6-3.2-1.6-1.4-.2-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.6 0-3 1-3.8 2.3-1.6 2.8-.4 6.9 1.2 9.2.8 1.1 1.7 2.3 2.9 2.2 1.2 0 1.6-.8 3.1-.8s1.9.8 3.2.8c1.3 0 2-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6-.1 0-2.8-1.1-2.8-4.4" fill="currentColor" transform="translate(0 -1) scale(.95)"/></symbol>
+    <symbol id="os-linux" viewBox="0 0 20 20"><path d="M7 3c1-3 5-3 6 0l.6 5c1.2 1.3 2.5 3.6 2.6 5.7l-2.4.8-1.5 2.5H8l-1.7-2.5-2.4-.8C4 11.8 5.5 9.3 6.5 8z" fill="currentColor"/><ellipse cx="10" cy="12" rx="3.4" ry="4" fill="#f7f7f2"/><circle cx="8.5" cy="5" r=".9" fill="#f7f7f2"/><circle cx="11.5" cy="5" r=".9" fill="#f7f7f2"/><path d="m8 7 2 1.2L12 7l-2-1zM3 15l4-1 1 3-5 1zm14 0-4-1-1 3 5 1z" fill="currentColor"/></symbol>
+    <symbol id="app-localsend" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#168e80"/><path d="m12 25 22-12-8 23-4-10z" fill="white"/><path d="m22 26 12-13" stroke="#168e80" stroke-width="1.3"/></symbol>
+    <symbol id="app-obsidian" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#eee9f7"/><path d="m25 6 12 12-7 22-15-5-5-15z" fill="#8059cc"/><path d="m25 6-7 15 12 19 7-22z" fill="#6541af"/><path d="m18 21-3 14 15 5z" fill="#a180e0"/><path d="m25 6-7 15-8-1z" fill="#b898f1"/></symbol>
+    <symbol id="app-snipaste" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#3b9bd6"/><path d="M16 12h18v17H16z" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="M12 18h17v18H12z" fill="#3b9bd6" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="m16 31 9-9" stroke="white" stroke-width="2"/></symbol>
+    <symbol id="app-motrix" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#5b6be5"/><path d="M12 15h9v14l-7-6m7 6 7-6M27 11h9v14m0-5 6 6-6 6-6-6" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="app-imageoptim" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#e3e9dc"/><rect x="9" y="9" width="30" height="29" rx="4" fill="#fff"/><rect x="12" y="12" width="24" height="21" rx="2" fill="#a9d5ee"/><path d="m12 31 9-13 7 8 8-5v12H12z" fill="#75a96a"/><circle cx="30" cy="17" r="3" fill="#ffdc68"/><path d="m24 34 5-4 5 4-5 4z" fill="#df885e"/></symbol>
+    <symbol id="app-vscode" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#e6f0f7"/><path d="m33 6 10 5v26l-10 5-20-18zM8 15l-4 4v10l4 4 25-21v24z" fill="#218acc"/><path d="m33 6 10 5v26l-10 5z" fill="#39a9f2"/></symbol>
+    <symbol id="cat-image" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.6" cy="9" r="1.8"/><path d="M21 15.5l-4.8-4.8L5 21"/></g></symbol>
+    <symbol id="cat-video" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4.5" width="20" height="15" rx="3"/><path d="M10.2 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="cat-audio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4M8 6.5v11M12 3.5v17M16 6.5v11M20 10v4"/></g></symbol>
+    <symbol id="cat-multi" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.2" cy="9.2" r="5.6"/><circle cx="15" cy="15" r="5.6"/></g></symbol>
+    <symbol id="cat-llm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-8 8H7.5L3 22.5V11.5a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M8.5 10.5h7M8.5 14h4"/></g></symbol>
+    <symbol id="cat-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-8 8H7.5L3 22.5V11.5a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/></g></symbol>
+    <symbol id="cat-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></g></symbol>
+    <symbol id="cat-model" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></g></symbol>
+    <symbol id="cat-office" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></g></symbol>
+    <symbol id="cat-all" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="电脑小百科首页">
+      <svg class="brand-symbol" aria-hidden="true"><use href="#i-brand"/></svg>
+      <span class="brand-name">电脑小百科<span class="brand-en">SOFTWARE &amp; AI</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="主导航">
+            <a href="index.html#software">软件集合</a>
+            <a href="models.html">模型库</a>
+            <a href="ai-nav.html">AI 导航</a>
+            <a href="ai-clients.html" aria-current="location">AI 客户端</a>
+            <a href="https://blog.example.com">我的博客</a>
+          </nav>
+    <button class="recommend-link" type="button" data-recommend>推荐一个好工具 <svg class="icon" aria-hidden="true"><use href="#i-diagonal"/></svg></button>
+    <button type="button" class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="main-nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+<a class="back" href="ai-clients.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>返回客户端列表</a><div class="detail-hero"><div class="hero-icon"><svg class="cat-icon" aria-hidden="true"><use href="#cat-image"/></svg></div><div class="hero-main"><h1>ComfyUI <span class="hero-badge">SD 生图客户端</span></h1><div class="hero-sub"><b>Comfy Org / comfyanonymous</b> · 更新于 2025-12-18 · GPL-3.0</div><div class="hero-tags"><span class="tag">节点式工作流</span><span class="tag">桌面版</span><span class="tag">开源</span><span class="tag">工作流分享</span></div></div></div><div class="stat-strip"><div class="stat"><span>累计下载</span><b>5.20M</b></div><div class="stat"><span>最新版本</span><b>v0.3 系列（含桌面版）</b></div><div class="stat"><span>安装包大小</span><b>约 120 MB</b></div><div class="stat"><span>Star / 点赞</span><b>82.0K</b></div><div class="stat"><span>支持平台</span><b>Win / macOS / Linux</b></div></div><div class="tabs"><button class="tab active" data-p="overview">客户端介绍</button><button class="tab" data-p="files">下载安装</button></div><div class="panel" id="panel-overview"><h4>客户端简介</h4><p class="body-text">ComfyUI 是当前最流行的节点式（Node Graph）AI 图像生成客户端：把加载模型、编码提示词、采样、后处理等步骤抽象为可连线的节点，工作流可以保存为 JSON 一键复用与分享。得益于对 FLUX、SD3.5、Wan 等新模型的首日适配与极高的可定制性，它已成为开源 AI 绘图领域的工作流事实标准，并提供官方桌面版（ComfyUI Desktop）降低安装门槛。</p><h4>功能亮点</h4><ul class="highlight-list"><li>节点式工作流：任意组合模型、采样器与后处理步骤</li><li>FLUX / SD3.5 / Wan / Qwen-Image 新模型社区首日适配</li><li>工作流 JSON 可保存分享，ComfyUI Manager 管理节点包</li><li>官方桌面版一键安装，支持显卡直通与便携包</li></ul></div><div class="panel" id="panel-files" hidden><div class="dl-cta"><div class="dl-cta-info"><b>下载 ComfyUI</b><span>最新版本 v0.3 系列（含桌面版） · 安装包 约 120 MB · 已收录 2 个可用下载渠道</span></div><button class="btn btn-primary" type="button" data-dialog-open="#dl-dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>下载客户端</button></div><h4>安装包文件</h4><div class="file-list"><div class="file-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/></svg><span class="file-name">ComfyUI-Desktop-Setup-x64.exe（Windows）</span><span class="file-size">约 120 MB</span></div><div class="file-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/></svg><span class="file-name">ComfyUI-Desktop-arm64.dmg（macOS）</span><span class="file-size">约 150 MB</span></div><div class="file-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/></svg><span class="file-name">comfyui_portable_nv_gpu.7z（Windows 便携版）</span><span class="file-size">约 1.6 GB</span></div></div><p class="body-text" style="margin-top:16px;font-size:12.5px;color:var(--muted-2)">* 请遵循客户端原始开源协议使用，下载即表示同意相关条款。网盘内容为第三方转存，建议校验后再使用。</p></div><dialog class="dl-dialog" id="dl-dialog" aria-label="选择下载渠道"><div class="modal-head"><div class="modal-title"><h3>选择下载渠道</h3><span>ComfyUI · 约 120 MB</span></div><button class="modal-close" type="button" data-close aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div><div class="modal-body"><div class="dl-list"><div class="dl-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 1 0-.9-8.9 6 6 0 0 0-11.5 1.6A3.8 3.8 0 0 0 6 19.4h11.5z"/></svg><span class="dl-name">百度网盘（秋葉aaaki 整合包）</span><span class="dl-badge netdisk">网盘</span><span class="dl-pwd">提取码 <code>z2rw</code><button class="dl-copy" type="button" data-copy="z2rw" data-copy-tip="提取码已复制：z2rw">复制</button></span><a class="dl-open" href="https://pan.baidu.com/s/1n5nIOKwnVRKu7JMNZ4xWEQ?pwd=z2rw" target="_blank" rel="noopener noreferrer nofollow">打开网盘 →</a></div><div class="dl-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 1 0-.9-8.9 6 6 0 0 0-11.5 1.6A3.8 3.8 0 0 0 6 19.4h11.5z"/></svg><span class="dl-name">夸克网盘（社区整合包）</span><span class="dl-badge netdisk">网盘</span><a class="dl-open" href="https://pan.quark.cn/s/64b808baa960" target="_blank" rel="noopener noreferrer nofollow">打开网盘 →</a></div></div><p class="modal-tip">* 网盘链接为社区转存，打开后请配合提取码使用；建议下载后校验文件完整性。</p></div></dialog>  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="电脑小百科首页">
+          <svg class="brand-symbol" aria-hidden="true"><use href="#i-brand"/></svg>
+          <span class="brand-name">电脑小百科</span>
+        </a>
+        <span class="footer-motto">好工具，就够了。</span>
+      </div>
+      <div class="footer-links">
+                <a href="#about">关于小站</a>
+                <a href="#faq">常见问题</a>
+                <button type="button" data-recommend>推荐软件</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 电脑小百科 · 仅供学习研究使用</p>
+      <a class="back-to-top" href="#top">回到顶部 <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+  <dialog class="software-dialog" id="software-dialog" aria-labelledby="detail-dialog-title">
+    <div class="dialog-bar"><span>THE TOOL, IN DETAIL</span><div class="dialog-tools"><button type="button" class="text-link" id="share-software"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg>复制软件链接</button><button type="button" class="close-dialog" data-close aria-label="关闭软件介绍"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div></div>
+    <div class="dialog-body" id="software-dialog-body"></div>
+  </dialog>
+
+  <dialog class="lightbox" id="screenshot-dialog" aria-labelledby="screenshot-title">
+    <div class="dialog-bar"><span id="screenshot-title">软件截图</span><button type="button" class="close-dialog" data-close aria-label="关闭截图"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="lightbox-body"><img class="lightbox-image" id="lightbox-image" alt=""><div class="lightbox-controls"><button type="button" id="previous-shot" aria-label="上一张截图"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg></button><span id="shot-caption"></span><button type="button" id="next-shot" aria-label="下一张截图"><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button></div></div>
+  </dialog>
+
+  <dialog class="recommend-dialog" id="recommend-dialog" aria-labelledby="recommend-title">
+    <div class="dialog-bar"><span>SHARE A GOOD TOOL</span><button type="button" class="close-dialog" data-close aria-label="关闭软件推荐"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="dialog-body"><h2 id="recommend-title">你的工具箱里，藏着什么？</h2><p class="recommend-description">记下一款你喜欢的软件，生成可以复制或保存的推荐内容。好工具，值得被更多人发现。</p>
+      <form class="recommend-form" id="recommend-form">
+        <label class="form-label" for="recommend-name">软件名称 <span>必填</span></label><input class="form-input" id="recommend-name" name="name" required maxlength="80" placeholder="例如：一个让工作更顺手的小工具">
+        <label class="form-label" for="recommend-url">官方网站 <span>必填</span></label><input class="form-input" id="recommend-url" name="url" type="url" required maxlength="500" placeholder="https://" inputmode="url">
+        <label class="form-label" for="recommend-reason">你喜欢它的理由 <span>选填</span></label><textarea class="form-input" id="recommend-reason" name="reason" maxlength="1500" placeholder="它帮你解决了什么问题？"></textarea>
+        <button class="button" type="submit">生成推荐内容 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><p class="form-footnote">纯静态小站，内容仅在本地生成，不会自动发送。</p>
+      </form>
+      <div class="recommend-result" id="recommend-result" hidden><h3>一份好工具推荐，准备好了。</h3><label class="sr-only" for="recommend-output">生成的软件推荐内容</label><textarea class="form-input" id="recommend-output" readonly></textarea><div class="result-actions"><button type="button" class="button" id="copy-recommendation">复制内容 <svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg></button><button type="button" class="button button-secondary" id="save-recommendation">保存为文本 <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg></button></div><button type="button" class="text-link" id="edit-recommendation" style="margin-top:12px">返回修改</button></div>
+      <p class="dialog-status" id="recommend-status" role="status" aria-live="polite"></p>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

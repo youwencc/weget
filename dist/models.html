@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开源 AI 模型，一站下载 - 电脑小百科</title>
+<meta name="description" content="汇聚图像、视频、音频与多模态前沿开源模型，提供参数规格、硬件适配与高速下载">
+<meta property="og:title" content="开源 AI 模型，一站下载 - 电脑小百科">
+<meta property="og:description" content="汇聚图像、视频、音频与多模态前沿开源模型，提供参数规格、硬件适配与高速下载">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.pexels.com/photos/8092461/pexels-photo-8092461.jpeg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23596748'/%3E%3Cpath d='M17 16h13v14H17zm17 0h13v14H34zM17 34h13v14H17zm17 0h13v14H34z' fill='%23f7f7f2'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#f7f7f2">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site-models.css">
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/site-models.js" defer></script>
+</head>
+<body id="top" data-brand="电脑小百科">
+<a class="skip-link" href="#model-grid">跳转到模型列表</a>
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="i-brand" viewBox="0 0 32 32"><path d="M3 3h11v11H3zm15 0h11v11H18zM3 18h11v11H3zm15 0h11v11H18z" fill="currentColor"/><path d="m20 26 6-6" stroke="#f7f7f2" stroke-width="2"/><path d="M21 20h5v5" stroke="#f7f7f2" stroke-width="2" fill="none"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-diagonal" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4m-6 6 6-6 6 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 3C8 2 3 7 5 14c2 7 13 7 15-11ZM4 21 15 10"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 14 4-4M9 16l-2 2a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m2 0 2-2a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m10 5 7 7-7 7"/></symbol>
+    <symbol id="os-windows" viewBox="0 0 20 20"><path d="m2 4 7-1v6H2zm8-1 8-1v7h-8zM2 10h7v6l-7-1zm8 0h8v8l-8-1z" fill="currentColor"/></symbol>
+    <symbol id="os-apple" viewBox="0 0 20 20"><path d="M12 4c1.4-.4 2.3-1.5 2.2-3-1.3.1-2.7 1.1-2.7 2.6 0 .2 0 .3.1.5M15.6 10.2c0-2 1.6-2.8 1.7-2.9-1-1.5-2.6-1.6-3.2-1.6-1.4-.2-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.6 0-3 1-3.8 2.3-1.6 2.8-.4 6.9 1.2 9.2.8 1.1 1.7 2.3 2.9 2.2 1.2 0 1.6-.8 3.1-.8s1.9.8 3.2.8c1.3 0 2-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6-.1 0-2.8-1.1-2.8-4.4" fill="currentColor" transform="translate(0 -1) scale(.95)"/></symbol>
+    <symbol id="os-linux" viewBox="0 0 20 20"><path d="M7 3c1-3 5-3 6 0l.6 5c1.2 1.3 2.5 3.6 2.6 5.7l-2.4.8-1.5 2.5H8l-1.7-2.5-2.4-.8C4 11.8 5.5 9.3 6.5 8z" fill="currentColor"/><ellipse cx="10" cy="12" rx="3.4" ry="4" fill="#f7f7f2"/><circle cx="8.5" cy="5" r=".9" fill="#f7f7f2"/><circle cx="11.5" cy="5" r=".9" fill="#f7f7f2"/><path d="m8 7 2 1.2L12 7l-2-1zM3 15l4-1 1 3-5 1zm14 0-4-1-1 3 5 1z" fill="currentColor"/></symbol>
+    <symbol id="app-localsend" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#168e80"/><path d="m12 25 22-12-8 23-4-10z" fill="white"/><path d="m22 26 12-13" stroke="#168e80" stroke-width="1.3"/></symbol>
+    <symbol id="app-obsidian" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#eee9f7"/><path d="m25 6 12 12-7 22-15-5-5-15z" fill="#8059cc"/><path d="m25 6-7 15 12 19 7-22z" fill="#6541af"/><path d="m18 21-3 14 15 5z" fill="#a180e0"/><path d="m25 6-7 15-8-1z" fill="#b898f1"/></symbol>
+    <symbol id="app-snipaste" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#3b9bd6"/><path d="M16 12h18v17H16z" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="M12 18h17v18H12z" fill="#3b9bd6" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="m16 31 9-9" stroke="white" stroke-width="2"/></symbol>
+    <symbol id="app-motrix" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#5b6be5"/><path d="M12 15h9v14l-7-6m7 6 7-6M27 11h9v14m0-5 6 6-6 6-6-6" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="app-imageoptim" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#e3e9dc"/><rect x="9" y="9" width="30" height="29" rx="4" fill="#fff"/><rect x="12" y="12" width="24" height="21" rx="2" fill="#a9d5ee"/><path d="m12 31 9-13 7 8 8-5v12H12z" fill="#75a96a"/><circle cx="30" cy="17" r="3" fill="#ffdc68"/><path d="m24 34 5-4 5 4-5 4z" fill="#df885e"/></symbol>
+    <symbol id="app-vscode" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#e6f0f7"/><path d="m33 6 10 5v26l-10 5-20-18zM8 15l-4 4v10l4 4 25-21v24z" fill="#218acc"/><path d="m33 6 10 5v26l-10 5z" fill="#39a9f2"/></symbol>
+    <symbol id="cat-image" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.6" cy="9" r="1.8"/><path d="M21 15.5l-4.8-4.8L5 21"/></g></symbol>
+    <symbol id="cat-video" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4.5" width="20" height="15" rx="3"/><path d="M10.2 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="cat-audio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4M8 6.5v11M12 3.5v17M16 6.5v11M20 10v4"/></g></symbol>
+    <symbol id="cat-multi" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.2" cy="9.2" r="5.6"/><circle cx="15" cy="15" r="5.6"/></g></symbol>
+    <symbol id="cat-llm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-8 8H7.5L3 22.5V11.5a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M8.5 10.5h7M8.5 14h4"/></g></symbol>
+    <symbol id="cat-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-8 8H7.5L3 22.5V11.5a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/></g></symbol>
+    <symbol id="cat-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></g></symbol>
+    <symbol id="cat-model" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></g></symbol>
+    <symbol id="cat-office" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></g></symbol>
+    <symbol id="cat-all" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="电脑小百科首页">
+      <svg class="brand-symbol" aria-hidden="true"><use href="#i-brand"/></svg>
+      <span class="brand-name">电脑小百科<span class="brand-en">SOFTWARE &amp; AI</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="主导航">
+            <a href="index.html#software">软件集合</a>
+            <a href="models.html" aria-current="location">模型库</a>
+            <a href="ai-nav.html">AI 导航</a>
+            <a href="ai-clients.html">AI 客户端</a>
+            <a href="https://blog.example.com">我的博客</a>
+          </nav>
+    <button class="recommend-link" type="button" data-recommend>推荐一个好工具 <svg class="icon" aria-hidden="true"><use href="#i-diagonal"/></svg></button>
+    <button type="button" class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="main-nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <h1>开源 AI 模型，一站下载</h1>
+    <p>汇聚图像、视频、音频与多模态前沿开源模型，提供参数规格、硬件适配与高速下载</p>
+    <div class="hero-stats">
+            <div><b>2,847</b><span>收录模型</span></div>
+            <div><b>38.6 PB</b><span>累计下载</span></div>
+          </div>
+    <div class="page-search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" id="model-search" placeholder="搜索模型名称、作者或标签…" aria-label="搜索模型">
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="section">
+      <div class="section-head">
+        <h2>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.5.7-2.8 1.5-3.8C8.8 8.5 9.5 10 10.5 10c0-3 1.5-6 1.5-8z"/>
+            <path d="M12 22a6 6 0 0 0 6-6"/>
+          </svg>
+          热门开源模型排行榜
+        </h2>
+        <span class="hint">按近 30 天下载量排序</span>
+      </div>
+      <div class="rank-panel">
+        <div class="rank-grid">
+        <div class="rank-col">
+        <a class="rank-item" href="model/deepseek-r1.html"><span class="rank-no top1">1</span><span class="rank-icon" style="color:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span><span class="rank-info"><span class="rank-name">DeepSeek-R1</span><span class="rank-meta">DeepSeek AI · 大语言模型</span></span><span class="rank-num"><span class="rank-dl">8.90M</span><span class="rank-trend up">+9.6%</span></span></a>
+        <a class="rank-item" href="model/whisper-large-v3-turbo.html"><span class="rank-no top2">2</span><span class="rank-icon" style="color:#a1741f"><svg class="cat-icon" aria-hidden="true"><use href="#cat-audio"/></svg></span><span class="rank-info"><span class="rank-name">Whisper-large-v3-turbo</span><span class="rank-meta">OpenAI · 音频语音</span></span><span class="rank-num"><span class="rank-dl">7.60M</span><span class="rank-trend up">+11.2%</span></span></a>
+        <a class="rank-item" href="model/gemma-3-27b.html"><span class="rank-no top3">3</span><span class="rank-icon" style="color:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span><span class="rank-info"><span class="rank-name">Gemma-3-27B-it</span><span class="rank-meta">Google · 大语言模型</span></span><span class="rank-num"><span class="rank-dl">3.40M</span><span class="rank-trend up">+7.8%</span></span></a>
+        <a class="rank-item" href="model/whisper-large-v3.html"><span class="rank-no">4</span><span class="rank-icon" style="color:#a1741f"><svg class="cat-icon" aria-hidden="true"><use href="#cat-audio"/></svg></span><span class="rank-info"><span class="rank-name">Whisper-large-v3</span><span class="rank-meta">OpenAI · 音频语音</span></span><span class="rank-num"><span class="rank-dl">3.24M</span><span class="rank-trend up">+6.8%</span></span></a>
+        <a class="rank-item" href="model/deepseek-v3.html"><span class="rank-no">5</span><span class="rank-icon" style="color:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span><span class="rank-info"><span class="rank-name">DeepSeek-V3</span><span class="rank-meta">DeepSeek AI · 大语言模型</span></span><span class="rank-num"><span class="rank-dl">2.87M</span><span class="rank-trend up">+18.2%</span></span></a>
+        </div>
+        <div class="rank-col">
+        <a class="rank-item" href="model/flux-1-dev.html"><span class="rank-no">6</span><span class="rank-icon" style="color:#b05687"><svg class="cat-icon" aria-hidden="true"><use href="#cat-image"/></svg></span><span class="rank-info"><span class="rank-name">FLUX.1-dev</span><span class="rank-meta">Black Forest Labs · 图像生成</span></span><span class="rank-num"><span class="rank-dl">2.41M</span><span class="rank-trend up">+12.4%</span></span></a>
+        <a class="rank-item" href="model/llama-3-3-70b.html"><span class="rank-no">7</span><span class="rank-icon" style="color:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span><span class="rank-info"><span class="rank-name">Llama-3.3-70B-Instruct</span><span class="rank-meta">Meta AI · 大语言模型</span></span><span class="rank-num"><span class="rank-dl">2.15M</span><span class="rank-trend up">+4.1%</span></span></a>
+        <a class="rank-item" href="model/gpt-oss-120b.html"><span class="rank-no">8</span><span class="rank-icon" style="color:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span><span class="rank-info"><span class="rank-name">gpt-oss-120b</span><span class="rank-meta">OpenAI · 大语言模型</span></span><span class="rank-num"><span class="rank-dl">2.10M</span><span class="rank-trend up">+24.5%</span></span></a>
+        <a class="rank-item" href="model/sd-3-5-large.html"><span class="rank-no">9</span><span class="rank-icon" style="color:#b05687"><svg class="cat-icon" aria-hidden="true"><use href="#cat-image"/></svg></span><span class="rank-info"><span class="rank-name">Stable Diffusion 3.5 Large</span><span class="rank-meta">Stability AI · 图像生成</span></span><span class="rank-num"><span class="rank-dl">1.86M</span><span class="rank-trend down">−3.4%</span></span></a>
+        <a class="rank-item" href="model/qwen2.5-vl-72b.html"><span class="rank-no">10</span><span class="rank-icon" style="color:#7d5fc0"><svg class="cat-icon" aria-hidden="true"><use href="#cat-multi"/></svg></span><span class="rank-info"><span class="rank-name">Qwen2.5-VL-72B</span><span class="rank-meta">Alibaba Qwen · 多模态</span></span><span class="rank-num"><span class="rank-dl">1.63M</span><span class="rank-trend up">+22.6%</span></span></a>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2>全部模型</h2>
+        <span class="hint" id="count-hint">共 28 个模型</span>
+      </div>
+      <div class="chips" id="model-chips">
+        <button type="button" class="chip on" data-cat="all">全部模型</button>
+        <button type="button" class="chip" data-cat="image">图像生成</button>
+        <button type="button" class="chip" data-cat="video">视频生成</button>
+        <button type="button" class="chip" data-cat="audio">音频语音</button>
+        <button type="button" class="chip" data-cat="multi">多模态</button>
+        <button type="button" class="chip" data-cat="llm">大语言模型</button>
+      </div>
+      <div class="grid" id="model-grid">
+            <a class="card" href="model/deepseek-v3.html" data-cat="llm" data-keywords="DeepSeek-V3 DeepSeek AI 671B 混合专家大模型，每 token 仅激活 37B，中文与代码能力领先。 MoE 671B 中文优化">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span>
+                <span class="card-cat">大语言模型</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  2.87M                </span>
+              </div>
+              <h3>DeepSeek-V3</h3>
+              <div class="card-author">DeepSeek AI</div>
+              <p class="card-desc">671B 混合专家大模型，每 token 仅激活 37B，中文与代码能力领先。</p>
+              <div class="card-tags"><span class="tag">MoE</span><span class="tag">671B</span><span class="tag">中文优化</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  685 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  42.1K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/flux-1-dev.html" data-cat="image" data-keywords="FLUX.1-dev Black Forest Labs 12B 整流流 Transformer，文字渲染与手部细节表现领先的开源文生图模型。 文生图 DiT 12B">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#b05687"><svg class="cat-icon" aria-hidden="true"><use href="#cat-image"/></svg></span>
+                <span class="card-cat">图像生成</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  2.41M                </span>
+              </div>
+              <h3>FLUX.1-dev</h3>
+              <div class="card-author">Black Forest Labs</div>
+              <p class="card-desc">12B 整流流 Transformer，文字渲染与手部细节表现领先的开源文生图模型。</p>
+              <div class="card-tags"><span class="tag">文生图</span><span class="tag">DiT</span><span class="tag">12B</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  23.8 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  28.6K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/whisper-large-v3.html" data-cat="audio" data-keywords="Whisper-large-v3 OpenAI 支持 99 种语言的高精度语音识别与翻译模型，鲁棒性极强。 语音识别 多语言 ASR">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#a1741f"><svg class="cat-icon" aria-hidden="true"><use href="#cat-audio"/></svg></span>
+                <span class="card-cat">音频语音</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  3.24M                </span>
+              </div>
+              <h3>Whisper-large-v3</h3>
+              <div class="card-author">OpenAI</div>
+              <p class="card-desc">支持 99 种语言的高精度语音识别与翻译模型，鲁棒性极强。</p>
+              <div class="card-tags"><span class="tag">语音识别</span><span class="tag">多语言</span><span class="tag">ASR</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  3.1 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  35.2K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/qwen2.5-vl-72b.html" data-cat="multi" data-keywords="Qwen2.5-VL-72B Alibaba Qwen 72B 视觉语言模型，支持长视频理解、文档解析与 GUI 智能体操作。 视觉理解 72B 文档解析">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#7d5fc0"><svg class="cat-icon" aria-hidden="true"><use href="#cat-multi"/></svg></span>
+                <span class="card-cat">多模态</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  1.63M                </span>
+              </div>
+              <h3>Qwen2.5-VL-72B</h3>
+              <div class="card-author">Alibaba Qwen</div>
+              <p class="card-desc">72B 视觉语言模型，支持长视频理解、文档解析与 GUI 智能体操作。</p>
+              <div class="card-tags"><span class="tag">视觉理解</span><span class="tag">72B</span><span class="tag">文档解析</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  145 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  21.4K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/sd-3-5-large.html" data-cat="image" data-keywords="Stable Diffusion 3.5 Large Stability AI 8B MMDiT 架构，多分辨率生成与提示词理解能力强，生态成熟。 文生图 MMDiT 8B">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#b05687"><svg class="cat-icon" aria-hidden="true"><use href="#cat-image"/></svg></span>
+                <span class="card-cat">图像生成</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  1.86M                </span>
+              </div>
+              <h3>Stable Diffusion 3.5 Large</h3>
+              <div class="card-author">Stability AI</div>
+              <p class="card-desc">8B MMDiT 架构，多分辨率生成与提示词理解能力强，生态成熟。</p>
+              <div class="card-tags"><span class="tag">文生图</span><span class="tag">MMDiT</span><span class="tag">8B</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  16.4 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  19.8K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/llama-3-3-70b.html" data-cat="llm" data-keywords="Llama-3.3-70B-Instruct Meta AI 70B 稠密指令模型，综合能力对标 405B，部署成本更低。 稠密模型 70B 指令微调">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span>
+                <span class="card-cat">大语言模型</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  2.15M                </span>
+              </div>
+              <h3>Llama-3.3-70B-Instruct</h3>
+              <div class="card-author">Meta AI</div>
+              <p class="card-desc">70B 稠密指令模型，综合能力对标 405B，部署成本更低。</p>
+              <div class="card-tags"><span class="tag">稠密模型</span><span class="tag">70B</span><span class="tag">指令微调</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  141 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  33.9K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/wan2-1-i2v-14b.html" data-cat="video" data-keywords="Wan2.1-I2V-14B Alibaba Wan 14B 图生视频模型，720P 输出，动态幅度与物理一致性表现优秀。 图生视频 14B 720P">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#2e8a91"><svg class="cat-icon" aria-hidden="true"><use href="#cat-video"/></svg></span>
+                <span class="card-cat">视频生成</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  1.12M                </span>
+              </div>
+              <h3>Wan2.1-I2V-14B</h3>
+              <div class="card-author">Alibaba Wan</div>
+              <p class="card-desc">14B 图生视频模型，720P 输出，动态幅度与物理一致性表现优秀。</p>
+              <div class="card-tags"><span class="tag">图生视频</span><span class="tag">14B</span><span class="tag">720P</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  32.7 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  15.6K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/hunyuanvideo.html" data-cat="video" data-keywords="HunyuanVideo Tencent Hunyuan 13B 文生视频模型，镜头语言与画面质感接近电影级水准。 文生视频 13B 电影级">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#2e8a91"><svg class="cat-icon" aria-hidden="true"><use href="#cat-video"/></svg></span>
+                <span class="card-cat">视频生成</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  986.0K                </span>
+              </div>
+              <h3>HunyuanVideo</h3>
+              <div class="card-author">Tencent Hunyuan</div>
+              <p class="card-desc">13B 文生视频模型，镜头语言与画面质感接近电影级水准。</p>
+              <div class="card-tags"><span class="tag">文生视频</span><span class="tag">13B</span><span class="tag">电影级</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  28.9 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  13.2K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/cosyvoice2-0-5b.html" data-cat="audio" data-keywords="CosyVoice2-0.5B Alibaba FunAudioLLM 0.5B 流式语音合成模型，3 秒音频即可零样本克隆音色。 语音合成 零样本克隆 流式">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#a1741f"><svg class="cat-icon" aria-hidden="true"><use href="#cat-audio"/></svg></span>
+                <span class="card-cat">音频语音</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  742.0K                </span>
+              </div>
+              <h3>CosyVoice2-0.5B</h3>
+              <div class="card-author">Alibaba FunAudioLLM</div>
+              <p class="card-desc">0.5B 流式语音合成模型，3 秒音频即可零样本克隆音色。</p>
+              <div class="card-tags"><span class="tag">语音合成</span><span class="tag">零样本克隆</span><span class="tag">流式</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  1.2 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  11.8K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/kokoro-82m.html" data-cat="audio" data-keywords="Kokoro-82M hexgrad 82M 超轻量 TTS 模型，CPU 可实时合成，内置 50+ 音色。 TTS 轻量 多音色">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#a1741f"><svg class="cat-icon" aria-hidden="true"><use href="#cat-audio"/></svg></span>
+                <span class="card-cat">音频语音</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  1.05M                </span>
+              </div>
+              <h3>Kokoro-82M</h3>
+              <div class="card-author">hexgrad</div>
+              <p class="card-desc">82M 超轻量 TTS 模型，CPU 可实时合成，内置 50+ 音色。</p>
+              <div class="card-tags"><span class="tag">TTS</span><span class="tag">轻量</span><span class="tag">多音色</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  330 MB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  16.4K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/deepseek-v3-2.html" data-cat="llm" data-keywords="DeepSeek-V3.2-Exp DeepSeek AI 引入 DSA 稀疏注意力的实验版本，长文本计算量最高降低 75%，API 价格减半。 MoE 稀疏注意力 DSA 128K">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span>
+                <span class="card-cat">大语言模型</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  1.20M                </span>
+              </div>
+              <h3>DeepSeek-V3.2-Exp</h3>
+              <div class="card-author">DeepSeek AI</div>
+              <p class="card-desc">引入 DSA 稀疏注意力的实验版本，长文本计算量最高降低 75%，API 价格减半。</p>
+              <div class="card-tags"><span class="tag">MoE</span><span class="tag">稀疏注意力</span><span class="tag">DSA</span><span class="tag">128K</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  685 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  3.9K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/deepseek-r1.html" data-cat="llm" data-keywords="DeepSeek-R1 DeepSeek AI 纯强化学习驱动的开源推理模型，数学与代码能力比肩 OpenAI o1 正式版。 推理模型 强化学习 MoE 671B">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span>
+                <span class="card-cat">大语言模型</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  8.90M                </span>
+              </div>
+              <h3>DeepSeek-R1</h3>
+              <div class="card-author">DeepSeek AI</div>
+              <p class="card-desc">纯强化学习驱动的开源推理模型，数学与代码能力比肩 OpenAI o1 正式版。</p>
+              <div class="card-tags"><span class="tag">推理模型</span><span class="tag">强化学习</span><span class="tag">MoE</span><span class="tag">671B</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  688 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  11.8K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/qwen3-235b-a22b.html" data-cat="llm" data-keywords="Qwen3-235B-A22B-Instruct-2507 Alibaba Qwen 通义千问旗舰 MoE：235B 总参激活 22B，开源协议宽松，119 种语言覆盖。 MoE 235B Apache-2.0 119 语言">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span>
+                <span class="card-cat">大语言模型</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  1.56M                </span>
+              </div>
+              <h3>Qwen3-235B-A22B-Instruct-2507</h3>
+              <div class="card-author">Alibaba Qwen</div>
+              <p class="card-desc">通义千问旗舰 MoE：235B 总参激活 22B，开源协议宽松，119 种语言覆盖。</p>
+              <div class="card-tags"><span class="tag">MoE</span><span class="tag">235B</span><span class="tag">Apache-2.0</span><span class="tag">119 语言</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  474 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  8.6K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/llama-4-scout.html" data-cat="llm" data-keywords="Llama-4-Scout-17B-16E-Instruct Meta AI Meta 首个原生多模态 MoE：109B 总参激活 17B，业界首创 1000 万 token 上下文。 原生多模态 MoE 10M 上下文 iRoPE">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span>
+                <span class="card-cat">大语言模型</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  680.0K                </span>
+              </div>
+              <h3>Llama-4-Scout-17B-16E-Instruct</h3>
+              <div class="card-author">Meta AI</div>
+              <p class="card-desc">Meta 首个原生多模态 MoE：109B 总参激活 17B，业界首创 1000 万 token 上下文。</p>
+              <div class="card-tags"><span class="tag">原生多模态</span><span class="tag">MoE</span><span class="tag">10M 上下文</span><span class="tag">iRoPE</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  217 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  7.4K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/gpt-oss-120b.html" data-cat="llm" data-keywords="gpt-oss-120b OpenAI OpenAI 时隔六年重返开源：117B MoE 原生 MXFP4 量化，单卡 H100 即可运行。 MoE MXFP4 Apache-2.0 可调推理">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span>
+                <span class="card-cat">大语言模型</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  2.10M                </span>
+              </div>
+              <h3>gpt-oss-120b</h3>
+              <div class="card-author">OpenAI</div>
+              <p class="card-desc">OpenAI 时隔六年重返开源：117B MoE 原生 MXFP4 量化，单卡 H100 即可运行。</p>
+              <div class="card-tags"><span class="tag">MoE</span><span class="tag">MXFP4</span><span class="tag">Apache-2.0</span><span class="tag">可调推理</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  65 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  9.2K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/kimi-k2-thinking.html" data-cat="llm" data-keywords="Kimi-K2-Thinking Moonshot AI 万亿参数开源智能体模型：原生「推理 + 工具调用 + 搜索」三位一体，HLE 开源第一。 MoE 1T 智能体 工具调用">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span>
+                <span class="card-cat">大语言模型</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  520.0K                </span>
+              </div>
+              <h3>Kimi-K2-Thinking</h3>
+              <div class="card-author">Moonshot AI</div>
+              <p class="card-desc">万亿参数开源智能体模型：原生「推理 + 工具调用 + 搜索」三位一体，HLE 开源第一。</p>
+              <div class="card-tags"><span class="tag">MoE</span><span class="tag">1T</span><span class="tag">智能体</span><span class="tag">工具调用</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  1.04 TB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  6.8K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/glm-4-6.html" data-cat="llm" data-keywords="GLM-4.6 Zhipu AI 智谱 智谱旗舰开源模型：编码与 Agent 能力对标 Claude，200K 上下文，MIT 协议。 MoE 355B MIT 编码 Agent">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span>
+                <span class="card-cat">大语言模型</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  640.0K                </span>
+              </div>
+              <h3>GLM-4.6</h3>
+              <div class="card-author">Zhipu AI 智谱</div>
+              <p class="card-desc">智谱旗舰开源模型：编码与 Agent 能力对标 Claude，200K 上下文，MIT 协议。</p>
+              <div class="card-tags"><span class="tag">MoE</span><span class="tag">355B</span><span class="tag">MIT</span><span class="tag">编码 Agent</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  705 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  5.3K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/gemma-3-27b.html" data-cat="llm" data-keywords="Gemma-3-27B-it Google Google 开源旗舰：27B 多模态单卡可跑，发布时 LMArena 开源第一。 多模态 27B 单卡友好 128K">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#3f7d3a"><svg class="cat-icon" aria-hidden="true"><use href="#cat-llm"/></svg></span>
+                <span class="card-cat">大语言模型</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  3.40M                </span>
+              </div>
+              <h3>Gemma-3-27B-it</h3>
+              <div class="card-author">Google</div>
+              <p class="card-desc">Google 开源旗舰：27B 多模态单卡可跑，发布时 LMArena 开源第一。</p>
+              <div class="card-tags"><span class="tag">多模态</span><span class="tag">27B</span><span class="tag">单卡友好</span><span class="tag">128K</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  54 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  9.8K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/qwen-image.html" data-cat="image" data-keywords="Qwen-Image Alibaba Qwen 20B MMDiT 文生图：中英文字渲染开源 SOTA，海报级排版直接可用。 文生图 MMDiT 文字渲染 20B">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#b05687"><svg class="cat-icon" aria-hidden="true"><use href="#cat-image"/></svg></span>
+                <span class="card-cat">图像生成</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  980.0K                </span>
+              </div>
+              <h3>Qwen-Image</h3>
+              <div class="card-author">Alibaba Qwen</div>
+              <p class="card-desc">20B MMDiT 文生图：中英文字渲染开源 SOTA，海报级排版直接可用。</p>
+              <div class="card-tags"><span class="tag">文生图</span><span class="tag">MMDiT</span><span class="tag">文字渲染</span><span class="tag">20B</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  40 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  6.1K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/flux-2-dev.html" data-cat="image" data-keywords="FLUX.2-dev Black Forest Labs FLUX 系列第二代：32B 大杯文生图，最多 10 张参考图，4MP 原生输出。 文生图 32B 多参考图 文字渲染">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#b05687"><svg class="cat-icon" aria-hidden="true"><use href="#cat-image"/></svg></span>
+                <span class="card-cat">图像生成</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  410.0K                </span>
+              </div>
+              <h3>FLUX.2-dev</h3>
+              <div class="card-author">Black Forest Labs</div>
+              <p class="card-desc">FLUX 系列第二代：32B 大杯文生图，最多 10 张参考图，4MP 原生输出。</p>
+              <div class="card-tags"><span class="tag">文生图</span><span class="tag">32B</span><span class="tag">多参考图</span><span class="tag">文字渲染</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  64 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  3.9K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/wan2-2-t2v-a14b.html" data-cat="video" data-keywords="Wan2.2-T2V-A14B Alibaba Wan 业界首个 MoE 视频大模型：双专家分工降噪，电影级美学控制，Apache-2.0 商用。 文生视频 MoE 720P 电影美学">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#2e8a91"><svg class="cat-icon" aria-hidden="true"><use href="#cat-video"/></svg></span>
+                <span class="card-cat">视频生成</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  580.0K                </span>
+              </div>
+              <h3>Wan2.2-T2V-A14B</h3>
+              <div class="card-author">Alibaba Wan</div>
+              <p class="card-desc">业界首个 MoE 视频大模型：双专家分工降噪，电影级美学控制，Apache-2.0 商用。</p>
+              <div class="card-tags"><span class="tag">文生视频</span><span class="tag">MoE</span><span class="tag">720P</span><span class="tag">电影美学</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  57 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  4.7K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/hunyuanvideo-1-5.html" data-cat="video" data-keywords="HunyuanVideo-1.5 Tencent Hunyuan 8.3B 开源视频小钢炮：14GB 显存起步，文/图生视频双任务，质量对标更大模型。 文生视频 图生视频 8.3B 轻量">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#2e8a91"><svg class="cat-icon" aria-hidden="true"><use href="#cat-video"/></svg></span>
+                <span class="card-cat">视频生成</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  260.0K                </span>
+              </div>
+              <h3>HunyuanVideo-1.5</h3>
+              <div class="card-author">Tencent Hunyuan</div>
+              <p class="card-desc">8.3B 开源视频小钢炮：14GB 显存起步，文/图生视频双任务，质量对标更大模型。</p>
+              <div class="card-tags"><span class="tag">文生视频</span><span class="tag">图生视频</span><span class="tag">8.3B</span><span class="tag">轻量</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  17 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  3.2K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/whisper-large-v3-turbo.html" data-cat="audio" data-keywords="Whisper-large-v3-turbo OpenAI Whisper large-v3 的官方蒸馏版：解码器瘦身 4 层，速度 8 倍，精度几乎无损。 语音识别 蒸馏 8× 提速 MIT">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#a1741f"><svg class="cat-icon" aria-hidden="true"><use href="#cat-audio"/></svg></span>
+                <span class="card-cat">音频语音</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  7.60M                </span>
+              </div>
+              <h3>Whisper-large-v3-turbo</h3>
+              <div class="card-author">OpenAI</div>
+              <p class="card-desc">Whisper large-v3 的官方蒸馏版：解码器瘦身 4 层，速度 8 倍，精度几乎无损。</p>
+              <div class="card-tags"><span class="tag">语音识别</span><span class="tag">蒸馏</span><span class="tag">8× 提速</span><span class="tag">MIT</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  1.6 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  6.4K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/f5-tts.html" data-cat="audio" data-keywords="F5-TTS Shanghai Jiao Tong Univ. SWAG 流匹配非自回归 TTS：几秒参考音频秒级克隆音色，训练效率业界标杆。 语音合成 零样本克隆 流匹配 336M">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#a1741f"><svg class="cat-icon" aria-hidden="true"><use href="#cat-audio"/></svg></span>
+                <span class="card-cat">音频语音</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  1.18M                </span>
+              </div>
+              <h3>F5-TTS</h3>
+              <div class="card-author">Shanghai Jiao Tong Univ. SWAG</div>
+              <p class="card-desc">流匹配非自回归 TTS：几秒参考音频秒级克隆音色，训练效率业界标杆。</p>
+              <div class="card-tags"><span class="tag">语音合成</span><span class="tag">零样本克隆</span><span class="tag">流匹配</span><span class="tag">336M</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  1.35 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  4.3K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/index-tts-2.html" data-cat="audio" data-keywords="IndexTTS-2 Bilibili IndexTeam B 站开源零样本 TTS：音色与情感解耦控制，支持精确时长对齐。 语音合成 情感控制 音色克隆 时长控制">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#a1741f"><svg class="cat-icon" aria-hidden="true"><use href="#cat-audio"/></svg></span>
+                <span class="card-cat">音频语音</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  360.0K                </span>
+              </div>
+              <h3>IndexTTS-2</h3>
+              <div class="card-author">Bilibili IndexTeam</div>
+              <p class="card-desc">B 站开源零样本 TTS：音色与情感解耦控制，支持精确时长对齐。</p>
+              <div class="card-tags"><span class="tag">语音合成</span><span class="tag">情感控制</span><span class="tag">音色克隆</span><span class="tag">时长控制</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  6 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  2.9K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/cosyvoice3.html" data-cat="audio" data-keywords="Fun-CosyVoice3-0.5B Alibaba FunAudioLLM CosyVoice 3 代：9 语种流式 TTS，情感向量精细控制，首包延迟低至 150ms。 语音合成 流式 多语言 情感向量">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#a1741f"><svg class="cat-icon" aria-hidden="true"><use href="#cat-audio"/></svg></span>
+                <span class="card-cat">音频语音</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  310.0K                </span>
+              </div>
+              <h3>Fun-CosyVoice3-0.5B</h3>
+              <div class="card-author">Alibaba FunAudioLLM</div>
+              <p class="card-desc">CosyVoice 3 代：9 语种流式 TTS，情感向量精细控制，首包延迟低至 150ms。</p>
+              <div class="card-tags"><span class="tag">语音合成</span><span class="tag">流式</span><span class="tag">多语言</span><span class="tag">情感向量</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  1.4 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  2.4K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/qwen3-vl-30b.html" data-cat="multi" data-keywords="Qwen3-VL-30B-A3B-Instruct Alibaba Qwen Qwen3-VL 主力款：30B 激活 3B，视觉 Agent / 长视频 / OCR 全能，256K 上下文。 视觉语言 MoE GUI Agent 256K">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#7d5fc0"><svg class="cat-icon" aria-hidden="true"><use href="#cat-multi"/></svg></span>
+                <span class="card-cat">多模态</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  820.0K                </span>
+              </div>
+              <h3>Qwen3-VL-30B-A3B-Instruct</h3>
+              <div class="card-author">Alibaba Qwen</div>
+              <p class="card-desc">Qwen3-VL 主力款：30B 激活 3B，视觉 Agent / 长视频 / OCR 全能，256K 上下文。</p>
+              <div class="card-tags"><span class="tag">视觉语言</span><span class="tag">MoE</span><span class="tag">GUI Agent</span><span class="tag">256K</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  61 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  5.6K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+            <a class="card" href="model/internvl3-5-38b.html" data-cat="multi" data-keywords="InternVL3.5-38B Shanghai AI Lab OpenGVLab 书生·万象 3.5：Cascade RL 训练 + 视觉分辨率路由，推理效率与精度双优。 视觉语言 Cascade RL ViR 开源第一梯队">
+              <div class="card-top">
+                <span class="card-icon" style="--c:#7d5fc0"><svg class="cat-icon" aria-hidden="true"><use href="#cat-multi"/></svg></span>
+                <span class="card-cat">多模态</span>
+                <span class="card-dl">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>
+                  </svg>
+                  470.0K                </span>
+              </div>
+              <h3>InternVL3.5-38B</h3>
+              <div class="card-author">Shanghai AI Lab OpenGVLab</div>
+              <p class="card-desc">书生·万象 3.5：Cascade RL 训练 + 视觉分辨率路由，推理效率与精度双优。</p>
+              <div class="card-tags"><span class="tag">视觉语言</span><span class="tag">Cascade RL</span><span class="tag">ViR</span><span class="tag">开源第一梯队</span></div>
+              <div class="card-foot">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                  77 GB                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                  </svg>
+                  2.1K                </span>
+                <span class="go">查看详情 →</span>
+              </div>
+            </a>
+      </div>
+      <div class="empty" id="model-empty" hidden style="grid-column:1/-1">没有找到匹配的模型，换个关键词试试</div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="电脑小百科首页">
+          <svg class="brand-symbol" aria-hidden="true"><use href="#i-brand"/></svg>
+          <span class="brand-name">电脑小百科</span>
+        </a>
+        <span class="footer-motto">好工具，就够了。</span>
+      </div>
+      <div class="footer-links">
+                <a href="#about">关于小站</a>
+                <a href="#faq">常见问题</a>
+                <button type="button" data-recommend>推荐软件</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 电脑小百科 · 仅供学习研究使用</p>
+      <a class="back-to-top" href="#top">回到顶部 <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+  <dialog class="software-dialog" id="software-dialog" aria-labelledby="detail-dialog-title">
+    <div class="dialog-bar"><span>THE TOOL, IN DETAIL</span><div class="dialog-tools"><button type="button" class="text-link" id="share-software"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg>复制软件链接</button><button type="button" class="close-dialog" data-close aria-label="关闭软件介绍"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div></div>
+    <div class="dialog-body" id="software-dialog-body"></div>
+  </dialog>
+
+  <dialog class="lightbox" id="screenshot-dialog" aria-labelledby="screenshot-title">
+    <div class="dialog-bar"><span id="screenshot-title">软件截图</span><button type="button" class="close-dialog" data-close aria-label="关闭截图"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="lightbox-body"><img class="lightbox-image" id="lightbox-image" alt=""><div class="lightbox-controls"><button type="button" id="previous-shot" aria-label="上一张截图"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg></button><span id="shot-caption"></span><button type="button" id="next-shot" aria-label="下一张截图"><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button></div></div>
+  </dialog>
+
+  <dialog class="recommend-dialog" id="recommend-dialog" aria-labelledby="recommend-title">
+    <div class="dialog-bar"><span>SHARE A GOOD TOOL</span><button type="button" class="close-dialog" data-close aria-label="关闭软件推荐"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="dialog-body"><h2 id="recommend-title">你的工具箱里，藏着什么？</h2><p class="recommend-description">记下一款你喜欢的软件，生成可以复制或保存的推荐内容。好工具，值得被更多人发现。</p>
+      <form class="recommend-form" id="recommend-form">
+        <label class="form-label" for="recommend-name">软件名称 <span>必填</span></label><input class="form-input" id="recommend-name" name="name" required maxlength="80" placeholder="例如：一个让工作更顺手的小工具">
+        <label class="form-label" for="recommend-url">官方网站 <span>必填</span></label><input class="form-input" id="recommend-url" name="url" type="url" required maxlength="500" placeholder="https://" inputmode="url">
+        <label class="form-label" for="recommend-reason">你喜欢它的理由 <span>选填</span></label><textarea class="form-input" id="recommend-reason" name="reason" maxlength="1500" placeholder="它帮你解决了什么问题？"></textarea>
+        <button class="button" type="submit">生成推荐内容 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><p class="form-footnote">纯静态小站，内容仅在本地生成，不会自动发送。</p>
+      </form>
+      <div class="recommend-result" id="recommend-result" hidden><h3>一份好工具推荐，准备好了。</h3><label class="sr-only" for="recommend-output">生成的软件推荐内容</label><textarea class="form-input" id="recommend-output" readonly></textarea><div class="result-actions"><button type="button" class="button" id="copy-recommendation">复制内容 <svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg></button><button type="button" class="button button-secondary" id="save-recommendation">保存为文本 <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg></button></div><button type="button" class="text-link" id="edit-recommendation" style="margin-top:12px">返回修改</button></div>
+      <p class="dialog-status" id="recommend-status" role="status" aria-live="polite"></p>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

@@ -44,7 +44,7 @@
     }
   }
 
-  async function copyText(text) {
+  async function copyText(text, tip) {
     try {
       if (!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard fallback');
       await navigator.clipboard.writeText(text);
@@ -66,7 +66,7 @@
         return false;
       }
     }
-    notify('已复制，可以分享给朋友了。');
+    notify(tip || '已复制，可以分享给朋友了。');
     return true;
   }
 
@@ -182,10 +182,15 @@
   $('#previous-shot')?.addEventListener('click', () => moveGallery(-1));
   $('#next-shot')?.addEventListener('click', () => moveGallery(1));
 
-  /* ---------- 全局点击委托：复制 / 放大截图 ---------- */
+  /* ---------- 全局点击委托：复制 / 打开弹窗 / 放大截图 ---------- */
   document.addEventListener('click', event => {
     const copy = event.target.closest('[data-copy]');
-    if (copy) copyText(copy.dataset.copy);
+    if (copy) copyText(copy.dataset.copy, copy.dataset.copyTip || undefined);
+    const opener = event.target.closest('[data-dialog-open]');
+    if (opener) {
+      const target = $(opener.dataset.dialogOpen);
+      if (target) showDialog(target);
+    }
     const zoom = event.target.closest('[data-zoom]');
     if (zoom) {
       const scope = zoom.closest('.details-content') || document;
@@ -199,6 +204,16 @@
       updateGallery();
       showDialog(screenshotDialog);
     }
+  });
+
+  /* ---------- Tabs 切换（模型 / 客户端详情页共用） ---------- */
+  $$('.tabs').forEach(tabs => {
+    const panels = $$('.panel', tabs.parentElement);
+    if (!panels.length) return;
+    $$('.tab', tabs).forEach(tab => tab.addEventListener('click', () => {
+      $$('.tab', tabs).forEach(t => t.classList.toggle('active', t === tab));
+      panels.forEach(p => { p.hidden = p.id !== `panel-${tab.dataset.p}`; });
+    }));
   });
 
   /* ---------- 键盘 ---------- */

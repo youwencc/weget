@@ -30,6 +30,20 @@ svg { display:inline-block; flex-shrink:0; vertical-align:middle; }
 .skip-link { position:fixed; top:-80px; left:20px; padding:10px 18px; background:var(--green); color:white; z-index:100; border-radius:4px; }
 .skip-link:focus { top:12px; }
 
+/* ---------- 公共 token 扩展与通用块（模型库 / AI 导航 / AI 客户端页面也基于此） ---------- */
+:root { --card:#ffffff; --overlay:#f1f3ec; --line-strong:#d3d8c6; --muted-2:#8a9180; --leaf:#3f7d3a; --orange:#a1741f; --purple:#7d5fc0; --green-soft:rgba(89,103,72,.13); --radius-sm:6px; --radius:8px; --radius-lg:12px; }
+.cat-icon { width:1em; height:1em; fill:none; stroke:currentColor; }
+.tag { font-size:11px; font-weight:500; padding:2px 7px; border-radius:var(--radius-sm); background:rgba(40,44,37,.04); color:var(--muted-2); border:1px solid var(--line); }
+.empty { text-align:center; padding:64px 20px; color:var(--muted-2); font-size:13.5px; border:1px dashed var(--line); border-radius:var(--radius-lg); }
+.page-hero { padding:48px 0 30px; text-align:center; }
+.page-hero h1 { font-size:28px; font-weight:700; letter-spacing:-.025em; line-height:1.3; }
+.page-hero p { color:var(--muted); margin:12px auto 0; max-width:660px; font-size:14px; line-height:1.7; }
+.page-search { max-width:560px; margin:24px auto 0; position:relative; }
+.page-search svg { position:absolute; left:14px; top:50%; transform:translateY(-50%); width:15px; height:15px; color:var(--muted-2); pointer-events:none; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; }
+.page-search input { width:100%; height:42px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); color:var(--ink); padding:0 16px 0 40px; font-size:13.5px; outline:none; transition:border-color .15s, background .15s, box-shadow .15s; }
+.page-search input::placeholder { color:var(--muted-2); }
+.page-search input:focus { border-color:var(--green); background:var(--paper); box-shadow:0 0 0 3px var(--green-soft); }
+
 /* ---------- 页头 ---------- */
 .site-header { height:80px; position:sticky; top:0; z-index:30; background:rgba(247,247,242,.96); border-bottom:1px solid rgba(224,227,216,.7); backdrop-filter:blur(14px); }
 .header-inner { height:100%; display:flex; align-items:center; justify-content:space-between; gap:30px; }
