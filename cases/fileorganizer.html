@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>文件清理大师 | 电脑小百科</title>
+<meta name="description" content="陈工工作室：软件定制开发（进销存、报表自动化、小程序、管理系统）与电脑维护服务（远程协助、故障排查、系统重装、数据恢复、上门维修）。先报价后动手，不解决不收费。" />
+<meta name="keywords" content="软件定制,电脑维修,远程协助,电脑维护,数据恢复,系统重装,进销存定制,小程序开发" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231C1A16'/%3E%3Cpath d='M50 26v48M26 50h48' stroke='%23B45309' stroke-width='12' stroke-linecap='round'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="../assets/css/style.css" />
+<script defer src="../assets/js/main.js"></script>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5S4.5 16 4.5 10.7A4.2 4.2 0 0112 7.6a4.2 4.2 0 017.5 3.1C19.5 16 12 20.5 12 20.5z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.2c0 5-3.3 8.3-7.5 10.3-4.2-2-7.5-5.3-7.5-10.3V6L12 3z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5L16.5 16.5"/></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9.5 9v12"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M3.5 17a8.5 8.5 0 1117 0"/><path d="M12 14l4-4.5"/></symbol>
+    <symbol id="i-off" viewBox="0 0 24 24"><path d="M17.5 19H7a4.5 4.5 0 01-.5-9 6 6 0 0111.7-1.5A4 4 0 0117.5 19z"/><path d="M3 3l18 18"/></symbol>
+    <symbol id="i-blocks" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/><path d="M14 17.5h7M17.5 14v7"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 21a9 9 0 110-18c5 0 9 3.4 9 7.6 0 2.4-2 4.4-4.4 4.4H15a2 2 0 00-1.6 3.2A1.8 1.8 0 0112 21z"/><path d="M7.5 11.5h.01M11 8h.01M15.5 9.5h.01"/></symbol>
+    <symbol id="i-devices" viewBox="0 0 24 24"><rect x="2" y="4" width="14" height="11" rx="2"/><path d="M6 19h7"/><rect x="17.5" y="9" width="4.5" height="10" rx="1.5"/></symbol>
+    <symbol id="i-news" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 9h6M7 13h10M7 17h7"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 15a3 3 0 01-3 3H9.5L4.5 22V6a3 3 0 013-3H17a3 3 0 013 3v9z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.5 2"/></symbol>
+    <symbol id="i-at" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 12v1.5a2.5 2.5 0 005 0V12a9 9 0 10-3.4 7"/></symbol>
+    <symbol id="i-rss" viewBox="0 0 24 24"><path d="M5 19a1 1 0 100-2 1 1 0 000 2z"/><path d="M4 11.5a8.5 8.5 0 018.5 8.5M4 5a15 15 0 0115 15"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 9.5h2a3 3 0 010 6h-2M3 9.5h14V15a5 5 0 01-5 5H8a5 5 0 01-5-5V9.5zM7.5 3.5v2.5M11.5 3.5v2.5"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3L10.5 13.5M21 3l-6.8 18-3.7-7.5L3 9.8 21 3z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.4L19.5 10l-5.6 1.6L12 17l-1.9-5.4L4.5 10l5.6-1.6L12 3z"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="13" rx="2.5"/><path d="M2.5 10.5h19M16.5 15h2"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20.5h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M9 17l-5-5 5-5M15 7l5 5-5 5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 5.2a3.2 3.2 0 010 5.9M18 20a6.4 6.4 0 00-2-4.6"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 114 2c-.9.7-1.5 1.2-1.5 2.3M12 17h.01"/></symbol>
+    <symbol id="i-git" viewBox="0 0 24 24"><circle cx="6.5" cy="5.5" r="2.5"/><circle cx="6.5" cy="18.5" r="2.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M6.5 8v8M17.5 11.5c0 3.2-3.4 3.6-6.3 4.3"/></symbol>
+    <!-- ===== 业务图标 ===== -->
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3h3l1.5 4-2 1.5a11 11 0 006.5 6.5L17 13l4 1.5v3a2 2 0 01-2.2 2A15.5 15.5 0 014.5 5.2 2 2 0 016.5 3z"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.5 6a3.5 3.5 0 104.9 4.4l-2.6-2.6 1.4-1.4 2.6 2.6A3.5 3.5 0 0114.5 6z"/><path d="M13.4 10.6L4.8 19.2a2 2 0 002.8 2.8l8.6-8.6"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="12.5" rx="2"/><path d="M8.5 20.5h7M12 16.5v4"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="10" rx="1.8"/><path d="M2 18.5h20"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M3 9a14 14 0 0118 0M6.5 12.5a9 9 0 0111 0M10 16a4.5 4.5 0 014 0"/><path d="M12 19.5h.01"/></symbol>
+    <symbol id="i-printer" viewBox="0 0 24 24"><path d="M7 8V3.5h10V8"/><rect x="3.5" y="8" width="17" height="7.5" rx="2"/><rect x="7" y="13.5" width="10" height="7" rx="1.2"/><path d="M17 11h.01"/></symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24"><rect x="8" y="7.5" width="8" height="11" rx="4"/><path d="M8 12H4.5M8 16H5M16 12h3.5M16 16h3M9.5 7.5L8 5M14.5 7.5L16 5M9.5 20.5L8 18.5M14.5 20.5l1.5-2"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M12 2.8l8.5 4.4v9.6L12 21.2 3.5 16.8V7.2L12 2.8z"/><path d="M3.5 7.2L12 11.6l8.5-4.4M12 11.6v9.6"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 20v-6M12.5 20V8.5M17 20v-9"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14h3"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><rect x="2.5" y="6" width="11" height="9.5" rx="1.5"/><path d="M13.5 9.5h4l3 3.5v2.5h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="10.5" rx="2.5"/><path d="M8 10V7.5a4 4 0 018 0V10M12 14.5v2.5"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/><path d="M10 3v3.5M14 3v3.5M10 17.5V21M14 17.5V21M3 10h3.5M3 14h3.5M17.5 10H21M17.5 14H21"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9 16H3l9-16z"/><path d="M12 9.5v4.5M12 17h.01"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M13.5 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8.5L13.5 3z"/><path d="M13.5 3v5.5H19M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 10-2.6 6.3"/><path d="M20 4.5V11h-6"/></symbol>
+    <symbol id="i-hdd" viewBox="0 0 24 24"><rect x="2.5" y="12" width="19" height="7.5" rx="2"/><path d="M5 12l2.5-6.5h9L19 12M6.5 15.7h.01M10 15.7h4"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 10l6.1-.9L12 3.5z"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H7a4.5 4.5 0 01-.5-9 6 6 0 0111.7-1.5A4 4 0 0117.5 19z"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="16" r="3.5"/><path d="M10.5 13.5L20 4M16.5 7.5l2.5 2.5M14 10l2 2"/></symbol>
+    <symbol id="i-screen" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M9.5 8.5l4 2.5-4 2.5v-5z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v11M7.5 9.5L12 14l4.5-4.5M4 19h16"/></symbol>
+  </defs>
+</svg>
+
+<input type="checkbox" id="menu" class="switch" />
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">电</span>
+      <span class="brand-text">
+        <span class="brand-name">电脑小百科</span>
+        <span class="brand-sub">软件定制 · 电脑维护</span>
+      </span>
+    </a>
+    <nav class="nav-desk">
+                              <a class="nav-link" href="../index.html">首页</a>
+                        <a class="nav-link" href="../services.html">服务</a>
+                        <a class="nav-link is-active" href="../cases.html">软件下载</a>
+                        <a class="nav-link" href="../articles.html">知识库</a>
+                        <a class="nav-link" href="../remote.html">远程协助</a>
+                        <a class="nav-link" href="../about.html">关于</a>
+                    <a class="nav-cta" href="../contact.html" style="border-color:var(--accent);background:var(--accent);color:var(--cream)">
+        <svg class="ico ico--sm"><use href="#i-chat"/></svg>联系我们
+      </a>
+      <a class="nav-cta" href="../appreciate.html"><svg class="ico ico--sm"><use href="#i-heart"/></svg>赞赏</a>
+    </nav>
+    <label class="burger" for="menu" aria-label="打开菜单"><span></span><span></span></label>
+  </div>
+  <nav class="nav-mob">
+                      <a class="" href="../index.html">首页</a>
+                  <a class="" href="../services.html">服务</a>
+                  <a class="is-active" href="../cases.html">软件下载</a>
+                  <a class="" href="../articles.html">知识库</a>
+                  <a class="" href="../remote.html">远程协助</a>
+                  <a class="" href="../about.html">关于</a>
+              <a class="" href="../contact.html">联系</a>
+    <a class="" href="../appreciate.html">赞赏</a>
+  </nav>
+</header>
+
+<main class="page">
+<div class="container">
+  <a class="back-link rise" href="../cases.html">全部软件</a>
+  <div class="detail-head">
+    <div class="rise" style="--d:.05s">
+      <p class="kicker">系统工具</p>
+      <h1 class="h1" style="margin-top:20px">文件清理大师</h1>
+      <p class="lead" style="margin-top:16px">把微信接收目录按日期、类型、聊天对象自动归档，再也不在一堆文件里翻</p>
+    </div>
+    <dl class="meta-list rise" style="--d:.12s">
+              <div><dt>平台</dt><dd>Windows</dd></div>
+              <div><dt>版本</dt><dd>v1.5</dd></div>
+              <div><dt>大小</dt><dd>5.2 MB</dd></div>
+              <div><dt>费用</dt><dd>免费</dd></div>
+            <div style="grid-column:span 2"><a class="inline-link acc" href="" style="border-color:var(--accent)">想按聊天对象归档？</a></div>
+    </dl>
+  </div>
+
+    <div class="cover cover--aurora cover--wide rise" style="--d:.18s">
+          <span class="glyph">文件清理大师</span>
+      <span class="mono-tag">WINDOWS</span>
+      </div>
+
+  <!-- 下载信息区 -->
+  <div class="dl-box rise" style="--d:.22s">
+    <div class="dl-specs">
+      <div><span class="k">平台</span><b>Windows</b></div>
+      <div><span class="k">版本</span><b>v1.5</b></div>
+      <div><span class="k">大小</span><b>5.2 MB</b></div>
+    </div>
+          <a class="btn btn--solid btn--lg" href="../contact.html"><svg class="ico ico--sm"><use href="#i-chat"/></svg>联系获取下载</a>
+      <p class="dl-note">下载链接由作者在后台配置，或直接加我，我把文件发你。</p>
+      </div>
+
+    <div class="overview">
+    <div class="sticky rise"><h2 class="h3" style="margin-top:0">软件简介</h2></div>
+    <div class="prose rise" style="--d:.1s">
+              <p># 文件清理大师</p>
+              <p>&gt; 让你的电脑清爽高效 · 系统瘦身 · 大文件清理 · 批量归类 · 先预览后执行</p>
+              <p>文件清理大师是一款 Windows 桌面文件清理与整理工具。三大功能：一键扫描清理系统垃圾缓存（系统瘦身）、按体积阈值找出并清理大文件/大文件夹（大文件清理）、批量归类整理散乱文件（文件整理）。支持中文 / English 双语界面。</p>
+              <p>- **软件版本**：v1.25
+- **适用系统**：Windows 7 SP1 及以上（需 .NET 8 桌面运行时）
+- **软件厂商**：B站：电脑小百科
+- **软件下载**：https://t123.cc.cd/</p>
+              <p>---</p>
+              <p>## 一、核心特点</p>
+              <p>| 特点 | 说明 |
+|---|---|
+| **先预览，后执行** | 点击「加入整理队列」先生成完整的文件移动清单，确认无误后再点「开始整理」，不会盲操作 |
+| **四种整理维度** | 按文件类型、按修改日期、按文件大小、按文件名关键词，覆盖常见整理场景 |
+| **规则完全自定义** | 分类名称、扩展名清单、关键词、日期粒度、大小阈值、冲突策略全部可改，并可另存为自己的规则 |
+| **多源文件夹** | 一次可添加多个源文件夹（支持直接拖拽文件夹或文件到窗口），统一整理到同一个目标目录 |
+| **安全防呆** | 重名文件自动加序号，可选跳过或覆盖；执行中可随时取消；每一步移动结果都有成功 / 失败统计 |
+| **零网络、零上传** | 纯本地运行，所有文件操作都在本机完成，不联网、不收集任何文件信息 |
+| **单文件轻量** | 主程序仅约 315 KB，免安装，解压即用；发布版本经过代码混淆 |</p>
+              <p>---</p>
+              <p>## 二、功能介绍</p>
+              <p>### 1. 源文件夹</p>
+              <p>- 通过「+ 添加」按钮选择一个或多个待整理文件夹。
+- 支持**拖拽**：直接把文件夹（或文件，自动取其所在文件夹）拖到左侧区域即可加入；重复路径自动跳过。
+- 每个源文件夹可单独点「✕」移除。</p>
+              <p>### 2. 目标文件夹</p>
+              <p>- 整理后的文件会按分类移动到该目录下的各子文件夹中（子文件夹自动创建）。
+- 可点「浏览」选择，也可直接粘贴路径。</p>
+              <p>### 3. 整理规则（四种维度）</p>
+              <p>**① 按文件类型整理（内置预设，17 个分类）**</p>
+              <p>按扩展名自动归类，覆盖 300+ 种常见格式：</p>
+              <p>图片、文档、表格、演示文稿、视频、音频、压缩包、程序、代码、字体、数据库、电子书、设计、字幕、日志、备份、光盘镜像；未匹配的文件归入「未分类」。</p>
+              <p>每个分类对应的扩展名清单可自由增删，分类文件夹名称也可修改。</p>
+              <p>**② 按修改日期整理**</p>
+              <p>按文件的最后修改时间归档到日期文件夹，粒度可选：</p>
+              <p>- 按年：`2024`
+- 按年月：`2024-09`
+- 按年月日：`2024-09-27`</p>
+              <p>**③ 按文件大小整理**</p>
+              <p>按体积分为「小文件 / 中文件 / 大文件」三档，默认阈值为 1 MB 与 100 MB，阈值和文件夹名称均可自定义。</p>
+              <p>**④ 按文件名关键词整理**</p>
+              <p>文件名（不含扩展名）中包含指定关键词即归入对应文件夹。内置工作、学习、个人、财务、简历求职、娱乐 6 组常用关键词，可自行增删；未匹配文件归入「未匹配」。</p>
+              <p>### 4. 规则选项</p>
+              <p>- **包含子文件夹**：开启后递归扫描源文件夹的所有子目录。
+- **重名冲突策略**：
+  - 自动重命名（默认）：目标位置已有同名文件时，自动改为 `文件名 (1).扩展名`、`文件名 (2).扩展名`……
+  - 跳过：保留目标位置已有文件，源文件不移动。
+  - 覆盖：用源文件替换同名文件（谨慎使用）。</p>
+              <p>### 5. 规则管理（右上角「设置」菜单）</p>
+              <p>- **规则设置**：编辑当前规则的全部参数（类型映射、关键词、阈值、粒度、文件夹名、冲突策略等），可另存为自定义规则。
+- **新建规则**：基于任意规则复制一份并改名，打造个人整理方案。
+- **恢复预设**：将内置预设规则还原为出厂内容。
+- **删除规则**：删除不再需要的自定义规则（内置预设受保护，不可删除）。
+- 所有规则与设置自动保存在本机配置文件中，下次打开依然生效。</p>
+              <p>### 6. 预览与执行</p>
+              <p>1. 点「**加入整理队列**」：扫描所有源文件夹，生成文件清单，显示每个文件的**分类、文件名、目标路径、大小、修改日期**，并统计文件总数。
+2. 核对清单无误后点「**开始整理**」：正式移动文件，底部显示进度条与当前正在处理的文件名，可随时「取消」。
+3. 执行完毕后顶部显示**成功 / 失败**数量；未添加文件夹就点开始整理时会弹出操作提示。</p>
+              <p>### 7. 多语言</p>
+              <p>标题栏右上角「中 / EN」一键切换**简体中文 / English**，即时生效无需重启，选择会被记住。</p>
+              <p>---</p>
+              <p>## 三、使用教程（三步完成整理）</p>
+              <p>1. **添加源文件夹**：点「+ 添加」，或直接把要整理的文件夹拖进左侧区域；可添加多个。
+2. **设置目标文件夹**：点「浏览」选择整理后的存放位置。
+3. **选择规则 → 加入整理队列 → 开始整理**：在「整理规则」下拉框中选择一种规则（可在右上角「设置」中调整细节），先预览清单，确认后执行。</p>
+              <p>整理完成后，打开目标文件夹即可看到按类别归档好的文件。</p>
+              <p>---</p>
+              <p>## 四、安装与运行</p>
+              <p>### 精简版（推荐，体积小）</p>
+              <p>压缩包内包含两个文件：</p>
+              <p>| 文件 | 作用 |
+|---|---|
+| `文件清理大师.exe` | 文件清理大师主程序（单文件） |
+| `启动.exe` | 运行环境检测启动器 |</p>
+              <p>**运行要求**：电脑已安装 [.NET 8 桌面运行时](https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0)。</p>
+              <p>- 直接双击 `文件清理大师.exe` 即可使用；
+- 若不确定是否装有运行时，双击 `启动.exe`：已安装则自动启动主程序，未安装会弹窗给出官方下载指引。</p>
+              <p>软件为绿色免安装版，解压到任意目录均可运行，卸载时直接删除文件即可。</p>
+              <p>---</p>
+              <p>## 五、技术说明</p>
+              <p>- **技术栈**：C# / .NET 8 / WPF（MVVM 架构，CommunityToolkit.Mvvm）
+- **发布形态**：framework-dependent 单文件（PublishSingleFile），win-x64
+- **配置存储**：本机 JSON 配置文件（规则、语言等设置持久化）
+- **代码保护**：发布版本使用 Obfuscar 混淆，保留公共 API 以确保 WPF 绑定正常
+- **隐私安全**：全程离线运行，不访问网络，不读取、不上传任何文件内容</p>
+              <p>---</p>
+              <p>## 六、常见问题</p>
+              <p>**Q：整理后文件找不到了？**
+A：文件被移动到了你设置的「目标文件夹」下的分类子文件夹中。预览清单的「目标路径」一列已标明每个文件的具体去向。</p>
+              <p>**Q：整理错了能撤销吗？**
+A：软件采用「先预览后执行」机制，请在预览阶段仔细核对目标路径。执行后如需还原，可在目标文件夹中按分类手动移回；建议首次使用前先备份重要文件。</p>
+              <p>**Q：两个文件同名怎么办？**
+A：默认自动重命名（加序号），不会覆盖任何文件；也可在规则设置中改为「跳过」或「覆盖」。</p>
+              <p>**Q：提示没有权限 / 部分文件失败？**
+A：被其他程序占用或系统保护的文件会移动失败，软件会在结束时统计失败数量而不中断整体任务，关闭占用程序后对剩余文件再次整理即可。</p>
+              <p>**Q：自定义规则会丢失吗？**
+A：不会。所有修改都自动保存到本机配置文件，重启软件后依然保留。</p>
+              <p>-</p>
+          </div>
+  </div>
+  
+    <div style="margin-top:80px">
+    <h2 class="h2 rise">功能特性</h2>
+    <div class="grid grid--3" style="margin-top:32px">
+              <div class="panel panel--flat rise" style="--d:0.05s">
+          <svg class="ico panel__ico"><use href="#i-file"/></svg>
+          <h3 class="h3">按日期归档</h3>
+          <p>自动按 年-月 建文件夹，文件归位，目录清爽。</p>
+        </div>
+              <div class="panel panel--flat rise" style="--d:0.13s">
+          <svg class="ico panel__ico"><use href="#i-file"/></svg>
+          <h3 class="h3">按类型分</h3>
+          <p>文档/图片/视频/其他四类分开，找文件不再大海捞针。</p>
+        </div>
+              <div class="panel panel--flat rise" style="--d:0.21s">
+          <svg class="ico panel__ico"><use href="#i-file"/></svg>
+          <h3 class="h3">一键还原</h3>
+          <p>整理前生成映射表，误操作可整盘退回到整理前状态。</p>
+        </div>
+          </div>
+  </div>
+  
+    <div class="grid grid--2" style="margin-top:80px;gap:64px">
+        <div class="rise">
+      <h2 class="h2">适用场景</h2>
+      <ul class="dotlist dotlist--divider" style="margin-top:32px">
+                              <li style="display:block"><b>销售/客服微信</b><p>每天收大量合同、截图，归档后按客户和时间一目了然。</p></li>
+                                        <li style="display:block"><b>个人微信瘦身</b><p>大视频、重复图自动归拢，方便批量清理释放空间。</p></li>
+                        </ul>
+    </div>
+        <div class="rise" style="--d:.12s">
+      <h2 class="h2">技术说明</h2>
+      <div class="tags" style="margin-top:32px">
+        <span class="tag">Python</span><span class="tag">原地移动</span><span class="tag">映射清单</span><span class="tag">无需联网</span>      </div>
+              <p class="note"><b>费用：</b>免费使用；如需按聊天对象归档或加白名单，请联系。</p>
+          </div>
+  </div>
+  </div><!-- /container -->
+
+    <div class="container">
+    <a class="next-card rise" href="../cases/auto-backup.html">
+      <div class="cover cover--data">
+                          <span class="glyph">备</span>
+              </div>
+      <div>
+        <p class="tiny" style="margin-bottom:16px">下一个</p>
+        <h3>文件夹自动备份助手 <svg class="ico"><use href="#i-arrow"/></svg></h3>
+        <p>定时把指定文件夹备份到移动硬盘 / 网盘，增量备份不重复占空间</p>
+      </div>
+    </a>
+  </div>
+  
+
+</main>
+
+<footer class="site-footer">
+  <div class="container foot-cols">
+    <div class="foot-intro">
+      <h3>电脑小百科</h3>
+      <p>软件定制开发（进销存、报表自动化、小程序、管理系统）与电脑维护服务（远程协助、故障排查、系统重装、数据恢复、上门维修）。先报价后动手，不解决不收费。</p>
+    </div>
+          <div class="foot-col">
+        <h4>服务</h4>        <ul>
+                      <li><a href="../services.html">软件定制开发</a></li>
+                      <li><a href="../services.html">电脑维护 / 系统重装</a></li>
+                      <li><a href="../remote.html">远程协助修电脑</a></li>
+                      <li><a href="../services.html">数据恢复 / 迁移</a></li>
+                      <li><a href="../services.html">企业包年维护</a></li>
+                  </ul>
+      </div>
+          <div class="foot-col">
+        <h4>站点</h4>        <ul>
+                      <li><a href="../index.html">首页</a></li>
+                      <li><a href="../cases.html">软件下载</a></li>
+                      <li><a href="../remote.html">故障自查</a></li>
+                      <li><a href="../about.html">关于陈工</a></li>
+                      <li><a href="../contact.html">联系 / 预约</a></li>
+                      <li><a href="../appreciate.html">赞赏支持</a></li>
+                  </ul>
+      </div>
+      </div>
+  <div class="container">
+    <p class="foot-mini">© 2026 电脑小百科 · 软件定制 / 电脑维护 · 服务时间 8:00 – 22:00 · <a href="../contact.html">联系我们</a></p>
+  </div>
+</footer>
+</body>
+</html>

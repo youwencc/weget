@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>远程协助修电脑 · 流程 / 安全底线 / 故障自查 | 电脑小百科</title>
+<meta name="description" content="陈工工作室：软件定制开发（进销存、报表自动化、小程序、管理系统）与电脑维护服务（远程协助、故障排查、系统重装、数据恢复、上门维修）。先报价后动手，不解决不收费。" />
+<meta name="keywords" content="软件定制,电脑维修,远程协助,电脑维护,数据恢复,系统重装,进销存定制,小程序开发" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231C1A16'/%3E%3Cpath d='M50 26v48M26 50h48' stroke='%23B45309' stroke-width='12' stroke-linecap='round'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<script defer src="assets/js/main.js"></script>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5S4.5 16 4.5 10.7A4.2 4.2 0 0112 7.6a4.2 4.2 0 017.5 3.1C19.5 16 12 20.5 12 20.5z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.2c0 5-3.3 8.3-7.5 10.3-4.2-2-7.5-5.3-7.5-10.3V6L12 3z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5L16.5 16.5"/></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9.5 9v12"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M3.5 17a8.5 8.5 0 1117 0"/><path d="M12 14l4-4.5"/></symbol>
+    <symbol id="i-off" viewBox="0 0 24 24"><path d="M17.5 19H7a4.5 4.5 0 01-.5-9 6 6 0 0111.7-1.5A4 4 0 0117.5 19z"/><path d="M3 3l18 18"/></symbol>
+    <symbol id="i-blocks" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/><path d="M14 17.5h7M17.5 14v7"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 21a9 9 0 110-18c5 0 9 3.4 9 7.6 0 2.4-2 4.4-4.4 4.4H15a2 2 0 00-1.6 3.2A1.8 1.8 0 0112 21z"/><path d="M7.5 11.5h.01M11 8h.01M15.5 9.5h.01"/></symbol>
+    <symbol id="i-devices" viewBox="0 0 24 24"><rect x="2" y="4" width="14" height="11" rx="2"/><path d="M6 19h7"/><rect x="17.5" y="9" width="4.5" height="10" rx="1.5"/></symbol>
+    <symbol id="i-news" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 9h6M7 13h10M7 17h7"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 15a3 3 0 01-3 3H9.5L4.5 22V6a3 3 0 013-3H17a3 3 0 013 3v9z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.5 2"/></symbol>
+    <symbol id="i-at" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 12v1.5a2.5 2.5 0 005 0V12a9 9 0 10-3.4 7"/></symbol>
+    <symbol id="i-rss" viewBox="0 0 24 24"><path d="M5 19a1 1 0 100-2 1 1 0 000 2z"/><path d="M4 11.5a8.5 8.5 0 018.5 8.5M4 5a15 15 0 0115 15"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 9.5h2a3 3 0 010 6h-2M3 9.5h14V15a5 5 0 01-5 5H8a5 5 0 01-5-5V9.5zM7.5 3.5v2.5M11.5 3.5v2.5"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3L10.5 13.5M21 3l-6.8 18-3.7-7.5L3 9.8 21 3z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.4L19.5 10l-5.6 1.6L12 17l-1.9-5.4L4.5 10l5.6-1.6L12 3z"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="13" rx="2.5"/><path d="M2.5 10.5h19M16.5 15h2"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20.5h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M9 17l-5-5 5-5M15 7l5 5-5 5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 5.2a3.2 3.2 0 010 5.9M18 20a6.4 6.4 0 00-2-4.6"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 114 2c-.9.7-1.5 1.2-1.5 2.3M12 17h.01"/></symbol>
+    <symbol id="i-git" viewBox="0 0 24 24"><circle cx="6.5" cy="5.5" r="2.5"/><circle cx="6.5" cy="18.5" r="2.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M6.5 8v8M17.5 11.5c0 3.2-3.4 3.6-6.3 4.3"/></symbol>
+    <!-- ===== 业务图标 ===== -->
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3h3l1.5 4-2 1.5a11 11 0 006.5 6.5L17 13l4 1.5v3a2 2 0 01-2.2 2A15.5 15.5 0 014.5 5.2 2 2 0 016.5 3z"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.5 6a3.5 3.5 0 104.9 4.4l-2.6-2.6 1.4-1.4 2.6 2.6A3.5 3.5 0 0114.5 6z"/><path d="M13.4 10.6L4.8 19.2a2 2 0 002.8 2.8l8.6-8.6"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="12.5" rx="2"/><path d="M8.5 20.5h7M12 16.5v4"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="10" rx="1.8"/><path d="M2 18.5h20"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M3 9a14 14 0 0118 0M6.5 12.5a9 9 0 0111 0M10 16a4.5 4.5 0 014 0"/><path d="M12 19.5h.01"/></symbol>
+    <symbol id="i-printer" viewBox="0 0 24 24"><path d="M7 8V3.5h10V8"/><rect x="3.5" y="8" width="17" height="7.5" rx="2"/><rect x="7" y="13.5" width="10" height="7" rx="1.2"/><path d="M17 11h.01"/></symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24"><rect x="8" y="7.5" width="8" height="11" rx="4"/><path d="M8 12H4.5M8 16H5M16 12h3.5M16 16h3M9.5 7.5L8 5M14.5 7.5L16 5M9.5 20.5L8 18.5M14.5 20.5l1.5-2"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M12 2.8l8.5 4.4v9.6L12 21.2 3.5 16.8V7.2L12 2.8z"/><path d="M3.5 7.2L12 11.6l8.5-4.4M12 11.6v9.6"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 20v-6M12.5 20V8.5M17 20v-9"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14h3"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><rect x="2.5" y="6" width="11" height="9.5" rx="1.5"/><path d="M13.5 9.5h4l3 3.5v2.5h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="10.5" rx="2.5"/><path d="M8 10V7.5a4 4 0 018 0V10M12 14.5v2.5"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/><path d="M10 3v3.5M14 3v3.5M10 17.5V21M14 17.5V21M3 10h3.5M3 14h3.5M17.5 10H21M17.5 14H21"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9 16H3l9-16z"/><path d="M12 9.5v4.5M12 17h.01"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M13.5 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8.5L13.5 3z"/><path d="M13.5 3v5.5H19M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 10-2.6 6.3"/><path d="M20 4.5V11h-6"/></symbol>
+    <symbol id="i-hdd" viewBox="0 0 24 24"><rect x="2.5" y="12" width="19" height="7.5" rx="2"/><path d="M5 12l2.5-6.5h9L19 12M6.5 15.7h.01M10 15.7h4"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 10l6.1-.9L12 3.5z"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H7a4.5 4.5 0 01-.5-9 6 6 0 0111.7-1.5A4 4 0 0117.5 19z"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="16" r="3.5"/><path d="M10.5 13.5L20 4M16.5 7.5l2.5 2.5M14 10l2 2"/></symbol>
+    <symbol id="i-screen" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M9.5 8.5l4 2.5-4 2.5v-5z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v11M7.5 9.5L12 14l4.5-4.5M4 19h16"/></symbol>
+  </defs>
+</svg>
+
+<input type="checkbox" id="menu" class="switch" />
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">电</span>
+      <span class="brand-text">
+        <span class="brand-name">电脑小百科</span>
+        <span class="brand-sub">软件定制 · 电脑维护</span>
+      </span>
+    </a>
+    <nav class="nav-desk">
+                              <a class="nav-link" href="index.html">首页</a>
+                        <a class="nav-link" href="services.html">服务</a>
+                        <a class="nav-link" href="cases.html">软件下载</a>
+                        <a class="nav-link" href="articles.html">知识库</a>
+                        <a class="nav-link is-active" href="remote.html">远程协助</a>
+                        <a class="nav-link" href="about.html">关于</a>
+                    <a class="nav-cta" href="contact.html" style="border-color:var(--accent);background:var(--accent);color:var(--cream)">
+        <svg class="ico ico--sm"><use href="#i-chat"/></svg>联系我们
+      </a>
+      <a class="nav-cta" href="appreciate.html"><svg class="ico ico--sm"><use href="#i-heart"/></svg>赞赏</a>
+    </nav>
+    <label class="burger" for="menu" aria-label="打开菜单"><span></span><span></span></label>
+  </div>
+  <nav class="nav-mob">
+                      <a class="" href="index.html">首页</a>
+                  <a class="" href="services.html">服务</a>
+                  <a class="" href="cases.html">软件下载</a>
+                  <a class="" href="articles.html">知识库</a>
+                  <a class="is-active" href="remote.html">远程协助</a>
+                  <a class="" href="about.html">关于</a>
+              <a class="" href="contact.html">联系</a>
+    <a class="" href="appreciate.html">赞赏</a>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="container">
+  <div class="rise">
+    <p class="kicker">Remote Support</p>
+    <div class="section-head" style="margin-top:20px;align-items:flex-end">
+      <h1 class="h1">远程协助<span class="acc">。</span></h1>
+      <p class="lead" style="max-width:27rem;font-size:14px">
+        电脑不用搬、你也不用等师傅。加个微信、发个远程码，<b style="color:var(--ink)">我在你眼皮底下把问题处理完</b>，全程可见、随时可断。
+      </p>
+    </div>
+  </div>
+
+  <!-- 紧急通道 -->
+  <div class="emergency rise" style="margin-top:44px">
+    <div>
+      <h3>电脑现在就用不了？先联系我</h3>
+      <p>先说清楚现象，3 分钟帮你判断能不能远程、大概多少钱，别自己乱点乱删，容易把数据弄丢。</p>
+    </div>
+    <a class="btn btn--solid" href="contact.html"><svg class="ico ico--sm"><use href="#i-chat"/></svg>联系我们</a>
+  </div>
+
+  <!-- 使用流程 -->
+  <div style="margin-top:80px">
+    <div class="rise">
+      <p class="kicker">Getting Started</p>
+      <h2 class="h2" style="margin-top:14px">远程协助怎么开始</h2>
+    </div>
+    <div class="steps" style="margin-top:36px">
+      <div class="step rise" style="--d:.04s"><svg class="ico"><use href="#i-chat"/></svg><h3>加微信 / 加 QQ</h3><p>把报错截图、异响、现象拍给我。说不清也没关系，我一步步问你。</p></div>
+      <div class="step rise" style="--d:.11s"><svg class="ico"><use href="#i-wallet"/></svg><h3>免费判断 + 报价</h3><p>我判断问题类型和耗时，给出明确价格。你觉得贵，可以不继续。</p></div>
+      <div class="step rise" style="--d:.18s"><svg class="ico"><use href="#i-key"/></svg><h3>给我一个远程码</h3><p>我发你一个链接或让你装向日葵/ToDesk，把显示的数字告诉我即可连接。</p></div>
+      <div class="step rise" style="--d:.25s"><svg class="ico"><use href="#i-check"/></svg><h3>处理完你验收</h3><p>全程你屏幕上可见，随时能断开。确认解决后再付款，附 30 天保修。</p></div>
+    </div>
+    <div class="callout rise" style="margin-top:28px">
+      <svg class="ico"><use href="#i-screen"/></svg>
+      <p><b>你可以全程看到我在做什么。</b>远程过程中鼠标会显示我的操作轨迹，你可以随时点一下鼠标就夺回控制权，也可以直接关掉软件断开连接。</p>
+    </div>
+  </div>
+
+  <!-- 能解决什么 -->
+  <section class="band" style="margin-top:88px;padding:72px 0">
+    <div class="container" style="padding:0 24px">
+      <div class="rise">
+        <p class="kicker">What Can Be Fixed Remotely</p>
+        <h2 class="h2" style="margin-top:14px">远程能解决这些问题</h2>
+      </div>
+      <div class="grid grid--4" style="margin-top:36px;gap:20px">
+        <div class="sec-card rise" style="--d:.04s"><svg class="ico"><use href="#i-monitor"/></svg><h3>系统与性能</h3><p>开机慢、运行卡、C 盘爆满、频繁弹窗、系统报错、蓝屏代码分析。</p></div>
+        <div class="sec-card rise" style="--d:.08s"><svg class="ico"><use href="#i-bug"/></svg><h3>病毒与流氓软件</h3><p>木马查杀、浏览器劫持、广告弹窗根治、首页被改、账号异常排查。</p></div>
+        <div class="sec-card rise" style="--d:.12s"><svg class="ico"><use href="#i-file"/></svg><h3>软件与办公</h3><p>Office/WPS 报错、PDF、打印机驱动、专业软件安装与破解冲突、邮件配置。</p></div>
+        <div class="sec-card rise" style="--d:.16s"><svg class="ico"><use href="#i-hdd"/></svg><h3>数据与备份</h3><p>误删文件恢复、旧电脑搬到新电脑、自动备份方案、硬盘健康检测。</p></div>
+        <div class="sec-card rise" style="--d:.2s"><svg class="ico"><use href="#i-wifi"/></svg><h3>网络与共享</h3><p>WiFi 掉线、网速慢、上不了网、共享文件夹与权限、打印机共享。</p></div>
+        <div class="sec-card rise" style="--d:.24s"><svg class="ico"><use href="#i-cloud"/></svg><h3>账号与云服务</h3><p>微信/钉钉/企业微信问题、OneDrive、网盘同步、账号找回与二次验证。</p></div>
+        <div class="sec-card rise" style="--d:.28s"><svg class="ico"><use href="#i-printer"/></svg><h3>外设与设备</h3><p>打印机、扫描仪、摄像头、麦克风、耳机、投影仪识别与驱动问题。</p></div>
+        <div class="sec-card rise" style="--d:.32s"><svg class="ico"><use href="#i-laptop"/></svg><h3>新电脑调试</h3><p>新机开机配置、去预装垃圾、办公环境一次性装好、旧机数据迁移。</p></div>
+      </div>
+      <div class="callout rise" style="margin-top:28px">
+        <svg class="ico"><use href="#i-alert"/></svg>
+        <p><b>这几种情况远程解决不了，需要上门：</b>完全不通电/不开机、屏幕或键盘硬件损坏、需要加装内存/固态、要重新布线的网络工程、异响疑似硬盘或风扇故障。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 远程工具 -->
+  <div style="margin-top:88px">
+    <div class="rise">
+      <p class="kicker">Tools</p>
+      <h2 class="h2" style="margin-top:14px">用哪款远程工具，你说了算</h2>
+      <p class="lead" style="margin-top:14px;max-width:40rem;font-size:15px">以下都是常见的正规远控软件，你也可以指定自己习惯用的。</p>
+    </div>
+    <div class="tools" style="margin-top:32px">
+      <div class="tool rise" style="--d:.04s"><svg class="ico"><use href="#i-screen"/></svg><b>向日葵</b><span>国内最常用，手机也能装</span></div>
+      <div class="tool rise" style="--d:.08s"><svg class="ico"><use href="#i-screen"/></svg><b>ToDesk</b><span>免安装版，双击就能用</span></div>
+      <div class="tool rise" style="--d:.12s"><svg class="ico"><use href="#i-screen"/></svg><b>TeamViewer</b><span>外企办公环境常见</span></div>
+      <div class="tool rise" style="--d:.16s"><svg class="ico"><use href="#i-chat"/></svg><b>微信 / QQ</b><span>屏幕共享，适合讲解指导</span></div>
+      <div class="tool rise" style="--d:.2s"><svg class="ico"><use href="#i-monitor"/></svg><b>系统自带远程</b><span>有域/服务器环境时使用</span></div>
+    </div>
+  </div>
+
+  <!-- 安全保障 -->
+  <div style="margin-top:88px">
+    <div class="rise">
+      <p class="kicker">Safety</p>
+      <h2 class="h2" style="margin-top:14px">远程的安全底线</h2>
+    </div>
+    <div class="sec-grid" style="margin-top:36px">
+      <div class="sec-card rise" style="--d:.04s"><svg class="ico"><use href="#i-key"/></svg><h3>只在你授权时连接</h3><p>连接需要你当面告诉我远程码，我不保存、不会在你不在线时接入你的电脑。</p></div>
+      <div class="sec-card rise" style="--d:.08s"><svg class="ico"><use href="#i-screen"/></svg><h3>全程可见、随时可断</h3><p>你在屏幕前能看到每一步操作，点一下鼠标即夺回控制，关闭软件即断开。</p></div>
+      <div class="sec-card rise" style="--d:.12s"><svg class="ico"><use href="#i-lock"/></svg><h3>不要你的密码</h3><p>需要登录时我自己输入、你事后修改；不需要你把账号密码发在聊天里。</p></div>
+      <div class="sec-card rise" style="--d:.16s"><svg class="ico"><use href="#i-hdd"/></svg><h3>先备份再动手</h3><p>涉及删除、重装、分区、恢复的操作，先把重要数据复制到安全位置。</p></div>
+      <div class="sec-card rise" style="--d:.2s"><svg class="ico"><use href="#i-shield"/></svg><h3>文件只进不出</h3><p>除非你要求，我不会把你的文件拷走；临时文件处理完即清理。</p></div>
+      <div class="sec-card rise" style="--d:.24s"><svg class="ico"><use href="#i-file"/></svg><h3>可签保密协议</h3><p>企业客户涉及财务、客户资料时，可先签 NDA，操作留痕可审计。</p></div>
+    </div>
+  </div>
+
+  <!-- 故障自查 -->
+  <section class="band" style="margin-top:88px;padding:72px 0">
+    <div class="container" style="padding:0 24px">
+      <div class="rise">
+        <p class="kicker">DIY First</p>
+        <h2 class="h2" style="margin-top:14px">先自己花 3 分钟排查一下</h2>
+        <p class="lead" style="margin-top:14px;max-width:40rem;font-size:15px">常见问题里，有不少其实自己就能搞定。点开看看，不行再来找我。</p>
+      </div>
+
+      <div class="faults" style="margin-top:36px">
+        <details class="fault rise" style="--d:.04s">
+          <summary><svg class="ico"><use href="#i-bolt"/></svg>开机要等一两分钟<svg class="ico chev"><use href="#i-chev"/></svg></summary>
+          <div class="body">
+            <p>按 <b>Ctrl + Shift + Esc</b> 打开任务管理器 →「启动」标签，把不需要开机自启的程序右键禁用（尤其是各种助手、更新器）。再用 <b>Win + R</b> 输入 <code>%temp%</code> 清理临时文件。</p>
+            <p class="res"><b>如果还是慢</b>多半是机械硬盘，换一块固态（¥200–¥400）开机可进 15 秒内，我上门 30 分钟装好。</p>
+          </div>
+        </details>
+
+        <details class="fault rise" style="--d:.08s">
+          <summary><svg class="ico"><use href="#i-alert"/></svg>蓝屏 / 自动重启<svg class="ico chev"><use href="#i-chev"/></svg></summary>
+          <div class="body">
+            <p>蓝屏画面左下角有一串代码（如 <b>MEMORY_MANAGEMENT</b>、<b>CRITICAL_PROCESS_DIED</b>），拍下来发我。若频繁出现，先看是否刚装过新软件/驱动，最近是否断电或搬动过主机。</p>
+            <p class="res"><b>判断方向</b>内存条接触不良、硬盘坏道、驱动冲突最常见。远程我可以读事件日志定位，硬件问题则需上门检测。</p>
+          </div>
+        </details>
+
+        <details class="fault rise" style="--d:.12s">
+          <summary><svg class="ico"><use href="#i-wifi"/></svg>WiFi 老是掉线、网速慢<svg class="ico chev"><use href="#i-chev"/></svg></summary>
+          <div class="body">
+            <p>先用手机站在路由器旁边测速对比：手机快、电脑慢，是电脑网卡/驱动问题；两边都慢，是宽带或路由器问题。路由器断电 30 秒再上电，能解决一大半。</p>
+            <p class="res"><b>如果还慢</b>可能是信道拥挤或路由器老旧，我可以远程帮你改信道、或上门调整位置/更换设备。</p>
+          </div>
+        </details>
+
+        <details class="fault rise" style="--d:.16s">
+          <summary><svg class="ico"><use href="#i-printer"/></svg>打印机打不出来 / 共享不了<svg class="ico chev"><use href="#i-chev"/></svg></summary>
+          <div class="body">
+            <p>先看「设置 → 蓝牙和其他设备 → 打印机和扫描仪」里打印机是否显示「脱机」。脱机就重启 Print Spooler 服务；共享失败多半是两台电脑不在同一网段或未开启文件共享。</p>
+            <p class="res"><b>如果还乱</b>驱动装错版本最常见，远程我 15 分钟内一般能配好一台共享打印。</p>
+          </div>
+        </details>
+
+        <details class="fault rise" style="--d:.2s">
+          <summary><svg class="ico"><use href="#i-bug"/></svg>弹窗广告关不掉、浏览器被改<svg class="ico chev"><use href="#i-chev"/></svg></summary>
+          <div class="body">
+            <p>打开任务管理器看可疑进程的「打开文件位置」，把不明软件卸载；再检查浏览器扩展与主页锁定。很多弹窗来自「高速下载器」捆绑安装。</p>
+            <p class="res"><b>根治建议</b>这类捆绑常驻自启、互相拉起，手动删不干净。远程我清理自启项 + 计划任务 + 装轻量防护，一般 30 分钟搞定。</p>
+          </div>
+        </details>
+
+        <details class="fault rise" style="--d:.24s">
+          <summary><svg class="ico"><use href="#i-hdd"/></svg>文件误删了 / 硬盘打不开<svg class="ico chev"><use href="#i-chev"/></svg></summary>
+          <div class="body">
+            <p><b>立刻停止往这块盘写入任何东西</b>（别下载、别安装恢复软件到同一块盘）。回收站有就直接还原；没有的话恢复成功率取决于是否被覆盖。</p>
+            <p class="res"><b>重要</b>硬盘有异响（咔哒声）不要反复通电，先做镜像再恢复。数据恢复 ¥199 起，先检测报价，恢复不出来不收费。</p>
+          </div>
+        </details>
+
+        <details class="fault rise" style="--d:.28s">
+          <summary><svg class="ico"><use href="#i-cpu"/></svg>C 盘满了、电脑提示空间不足<svg class="ico chev"><use href="#i-chev"/></svg></summary>
+          <div class="body">
+            <p>用 <b>设置 → 系统 → 存储</b> 看占用大头；清理「临时文件」「以前的 Windows 安装」；把微信/QQ 的文件保存路径改到 D 盘，往往能一次性释放几十 GB。</p>
+            <p class="res"><b>更彻底</b>可以无损扩容 C 盘（需 D 盘有空间），远程可做，¥99 起。</p>
+          </div>
+        </details>
+
+        <details class="fault rise" style="--d:.32s">
+          <summary><svg class="ico"><use href="#i-monitor"/></svg>电脑没声音 / 麦克风没反应<svg class="ico chev"><use href="#i-chev"/></svg></summary>
+          <div class="body">
+            <p>右下角音量图标 → 确认输出设备选对了（别选到显示器或蓝牙耳机）；再在「声音设置」里做设备测试。笔记本常见是驱动被系统更新替换。</p>
+            <p class="res"><b>如果还不行</b>重装声卡驱动即可，远程 10 分钟处理。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout rise" style="margin-top:28px">
+        <svg class="ico"><use href="#i-help"/></svg>
+        <p><b>试了还是不行？</b>把上面你做到哪一步告诉我，我能少走弯路，也能给你报个更准的价。<a href="contact.html" style="color:var(--accent);border-bottom:1px solid var(--accent)">去联系远程协助 →</a></p>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container foot-cols">
+    <div class="foot-intro">
+      <h3>电脑小百科</h3>
+      <p>软件定制开发（进销存、报表自动化、小程序、管理系统）与电脑维护服务（远程协助、故障排查、系统重装、数据恢复、上门维修）。先报价后动手，不解决不收费。</p>
+    </div>
+          <div class="foot-col">
+        <h4>服务</h4>        <ul>
+                      <li><a href="services.html">软件定制开发</a></li>
+                      <li><a href="services.html">电脑维护 / 系统重装</a></li>
+                      <li><a href="remote.html">远程协助修电脑</a></li>
+                      <li><a href="services.html">数据恢复 / 迁移</a></li>
+                      <li><a href="services.html">企业包年维护</a></li>
+                  </ul>
+      </div>
+          <div class="foot-col">
+        <h4>站点</h4>        <ul>
+                      <li><a href="index.html">首页</a></li>
+                      <li><a href="cases.html">软件下载</a></li>
+                      <li><a href="remote.html">故障自查</a></li>
+                      <li><a href="about.html">关于陈工</a></li>
+                      <li><a href="contact.html">联系 / 预约</a></li>
+                      <li><a href="appreciate.html">赞赏支持</a></li>
+                  </ul>
+      </div>
+      </div>
+  <div class="container">
+    <p class="foot-mini">© 2026 电脑小百科 · 软件定制 / 电脑维护 · 服务时间 8:00 – 22:00 · <a href="contact.html">联系我们</a></p>
+  </div>
+</footer>
+</body>
+</html>

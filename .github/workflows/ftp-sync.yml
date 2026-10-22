@@ -1,0 +1,141 @@
+# ============================================================
+# 陈工工作室 · 虚拟主机 → GitHub Pages 自动同步
+# ------------------------------------------------------------
+# 使用说明：本文件是「静态仓库」的模板。
+#   1. 在 GitHub 新建一个公开仓库（如 chengsite-pages）
+#   2. 把本文件原样放到那个仓库的 .github/workflows/ 目录下
+#   3. 配置 Secrets 与 Pages（见《部署手册.md》）
+# 同步方向：虚拟主机（FTP 只读拉取）→ 仓库 → GitHub Pages
+# 设计原则（每条都对应真实踩坑，勿简化）：
+#   镜像放 /tmp（仓库外）、保护清单、扩展名白名单、三道安全阀、串行限速
+# ============================================================
+name: Sync site from hosting
+
+on:
+  schedule:
+    - cron: "9,39 * * * *"    # UTC 每小时第 9、39 分（与北京时间相同分钟）
+  workflow_dispatch: {}        # 允许在 Actions 页手动触发
+
+concurrency:
+  group: ftp-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write              # 必须有，否则无法提交推送
+
+env:
+  FTP_HOST: ${{ secrets.FTP_HOST }}
+  FTP_DIR: ${{ secrets.FTP_DIR }}
+  # ★ 铁律：FTP 镜像必须放在 runner 临时目录，绝不能放在仓库内部
+  MIRROR: /tmp/ftpmirror
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Pull site from hosting (FTP mirror)
+        env:
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp   # ubuntu-latest 不预装 lftp
+          rm -rf "$MIRROR" && mkdir -p "$MIRROR"
+          set -o pipefail
+          lftp -u "$FTP_USER","$FTP_PASS" "$FTP_HOST" <<EOF | tee /tmp/ftp.log
+          set net:max-retries 2
+          set net:timeout 30
+          set ftp:ssl-allow no
+          set net:limit-rate 2097152      # 限速 2MB/s，避免触发主机防护
+          # ★ 不用 --delete、不用 --parallel（主机限制 FTP 并发连接数）
+          mirror --no-perms --verbose=1 "$FTP_DIR" "$MIRROR"
+          bye
+          EOF
+          echo "下载完成，镜像文件数: $(find "$MIRROR" -type f | wc -l)"
+
+      - name: Diagnose FTP failure
+        if: failure()
+        env:
+          FTP_USER: ${{ secrets.FTP_USER }}
+        run: |
+          {
+            echo "## 同步失败诊断"
+            echo "- FTP_HOST=\`$FTP_HOST\`  FTP_DIR=\`$FTP_DIR\`  FTP_USER=\`$FTP_USER\`"
+            echo "- 磁盘剩余：$(df -h /home/runner/work | tail -1)"
+            echo "- 镜像文件数：$(find "$MIRROR" -type f 2>/dev/null | wc -l)"
+            echo "- 拉取日志关键行："
+            echo '```'
+            grep -iaE '530|login|550|421|425|timed? ?out|not found|failed|error|refused|denied|ssl|tls' /tmp/ftp.log | tail -20 || echo "(无匹配)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # 安全阀 1：拉取为空 = FTP 路径/账号错，绝不能继续（否则会把仓库清空推上去）
+      - name: Verify mirror is not empty
+        run: |
+          if [ -z "$(ls -A "$MIRROR")" ]; then
+            echo "::error::FTP 拉取结果为空：请检查 Secrets"
+            exit 1
+          fi
+          echo "拉取文件数: $(find "$MIRROR" -type f | wc -l)"
+
+      # 白名单：只放行静态文件 + uploads/ 里的图片（封面图/配图/收款码）。
+      # php/sql/配置/备份/后台一律挡住；uploads/ 内的 .htaccess、.gitignore 等点文件也不放行。
+      # 本项目要挡掉的目录：admin（后台，含数据库配置）、includes、database、legacy（原始单页备份）
+      - name: Sync into repo (static whitelist only)
+        run: |
+          rc=0
+          for i in 1 2 3; do
+            if rsync -a --delete \
+              --exclude='admin/' \
+              --exclude='includes/' \
+              --exclude='database/' \
+              --exclude='legacy/' \
+              --exclude='src/' \
+              --exclude='.git/' --exclude='.github/' --exclude='tools/' \
+              --exclude='CNAME' --exclude='.gitignore' --exclude='.htaccess' \
+              --exclude='uploads/.htaccess' --exclude='uploads/.gitignore' \
+              --include='uploads/' \
+              --include='*/' \
+              --include='*.html' --include='*.htm' --include='*.shtml' \
+              --include='*.css' --include='*.js' --include='*.mjs' --include='*.map' \
+              --include='*.json' --include='*.xml' --include='*.txt' \
+              --include='*.jpg' --include='*.jpeg' --include='*.png' --include='*.gif' \
+              --include='*.webp' --include='*.svg' --include='*.ico' --include='*.bmp' --include='*.avif' \
+              --include='*.woff' --include='*.woff2' --include='*.ttf' --include='*.otf' --include='*.eot' \
+              --include='*.mp4' --include='*.webm' --include='*.mp3' --include='*.ogg' --include='*.wav' --include='*.m4a' \
+              --include='*.pdf' --include='*.csv' \
+              --exclude='*' \
+              "$MIRROR/" ./
+            then rc=0; break; fi
+            rc=$?
+            if [ "$rc" -ne 24 ]; then break; fi   # 24=个别文件消失，重试兜底
+            echo "第 $i 次 rsync 出现文件 vanished（code 24），重试..."
+          done
+          if [ "$rc" -ne 0 ] && [ "$rc" -ne 24 ]; then exit "$rc"; fi
+          # 安全阀 2：仓库必须存在站点首页，否则视为远程异常
+          test -f index.html || { echo "::error::同步后仓库中没有 index.html，已中止提交"; exit 1; }
+          # 安全阀 3：核心详情页数量必须一致（镜像 vs 仓库），防止内容不完整被提交
+          a1=$(find "$MIRROR/cases" -name '*.html' 2>/dev/null | wc -l)
+          b1=$(find cases -name '*.html' 2>/dev/null | wc -l)
+          a2=$(find "$MIRROR/articles" -name '*.html' 2>/dev/null | wc -l)
+          b2=$(find articles -name '*.html' 2>/dev/null | wc -l)
+          if [ "$a1" != "$b1" ] || [ "$a2" != "$b2" ]; then
+            echo "::error::详情页数量不一致（案例 $a1/$b1，文章 $a2/$b2），已中止提交"
+            exit 1
+          fi
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          # uploads/ 里的图片：万一本仓库自带 .gitignore 忽略了 uploads/，强制纳入（含删除）
+          git add -A -f uploads/ 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "网站内容与仓库一致，本次无需更新"
+          else
+            git commit -m "sync: 自动同步虚拟主机网站内容 $(TZ=Asia/Shanghai date +'%F %T')"
+            git push
+          fi
